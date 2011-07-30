@@ -1,0 +1,16 @@
+This is the README file for Swiss Ephemeris library made with
+autotools on GNU/LINUX or other autotools friendly environments.
+As of today, no changes have been made to the original Swiss Ephemeris
+source code.
+
+
+The Swiss Ephemeris also runs under MSDOS, Windows, and other
+environments. For that version see: http://www.astro.com/swisseph/
+
+The file COPYING and LICENSE  describe the license for this version
+of the program.
+
+the doc subdirectory contains the original documentation which exhaustively
+documents the API.
+
+The file INSTALL tells how the library may be installed.
