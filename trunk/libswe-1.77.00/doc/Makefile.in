@@ -18,14 +18,14 @@
 # Copyright Paul Elliott 2011
 #
 #
-#This file is part of libswe.
+#This file is part of libswe for GNU/LINUX.
 #
 #    swelib is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    Foobar is distributed in the hope that it will be useful,
+#    libswe for GNU/LINUX is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
@@ -53,8 +53,7 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 subdir = doc
-DIST_COMMON = $(dist_doc_DATA) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in
+DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -92,9 +91,9 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(docdir)" "$(DESTDIR)$(htmldir)" \
+am__installdirs = "$(DESTDIR)$(htmldir)" "$(DESTDIR)$(docdir)" \
 	"$(DESTDIR)$(pdfdir)"
-DATA = $(dist_doc_DATA) $(html_DATA) $(pdf_DATA)
+DATA = $(html_DATA) $(nodist_doc_DATA) $(pdf_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
@@ -168,6 +167,8 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
+astrodienst = @astrodienst@
+astrodocsrc = @astrodocsrc@
 bindir = @bindir@
 build = @build@
 build_alias = @build_alias@
@@ -209,19 +210,26 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-dist_doc_DATA = sweph.gif  swephin.gif
+SUFFIXES = .pdf .html .doc
 html_DATA = swephprg.html  swisseph.html
 pdf_DATA = swephprg.pdf   swisseph.pdf
-EXTRA_DIST = ../srcdoc/swephprg.doc  ../srcdoc/swisseph.doc
 
-#.htm comes with the upstream
-CLEANFILES = swephprg.html  swisseph.html swephprg.pdf   swisseph.pdf\
-    swephprg.doc swisseph.doc swephprg.htm  swisseph.htm
+#swephprg_html_SOURCES = swephprg.doc
 
-DISTCLEANFILES = swephprg.htm  swisseph.htm
+#swisseph_html_SOURCES = swisseph.doc
+
+#swephprg_pdf_SOURCES = swephprg.doc
+
+#swisseph_pdf_SOURCES = swisseph.doc
+
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_doc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
+CLEANFILES = $(html_DATA) $(pdf_DATA)
 all: all-am
 
 .SUFFIXES:
+.SUFFIXES: .pdf .html .doc
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -258,26 +266,6 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-dist_docDATA: $(dist_doc_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(docdir)" || $(MKDIR_P) "$(DESTDIR)$(docdir)"
-	@list='$(dist_doc_DATA)'; test -n "$(docdir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(docdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(docdir)" || exit $$?; \
-	done
-
-uninstall-dist_docDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(dist_doc_DATA)'; test -n "$(docdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(docdir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(docdir)" && rm -f $$files
 install-htmlDATA: $(html_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(htmldir)" || $(MKDIR_P) "$(DESTDIR)$(htmldir)"
@@ -298,6 +286,26 @@ uninstall-htmlDATA:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(htmldir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(htmldir)" && rm -f $$files
+install-nodist_docDATA: $(nodist_doc_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(docdir)" || $(MKDIR_P) "$(DESTDIR)$(docdir)"
+	@list='$(nodist_doc_DATA)'; test -n "$(docdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(docdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(docdir)" || exit $$?; \
+	done
+
+uninstall-nodist_docDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(nodist_doc_DATA)'; test -n "$(docdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(docdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(docdir)" && rm -f $$files
 install-pdfDATA: $(pdf_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(pdfdir)" || $(MKDIR_P) "$(DESTDIR)$(pdfdir)"
@@ -359,7 +367,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(docdir)" "$(DESTDIR)$(htmldir)" "$(DESTDIR)$(pdfdir)"; do \
+	for dir in "$(DESTDIR)$(htmldir)" "$(DESTDIR)$(docdir)" "$(DESTDIR)$(pdfdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -384,7 +392,6 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
-	-test -z "$(DISTCLEANFILES)" || rm -f $(DISTCLEANFILES)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
@@ -409,7 +416,8 @@ info: info-am
 
 info-am:
 
-install-data-am: install-dist_docDATA install-htmlDATA install-pdfDATA
+install-data-am: install-htmlDATA install-nodist_docDATA \
+	install-pdfDATA
 
 install-dvi: install-dvi-am
 
@@ -453,7 +461,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-dist_docDATA uninstall-htmlDATA \
+uninstall-am: uninstall-htmlDATA uninstall-nodist_docDATA \
 	uninstall-pdfDATA
 
 .MAKE: install-am install-strip
@@ -461,44 +469,36 @@ uninstall-am: uninstall-dist_docDATA uninstall-htmlDATA \
 .PHONY: all all-am check check-am clean clean-generic clean-libtool \
 	distclean distclean-generic distclean-libtool distdir dvi \
 	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-dist_docDATA install-dvi \
-	install-dvi-am install-exec install-exec-am install-html \
-	install-html-am install-htmlDATA install-info install-info-am \
-	install-man install-pdf install-pdf-am install-pdfDATA \
-	install-ps install-ps-am install-strip installcheck \
-	installcheck-am installdirs maintainer-clean \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-htmlDATA install-info install-info-am install-man \
+	install-nodist_docDATA install-pdf install-pdf-am \
+	install-pdfDATA install-ps install-ps-am install-strip \
+	installcheck installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-generic \
 	mostlyclean-libtool pdf pdf-am ps ps-am uninstall uninstall-am \
-	uninstall-dist_docDATA uninstall-htmlDATA uninstall-pdfDATA
+	uninstall-htmlDATA uninstall-nodist_docDATA uninstall-pdfDATA
 
 
-swephprg.pdf:	../srcdoc/swephprg.doc
-	$(LN_S) ../srcdoc/swephprg.doc ./swephprg.doc
+vpath %.doc $(astrodocsrc)
+vpath %.gif $(astrodienst)/doc
+
+#%.pdf : %.doc
+.doc.pdf:
 	unoconv --listener &
-	sleep 2
-	unoconv -f pdf swephprg.doc
-	rm -f swephprg.doc
+	sleep 4
+	unoconv --stdout -f pdf $<   >  $@ || sleep 2 ;unoconv --stdout -f pdf $<   >  $@ 
 
-swisseph.pdf:	../srcdoc/swisseph.doc
-	$(LN_S) ../srcdoc/swisseph.doc ./swisseph.doc
-	unoconv --listener & 
-	sleep 2
-	unoconv -f pdf swisseph.doc
-	rm -f swisseph.doc
+#%.html : %.doc
+.doc.html:
+	unoconv --listener &
+	sleep 4
+	unoconv --stdout -f html $<   >  $@ || sleep 2 ;unoconv --stdout -f html $<   >  $@ 
 
-swephprg.html:	../srcdoc/swephprg.doc
-	$(LN_S) ../srcdoc/swephprg.doc ./swephprg.doc
-	unoconv --listener & 
-	sleep 2
-	unoconv -f html swephprg.doc
-	rm -f swephprg.doc
-
-swisseph.html:		../srcdoc/swisseph.doc
-	$(LN_S) ../srcdoc/swisseph.doc ./swisseph.doc
-	unoconv --listener & 
-	sleep 2
-	unoconv -f html swisseph.doc
-	rm -f swisseph.doc
+swephprg.html: swephprg.doc
+swisseph.html: swisseph.doc
+swephprg.pdf: swephprg.doc
+swisseph.pdf: swisseph.doc
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

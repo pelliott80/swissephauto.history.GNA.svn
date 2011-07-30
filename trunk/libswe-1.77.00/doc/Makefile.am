@@ -1,14 +1,14 @@
 # Copyright Paul Elliott 2011
 #
 #
-#This file is part of libswe.
+#This file is part of libswe for GNU/LINUX.
 #
 #    swelib is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    Foobar is distributed in the hope that it will be useful,
+#    libswe for GNU/LINUX is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
@@ -17,41 +17,43 @@
 #    along with lib.  If not, see <http://www.gnu.org/licenses/>.
 ## File created by the gnome-build tools
 
-dist_doc_DATA = sweph.gif  swephin.gif
+
+vpath %.doc $(astrodocsrc)
+vpath %.gif $(astrodienst)/doc
+
+SUFFIXES = .pdf .html .doc
+
+#%.pdf : %.doc
+.doc.pdf:
+	unoconv --listener &
+	sleep 4
+	unoconv --stdout -f pdf $<   >  $@ || sleep 2 ;unoconv --stdout -f pdf $<   >  $@ 
+	
+#%.html : %.doc
+.doc.html:
+	unoconv --listener &
+	sleep 4
+	unoconv --stdout -f html $<   >  $@ || sleep 2 ;unoconv --stdout -f html $<   >  $@ 
+	
+
 html_DATA = swephprg.html  swisseph.html
 pdf_DATA = swephprg.pdf   swisseph.pdf
 
-EXTRA_DIST = ../srcdoc/swephprg.doc  ../srcdoc/swisseph.doc
+swephprg.html: swephprg.doc
+swisseph.html: swisseph.doc
+swephprg.pdf: swephprg.doc
+swisseph.pdf: swisseph.doc
 
-swephprg.pdf:	../srcdoc/swephprg.doc
-	$(LN_S) ../srcdoc/swephprg.doc ./swephprg.doc
-	unoconv --listener &
-	sleep 2
-	unoconv -f pdf swephprg.doc  ||{ rm -f swephprg.doc;sleep 2; unoconv -f pdf swephprg.doc   }
-	rm -f swephprg.doc
+#swephprg_html_SOURCES = swephprg.doc
 
-swisseph.pdf:	../srcdoc/swisseph.doc
-	$(LN_S) ../srcdoc/swisseph.doc ./swisseph.doc
-	unoconv --listener & 
-	sleep 2
-	unoconv -f pdf swisseph.doc ||{ rm -f swisseph.doc;sleep 2; unoconv -f pdf swephprg.doc   }
-	rm -f swisseph.doc
+#swisseph_html_SOURCES = swisseph.doc
 
-swephprg.html:	../srcdoc/swephprg.doc
-	$(LN_S) ../srcdoc/swephprg.doc ./swephprg.doc
-	unoconv --listener & 
-	sleep 2
-	unoconv -f html swephprg.doc  ||{ rm -f swephprg.doc ;sleep 2; unoconv -f pdf swephprg.doc   }
-	rm -f swephprg.doc
+#swephprg_pdf_SOURCES = swephprg.doc
 
-swisseph.html:		../srcdoc/swisseph.doc
-	$(LN_S) ../srcdoc/swisseph.doc ./swisseph.doc
-	unoconv --listener & 
-	sleep 2
-	unoconv -f html swisseph.doc  ||{ rm -f swisseph.doc ;sleep 2; unoconv -f pdf swephprg.doc   }
-	rm -f swisseph.doc
+#swisseph_pdf_SOURCES = swisseph.doc
 
-#.htm comes with the upstream
-CLEANFILES = swephprg.html  swisseph.html swephprg.pdf   swisseph.pdf\
-    swephprg.doc swisseph.doc swephprg.htm  swisseph.htm
-DISTCLEANFILES = swephprg.htm  swisseph.htm
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_doc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
+
+CLEANFILES = $(html_DATA) $(pdf_DATA)

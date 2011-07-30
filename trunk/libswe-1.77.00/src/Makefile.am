@@ -1,14 +1,14 @@
 # Copyright Paul Elliott 2011
 #
 #
-#This file is part of libswe.
+#This file is part of libswe for GNU/LINUX.
 #
-#    swelib is free software: you can redistribute it and/or modify
+#    swelib for GNU/LINUX is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    Foobar is distributed in the hope that it will be useful,
+#    libswe is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
@@ -28,81 +28,98 @@ AM_CFLAGS =\
 	 -Wall\
 	 -g
 
+astrosrc = $(astrodienst)/src
+vpath %.c $(astrosrc)
+vpath %.h $(astrosrc)
+vpath %.cat $(astrosrc)
+vpath %.txt $(astrosrc)
+vpath %.inactive $(astrosrc)
+vpath LICENSE $(astrosrc)
+
+
 lib_LTLIBRARIES = libswe.la
 
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_libswe_la_SOURCES = \
+	swecl.c      \
+	swedate.c      \
+	swedate.h      \
+	swedll.h      \
+	swehel.c      \
+	swehouse.c      \
+	swehouse.h      \
+	swejpl.c      \
+	swejpl.h      \
+	swemmoon.c      \
+	swemplan.c      \
+	swenut2000a.h      \
+	sweodef.h      \
+	swepcalc.c      \
+	swepcalc.h      \
+	swepdate.c      \
+	sweph.c      \
+	sweph.h      \
+	swephexp.h      \
+	swephlib.c      \
+	swephlib.h
 
-libswe_la_SOURCES = \
-	swephlib.h \
-	swephlib.c \
-	swephexp.h \
-	sweph.h \
-	sweph.c \
-	swepdate.c \
-	swepcalc.h \
-	swepcalc.c \
-	sweodef.h \
-	swenut2000a.h \
-	swemplan.c \
-	swemmoon.c \
-	swejpl.h \
-	swejpl.c \
-	swehouse.h \
-	swehouse.c \
-	swehel.c \
-	swedll.h \
-	swedate.h \
-	swedate.c \
-	swecl.c
-
-libswe_la_CFLAGS = \
+libswe_la_LDFLAGS = \
 	-lm
-
-libswe_la_LDFLAGS = 
-# add to above  -version-info 1:0:0 or whatever to control version info.
 
 libswe_la_LIBADD = 
 
-include_HEADERS = \
-	swephexp.h\
-	sweodef.h
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_include_HEADERS = \
+	$(astrosrc)/sweodef.h    \
+	$(astrosrc)/swephexp.h
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libswe-1.77.0.pc
+pkgconfig_DATA = libswe-1.77.00.pc
 
 EXTRA_DIST = \
-	libswe-1.77.0.pc.in\
-	swemptab.c\
-	LICENSE
+	libswe-1.77.00.pc.in
+
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_EXTRA_DIST = \
+	swemptab.c
 
 bin_PROGRAMS = \
-	swetest\
-	swemini
+	swemini\
+	swetest
 
-swemini_SOURCES = \
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_swetest_SOURCES = \
+	swetest.c
+
+swetest_LDADD = \
+	libswe.la
+
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_swemini_SOURCES = \
 	swemini.c
 
 swemini_LDADD = \
 	libswe.la
 
-swetest_SOURCES = \
-	swetest.c
+#do not distribute stuff distributed by astrodienst
+# change dist -> nodist
+nodist_pkgdata_DATA = \
+    $(astrosrc)/fixstars.cat\
+    $(astrosrc)/sedeltat.txt.inactive\
+    $(astrosrc)/sefstars.txt\
+    $(astrosrc)/seleapsec.txt\
+    $(astrosrc)/seorbel.txt
 
-swetest_LDADD = \
-	libswe.la
-dist_pkgdata_DATA = \
-    fixstars.cat\
-    sedeltat.txt.inactive\
-    sefstars.txt\
-    seleapsec.txt\
-    seorbel.txt
 
-# built files that come with the upstream tarball!
-MOSTLYCLEANFILES = \
-	libswe.a libswe.so \
-	swetest \
-	swecl.o    swehel.o    swejpl.o    swemplan.o  swepdate.o  sweph.o\
-	swedate.o  swehouse.o  swemmoon.o  swepcalc.o  swephlib.o  swetest.o
 
 swedocdir = ${prefix}/doc/swe
-swedoc_DATA = \
-    LICENSE
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_swedoc_DATA = \
+    $(astrosrc)/LICENSE
+

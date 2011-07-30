@@ -18,14 +18,14 @@
 # Copyright Paul Elliott 2011
 #
 #
-#This file is part of libswe.
+#This file is part of libswe for GNU/LINUX.
 #
-#    swelib is free software: you can redistribute it and/or modify
+#    swelib for GNU/LINUX is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    Foobar is distributed in the hope that it will be useful,
+#    libswe is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
@@ -55,18 +55,17 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = swetest$(EXEEXT) swemini$(EXEEXT)
+bin_PROGRAMS = swemini$(EXEEXT) swetest$(EXEEXT)
 subdir = src
-DIST_COMMON = $(dist_pkgdata_DATA) $(include_HEADERS) \
-	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/libswe-1.77.0.pc.in
+DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
+	$(srcdir)/libswe-1.77.00.pc.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
-CONFIG_CLEAN_FILES = libswe-1.77.0.pc
+CONFIG_CLEAN_FILES = libswe-1.77.00.pc
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -90,28 +89,26 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
-	"$(DESTDIR)$(pkgdatadir)" "$(DESTDIR)$(pkgconfigdir)" \
-	"$(DESTDIR)$(swedocdir)" "$(DESTDIR)$(includedir)"
+	"$(DESTDIR)$(pkgdatadir)" "$(DESTDIR)$(swedocdir)" \
+	"$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libswe_la_DEPENDENCIES =
-am_libswe_la_OBJECTS = libswe_la-swephlib.lo libswe_la-sweph.lo \
-	libswe_la-swepdate.lo libswe_la-swepcalc.lo \
-	libswe_la-swemplan.lo libswe_la-swemmoon.lo \
-	libswe_la-swejpl.lo libswe_la-swehouse.lo libswe_la-swehel.lo \
-	libswe_la-swedate.lo libswe_la-swecl.lo
-libswe_la_OBJECTS = $(am_libswe_la_OBJECTS)
+nodist_libswe_la_OBJECTS = swecl.lo swedate.lo swehel.lo swehouse.lo \
+	swejpl.lo swemmoon.lo swemplan.lo swepcalc.lo swepdate.lo \
+	sweph.lo swephlib.lo
+libswe_la_OBJECTS = $(nodist_libswe_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
 libswe_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libswe_la_CFLAGS) \
-	$(CFLAGS) $(libswe_la_LDFLAGS) $(LDFLAGS) -o $@
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(libswe_la_LDFLAGS) $(LDFLAGS) -o $@
 PROGRAMS = $(bin_PROGRAMS)
-am_swemini_OBJECTS = swemini.$(OBJEXT)
-swemini_OBJECTS = $(am_swemini_OBJECTS)
+nodist_swemini_OBJECTS = swemini.$(OBJEXT)
+swemini_OBJECTS = $(nodist_swemini_OBJECTS)
 swemini_DEPENDENCIES = libswe.la
-am_swetest_OBJECTS = swetest.$(OBJEXT)
-swetest_OBJECTS = $(am_swetest_OBJECTS)
+nodist_swetest_OBJECTS = swetest.$(OBJEXT)
+swetest_OBJECTS = $(nodist_swetest_OBJECTS)
 swetest_DEPENDENCIES = libswe.la
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -139,11 +136,11 @@ am__v_CCLD_0 = @echo "  CCLD  " $@;
 AM_V_GEN = $(am__v_GEN_$(V))
 am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))
 am__v_GEN_0 = @echo "  GEN   " $@;
-SOURCES = $(libswe_la_SOURCES) $(swemini_SOURCES) $(swetest_SOURCES)
-DIST_SOURCES = $(libswe_la_SOURCES) $(swemini_SOURCES) \
-	$(swetest_SOURCES)
-DATA = $(dist_pkgdata_DATA) $(pkgconfig_DATA) $(swedoc_DATA)
-HEADERS = $(include_HEADERS)
+SOURCES = $(nodist_libswe_la_SOURCES) $(nodist_swemini_SOURCES) \
+	$(nodist_swetest_SOURCES)
+DIST_SOURCES =
+DATA = $(nodist_pkgdata_DATA) $(nodist_swedoc_DATA) $(pkgconfig_DATA)
+HEADERS = $(nodist_include_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -219,6 +216,8 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
+astrodienst = @astrodienst@
+astrodocsrc = @astrodocsrc@
 bindir = @bindir@
 build = @build@
 build_alias = @build_alias@
@@ -269,77 +268,89 @@ AM_CFLAGS = \
 	 -Wall\
 	 -g
 
+astrosrc = $(astrodienst)/src
 lib_LTLIBRARIES = libswe.la
-libswe_la_SOURCES = \
-	swephlib.h \
-	swephlib.c \
-	swephexp.h \
-	sweph.h \
-	sweph.c \
-	swepdate.c \
-	swepcalc.h \
-	swepcalc.c \
-	sweodef.h \
-	swenut2000a.h \
-	swemplan.c \
-	swemmoon.c \
-	swejpl.h \
-	swejpl.c \
-	swehouse.h \
-	swehouse.c \
-	swehel.c \
-	swedll.h \
-	swedate.h \
-	swedate.c \
-	swecl.c
 
-libswe_la_CFLAGS = \
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_libswe_la_SOURCES = \
+	swecl.c      \
+	swedate.c      \
+	swedate.h      \
+	swedll.h      \
+	swehel.c      \
+	swehouse.c      \
+	swehouse.h      \
+	swejpl.c      \
+	swejpl.h      \
+	swemmoon.c      \
+	swemplan.c      \
+	swenut2000a.h      \
+	sweodef.h      \
+	swepcalc.c      \
+	swepcalc.h      \
+	swepdate.c      \
+	sweph.c      \
+	sweph.h      \
+	swephexp.h      \
+	swephlib.c      \
+	swephlib.h
+
+libswe_la_LDFLAGS = \
 	-lm
 
-libswe_la_LDFLAGS = 
-# add to above  -version-info 1:0:0 or whatever to control version info.
 libswe_la_LIBADD = 
-include_HEADERS = \
-	swephexp.h\
-	sweodef.h
+
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_include_HEADERS = \
+	$(astrosrc)/sweodef.h    \
+	$(astrosrc)/swephexp.h
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libswe-1.77.0.pc
+pkgconfig_DATA = libswe-1.77.00.pc
 EXTRA_DIST = \
-	libswe-1.77.0.pc.in\
-	swemptab.c\
-	LICENSE
+	libswe-1.77.00.pc.in
 
-swemini_SOURCES = \
-	swemini.c
 
-swemini_LDADD = \
-	libswe.la
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_EXTRA_DIST = \
+	swemptab.c
 
-swetest_SOURCES = \
+
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_swetest_SOURCES = \
 	swetest.c
 
 swetest_LDADD = \
 	libswe.la
 
-dist_pkgdata_DATA = \
-    fixstars.cat\
-    sedeltat.txt.inactive\
-    sefstars.txt\
-    seleapsec.txt\
-    seorbel.txt
+
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_swemini_SOURCES = \
+	swemini.c
+
+swemini_LDADD = \
+	libswe.la
 
 
-# built files that come with the upstream tarball!
-MOSTLYCLEANFILES = \
-	libswe.a libswe.so \
-	swetest \
-	swecl.o    swehel.o    swejpl.o    swemplan.o  swepdate.o  sweph.o\
-	swedate.o  swehouse.o  swemmoon.o  swepcalc.o  swephlib.o  swetest.o
+#do not distribute stuff distributed by astrodienst
+# change dist -> nodist
+nodist_pkgdata_DATA = \
+    $(astrosrc)/fixstars.cat\
+    $(astrosrc)/sedeltat.txt.inactive\
+    $(astrosrc)/sefstars.txt\
+    $(astrosrc)/seleapsec.txt\
+    $(astrosrc)/seorbel.txt
 
 swedocdir = ${prefix}/doc/swe
-swedoc_DATA = \
-    LICENSE
+#do not distribute stuff distributed by astrodienst
+# change add nodist
+nodist_swedoc_DATA = \
+    $(astrosrc)/LICENSE
 
 all: all-am
 
@@ -375,7 +386,7 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
-libswe-1.77.0.pc: $(top_builddir)/config.status $(srcdir)/libswe-1.77.0.pc.in
+libswe-1.77.00.pc: $(top_builddir)/config.status $(srcdir)/libswe-1.77.00.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
 install-libLTLIBRARIES: $(lib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
@@ -466,18 +477,18 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swecl.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swedate.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swehel.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swehouse.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swejpl.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swemmoon.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swemplan.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swepcalc.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swepdate.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-sweph.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libswe_la-swephlib.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swecl.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swedate.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swehel.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swehouse.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swejpl.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swemini.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swemmoon.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swemplan.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swepcalc.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swepdate.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sweph.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swephlib.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swetest.Po@am__quote@
 
 .c.o:
@@ -504,103 +515,15 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libswe_la-swephlib.lo: swephlib.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swephlib.lo -MD -MP -MF $(DEPDIR)/libswe_la-swephlib.Tpo -c -o libswe_la-swephlib.lo `test -f 'swephlib.c' || echo '$(srcdir)/'`swephlib.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swephlib.Tpo $(DEPDIR)/libswe_la-swephlib.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swephlib.c' object='libswe_la-swephlib.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swephlib.lo `test -f 'swephlib.c' || echo '$(srcdir)/'`swephlib.c
-
-libswe_la-sweph.lo: sweph.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-sweph.lo -MD -MP -MF $(DEPDIR)/libswe_la-sweph.Tpo -c -o libswe_la-sweph.lo `test -f 'sweph.c' || echo '$(srcdir)/'`sweph.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-sweph.Tpo $(DEPDIR)/libswe_la-sweph.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sweph.c' object='libswe_la-sweph.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-sweph.lo `test -f 'sweph.c' || echo '$(srcdir)/'`sweph.c
-
-libswe_la-swepdate.lo: swepdate.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swepdate.lo -MD -MP -MF $(DEPDIR)/libswe_la-swepdate.Tpo -c -o libswe_la-swepdate.lo `test -f 'swepdate.c' || echo '$(srcdir)/'`swepdate.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swepdate.Tpo $(DEPDIR)/libswe_la-swepdate.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swepdate.c' object='libswe_la-swepdate.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swepdate.lo `test -f 'swepdate.c' || echo '$(srcdir)/'`swepdate.c
-
-libswe_la-swepcalc.lo: swepcalc.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swepcalc.lo -MD -MP -MF $(DEPDIR)/libswe_la-swepcalc.Tpo -c -o libswe_la-swepcalc.lo `test -f 'swepcalc.c' || echo '$(srcdir)/'`swepcalc.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swepcalc.Tpo $(DEPDIR)/libswe_la-swepcalc.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swepcalc.c' object='libswe_la-swepcalc.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swepcalc.lo `test -f 'swepcalc.c' || echo '$(srcdir)/'`swepcalc.c
-
-libswe_la-swemplan.lo: swemplan.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swemplan.lo -MD -MP -MF $(DEPDIR)/libswe_la-swemplan.Tpo -c -o libswe_la-swemplan.lo `test -f 'swemplan.c' || echo '$(srcdir)/'`swemplan.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swemplan.Tpo $(DEPDIR)/libswe_la-swemplan.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swemplan.c' object='libswe_la-swemplan.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swemplan.lo `test -f 'swemplan.c' || echo '$(srcdir)/'`swemplan.c
-
-libswe_la-swemmoon.lo: swemmoon.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swemmoon.lo -MD -MP -MF $(DEPDIR)/libswe_la-swemmoon.Tpo -c -o libswe_la-swemmoon.lo `test -f 'swemmoon.c' || echo '$(srcdir)/'`swemmoon.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swemmoon.Tpo $(DEPDIR)/libswe_la-swemmoon.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swemmoon.c' object='libswe_la-swemmoon.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swemmoon.lo `test -f 'swemmoon.c' || echo '$(srcdir)/'`swemmoon.c
-
-libswe_la-swejpl.lo: swejpl.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swejpl.lo -MD -MP -MF $(DEPDIR)/libswe_la-swejpl.Tpo -c -o libswe_la-swejpl.lo `test -f 'swejpl.c' || echo '$(srcdir)/'`swejpl.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swejpl.Tpo $(DEPDIR)/libswe_la-swejpl.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swejpl.c' object='libswe_la-swejpl.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swejpl.lo `test -f 'swejpl.c' || echo '$(srcdir)/'`swejpl.c
-
-libswe_la-swehouse.lo: swehouse.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swehouse.lo -MD -MP -MF $(DEPDIR)/libswe_la-swehouse.Tpo -c -o libswe_la-swehouse.lo `test -f 'swehouse.c' || echo '$(srcdir)/'`swehouse.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swehouse.Tpo $(DEPDIR)/libswe_la-swehouse.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swehouse.c' object='libswe_la-swehouse.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swehouse.lo `test -f 'swehouse.c' || echo '$(srcdir)/'`swehouse.c
-
-libswe_la-swehel.lo: swehel.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swehel.lo -MD -MP -MF $(DEPDIR)/libswe_la-swehel.Tpo -c -o libswe_la-swehel.lo `test -f 'swehel.c' || echo '$(srcdir)/'`swehel.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swehel.Tpo $(DEPDIR)/libswe_la-swehel.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swehel.c' object='libswe_la-swehel.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swehel.lo `test -f 'swehel.c' || echo '$(srcdir)/'`swehel.c
-
-libswe_la-swedate.lo: swedate.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swedate.lo -MD -MP -MF $(DEPDIR)/libswe_la-swedate.Tpo -c -o libswe_la-swedate.lo `test -f 'swedate.c' || echo '$(srcdir)/'`swedate.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swedate.Tpo $(DEPDIR)/libswe_la-swedate.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swedate.c' object='libswe_la-swedate.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swedate.lo `test -f 'swedate.c' || echo '$(srcdir)/'`swedate.c
-
-libswe_la-swecl.lo: swecl.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -MT libswe_la-swecl.lo -MD -MP -MF $(DEPDIR)/libswe_la-swecl.Tpo -c -o libswe_la-swecl.lo `test -f 'swecl.c' || echo '$(srcdir)/'`swecl.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libswe_la-swecl.Tpo $(DEPDIR)/libswe_la-swecl.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='swecl.c' object='libswe_la-swecl.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libswe_la_CFLAGS) $(CFLAGS) -c -o libswe_la-swecl.lo `test -f 'swecl.c' || echo '$(srcdir)/'`swecl.c
-
 mostlyclean-libtool:
 	-rm -f *.lo
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-dist_pkgdataDATA: $(dist_pkgdata_DATA)
+install-nodist_pkgdataDATA: $(nodist_pkgdata_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(pkgdatadir)" || $(MKDIR_P) "$(DESTDIR)$(pkgdatadir)"
-	@list='$(dist_pkgdata_DATA)'; test -n "$(pkgdatadir)" || list=; \
+	@list='$(nodist_pkgdata_DATA)'; test -n "$(pkgdatadir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
@@ -610,13 +533,33 @@ install-dist_pkgdataDATA: $(dist_pkgdata_DATA)
 	  $(INSTALL_DATA) $$files "$(DESTDIR)$(pkgdatadir)" || exit $$?; \
 	done
 
-uninstall-dist_pkgdataDATA:
+uninstall-nodist_pkgdataDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(dist_pkgdata_DATA)'; test -n "$(pkgdatadir)" || list=; \
+	@list='$(nodist_pkgdata_DATA)'; test -n "$(pkgdatadir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(pkgdatadir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(pkgdatadir)" && rm -f $$files
+install-nodist_swedocDATA: $(nodist_swedoc_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(swedocdir)" || $(MKDIR_P) "$(DESTDIR)$(swedocdir)"
+	@list='$(nodist_swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(swedocdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(swedocdir)" || exit $$?; \
+	done
+
+uninstall-nodist_swedocDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(nodist_swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(swedocdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(swedocdir)" && rm -f $$files
 install-pkgconfigDATA: $(pkgconfig_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(pkgconfigdir)" || $(MKDIR_P) "$(DESTDIR)$(pkgconfigdir)"
@@ -637,30 +580,10 @@ uninstall-pkgconfigDATA:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(pkgconfigdir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(pkgconfigdir)" && rm -f $$files
-install-swedocDATA: $(swedoc_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(swedocdir)" || $(MKDIR_P) "$(DESTDIR)$(swedocdir)"
-	@list='$(swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(swedocdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(swedocdir)" || exit $$?; \
-	done
-
-uninstall-swedocDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(swedocdir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(swedocdir)" && rm -f $$files
-install-includeHEADERS: $(include_HEADERS)
+install-nodist_includeHEADERS: $(nodist_include_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(includedir)" || $(MKDIR_P) "$(DESTDIR)$(includedir)"
-	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
+	@list='$(nodist_include_HEADERS)'; test -n "$(includedir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
@@ -670,9 +593,9 @@ install-includeHEADERS: $(include_HEADERS)
 	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(includedir)" || exit $$?; \
 	done
 
-uninstall-includeHEADERS:
+uninstall-nodist_includeHEADERS:
 	@$(NORMAL_UNINSTALL)
-	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
+	@list='$(nodist_include_HEADERS)'; test -n "$(includedir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(includedir)' && rm -f" $$files ")"; \
@@ -766,7 +689,7 @@ all-am: Makefile $(LTLIBRARIES) $(PROGRAMS) $(DATA) $(HEADERS)
 install-binPROGRAMS: install-libLTLIBRARIES
 
 installdirs:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkgdatadir)" "$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(swedocdir)" "$(DESTDIR)$(includedir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkgdatadir)" "$(DESTDIR)$(swedocdir)" "$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -784,7 +707,6 @@ install-strip:
 	  `test -z '$(STRIP)' || \
 	    echo "INSTALL_PROGRAM_ENV=STRIPPROG='$(STRIP)'"` install
 mostlyclean-generic:
-	-test -z "$(MOSTLYCLEANFILES)" || rm -f $(MOSTLYCLEANFILES)
 
 clean-generic:
 
@@ -818,8 +740,9 @@ info: info-am
 
 info-am:
 
-install-data-am: install-dist_pkgdataDATA install-includeHEADERS \
-	install-pkgconfigDATA install-swedocDATA
+install-data-am: install-nodist_includeHEADERS \
+	install-nodist_pkgdataDATA install-nodist_swedocDATA \
+	install-pkgconfigDATA
 
 install-dvi: install-dvi-am
 
@@ -865,9 +788,9 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-dist_pkgdataDATA \
-	uninstall-includeHEADERS uninstall-libLTLIBRARIES \
-	uninstall-pkgconfigDATA uninstall-swedocDATA
+uninstall-am: uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
+	uninstall-nodist_includeHEADERS uninstall-nodist_pkgdataDATA \
+	uninstall-nodist_swedocDATA uninstall-pkgconfigDATA
 
 .MAKE: install-am install-strip
 
@@ -876,20 +799,26 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dist_pkgdataDATA \
 	distclean distclean-compile distclean-generic \
 	distclean-libtool distclean-tags distdir dvi dvi-am html \
 	html-am info info-am install install-am install-binPROGRAMS \
-	install-data install-data-am install-dist_pkgdataDATA \
-	install-dvi install-dvi-am install-exec install-exec-am \
-	install-html install-html-am install-includeHEADERS \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
 	install-info install-info-am install-libLTLIBRARIES \
-	install-man install-pdf install-pdf-am install-pkgconfigDATA \
-	install-ps install-ps-am install-strip install-swedocDATA \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags uninstall uninstall-am uninstall-binPROGRAMS \
-	uninstall-dist_pkgdataDATA uninstall-includeHEADERS \
-	uninstall-libLTLIBRARIES uninstall-pkgconfigDATA \
-	uninstall-swedocDATA
+	install-man install-nodist_includeHEADERS \
+	install-nodist_pkgdataDATA install-nodist_swedocDATA \
+	install-pdf install-pdf-am install-pkgconfigDATA install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
+	uninstall-nodist_includeHEADERS uninstall-nodist_pkgdataDATA \
+	uninstall-nodist_swedocDATA uninstall-pkgconfigDATA
 
+vpath %.c $(astrosrc)
+vpath %.h $(astrosrc)
+vpath %.cat $(astrosrc)
+vpath %.txt $(astrosrc)
+vpath %.inactive $(astrosrc)
+vpath LICENSE $(astrosrc)
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

@@ -1,14 +1,14 @@
 # Copyright Paul Elliott 2011
 #
 #
-#This file is part of libswe.
+#This file is part of libswe for GNU/LINUX.
 #
 #    swelib is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    Foobar is distributed in the hope that it will be useful,
+#    libswe for GNU/LINUX is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
@@ -31,10 +31,7 @@ swedoc_DATA = \
 	NEWS
 
 
-EXTRA_DIST = $(swedoc_DATA)\
-	srcdoc/LICENSE\
-	srcdoc/confirm-copywrite.email
-
+EXTRA_DIST = $(swedoc_DATA)
 
 
 # Remove doc directory on uninstall
