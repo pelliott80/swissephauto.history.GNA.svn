@@ -21,7 +21,8 @@
 SUBDIRS = src \
 	doc
 
-swedocdir = ${prefix}/doc/swe
+
+swedocdir = ${docdir}
 swedoc_DATA = \
 	README\
 	COPYING\

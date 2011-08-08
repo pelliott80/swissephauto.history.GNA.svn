@@ -117,7 +117,7 @@ nodist_pkgdata_DATA = \
 
 
 
-swedocdir = ${prefix}/doc/swe
+swedocdir = ${docdir}
 #do not distribute stuff distributed by astrodienst
 # change add nodist
 nodist_swedoc_DATA = \

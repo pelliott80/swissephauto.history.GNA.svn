@@ -267,7 +267,9 @@ top_srcdir = @top_srcdir@
 SUBDIRS = src \
 	doc
 
-swedocdir = ${prefix}/doc/swe
+
+#swedocdir = ${prefix}/share/doc/libswe
+swedocdir = ${docdir}
 swedoc_DATA = \
 	README\
 	COPYING\
