@@ -25,7 +25,7 @@ SUBDIRS = src \
 swedocdir = ${docdir}
 swedoc_DATA = \
 	README\
-	COPYING\
+	copyright\
 	AUTHORS\
 	ChangeLog\
 	INSTALL\

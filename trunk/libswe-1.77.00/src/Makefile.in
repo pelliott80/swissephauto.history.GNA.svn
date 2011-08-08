@@ -346,8 +346,6 @@ nodist_pkgdata_DATA = \
     $(astrosrc)/seleapsec.txt\
     $(astrosrc)/seorbel.txt
 
-
-#swedocdir = ${prefix}/share/doc/libswe
 swedocdir = ${docdir}
 #do not distribute stuff distributed by astrodienst
 # change add nodist

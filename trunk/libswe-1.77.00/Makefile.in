@@ -267,12 +267,10 @@ top_srcdir = @top_srcdir@
 SUBDIRS = src \
 	doc
 
-
-#swedocdir = ${prefix}/share/doc/libswe
 swedocdir = ${docdir}
 swedoc_DATA = \
 	README\
-	COPYING\
+	copyright\
 	AUTHORS\
 	ChangeLog\
 	INSTALL\
