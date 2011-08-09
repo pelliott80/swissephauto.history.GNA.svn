@@ -1,0 +1,21 @@
+libswe for Debian
+-----------------
+
+swe-basic-data is the data needed for all use of the Swiss Ephemeris.
+other packages will provide the other optional data. The Swiss
+Ephemeris can be used without any installed data at all, if the user
+supplies data in his own private directory.
+
+The Swiss Ephemeris was not created in the UNIX/Gnu Linux world and
+hence does not have an  UNIX/Gnu Linux style manpage. It is however
+well documented in the following files in the package libswe-devel:
+/usr/share/doc/libswe/swephprg.pdf 
+/usr/share/doc/libswe/swisseph.pdf
+/usr/share/doc/libswe/swephprg.html
+/usr/share/doc/libswe/swisseph.html
+
+This documentation can also be found on line on astrodienst's web pages.
+
+The current source version is 1.77.00.
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 01 Aug 2011 23:38:57 -0500

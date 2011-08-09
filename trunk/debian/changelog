@@ -1,0 +1,20 @@
+libswe (1.77.00-1) unstable; urgency=low
+
+  * Initial release (Closes: #635672)  <635672 is the bug number of your ITP>
+  * done dh_make much configuring remains to be done.
+  * remove emacsen-*
+  * rename BROKEN to 0. add descriptions. fill in homepage.
+  * remove .la file
+  * new package swe-basic-data
+  * remove init.d.ex, libswe.default.ex
+  * install usr/share/doc/libswe/*
+  * libswe.doc-base pdf and html
+  * Readme.Debian
+  * manpage.3
+  * libswe.manpage
+  * TODO
+  * ${misc:Depends} added to libswe-dev
+  * move *.ex elsewhere
+  * usb/bin added libswe-dev for asample programs.
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 08 Aug 2011 22:48:57 -0500

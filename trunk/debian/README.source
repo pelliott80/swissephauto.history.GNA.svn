@@ -1,0 +1,42 @@
+libswe for Debian
+-----------------
+
+
+dpkg-source -x does work correctly. But this package is somewhat unusual.
+
+a 3 tarball sources are used. because of this no debian/watch file is possible:
+See this bug:
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=531321
+
+This describes these 3 tarballs where they come from and what they do.
+
+http://prdownload.berlios.de/softdevice/libswe-1.77.00.tar.gz
+	becomes libswe_1.77.00.orig.tar.gz in the source.
+
+This was create by Paul Elliott the web pages for this file are:
+http://swissephauto.blackpatchpanel.com/
+https://developer.berlios.de/projects/swissephauto/
+
+This files contains the autotools control files documentation files.
+
+ftp://ftp.astro.com/pub/swisseph/swe_unix_src_1.77.00.tar.gz
+	becomes libswe_1.77.00.orig-astrodienst.tar.gz in the source
+
+This is the "real" upstream source it contains all the .c and .h files.
+It is GPLed, but it contains a number of problems. It was not really
+written with GNU/Linux in mind, its layout is non standard. It
+contains prebuild binaries which are not used or distributed by this
+package. The source for certain documentation files is missing.
+Web page for this is:
+http://www.astro.com/swisseph/swephinfo_e.htm?lang=e
+
+http://prdownload.berlios.de/softdevice/libswe-1.77.00.astrodocsrc.tar.gz
+	becomes libswe_1.77.00.orig-astrodocsrc.tar.gz  in the source.
+
+This provides the missing documentation source and it contains a statment
+from the upstream authors that the license applies to these files as well.
+Thus the source for all documentation is there for all files. All documentation
+is rebuilt from source in this package.
+This was resourced by Paul Elliott. Hopefully, this file will not be needed
+in the next release.
+

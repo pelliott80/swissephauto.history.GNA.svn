@@ -1,0 +1,34 @@
+Source: libswe
+Priority: extra
+Maintainer: Paul Elliott <pelliott@blackpatchpanel.com>
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev
+Standards-Version: 3.9.1
+Section: libs
+Homepage: http://swissephauto.blackpatchpanel.com/
+#Vcs-Git: git://git.debian.org/collab-maint/libswe.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/libswe.git;a=summary
+
+Package: libswe-dev
+Section: libdevel
+Architecture: any
+Depends: libswe0 (= ${binary:Version}), ${misc:Depends}
+Description: C library for The Swiss Ephemeris
+ Contains static library, headers, example code and development manpages
+ for libswe0.
+
+
+Package: libswe0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: C library for the Swiss Ephemeris
+ libswe0 allows programs to access the Swiss Ephemeris.
+ The SWISS EPHEMERIS is the high precision ephemeris developed 
+ by Astrodienst, largely based upon the DE406 ephemeris from NASA's JPL.
+
+Package: swe-basic-data
+Architecture: all
+Depends: ${misc:Depends}
+Description: basic data files for the libswe package
+ This package includes basic data files needed by libswe, the Swiss Ephemeris.
+

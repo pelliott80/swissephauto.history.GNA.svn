@@ -1,0 +1,12 @@
+Document: libswe
+Title: Debian libswe Manual
+Author: Dieter Koch and Alois Treindl
+Abstract: This manual describes the Swiss Ephemeris and its
+ library and data.
+Section: Science/Data Analysis
+
+Format: PDF
+Files: /usr/share/doc/libswe/*.pdf
+
+Format: HTML
+Files: /usr/share/doc/libswe/*.html
