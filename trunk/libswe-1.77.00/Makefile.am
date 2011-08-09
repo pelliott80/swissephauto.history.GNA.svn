@@ -25,7 +25,7 @@ SUBDIRS = src \
 swedocdir = ${docdir}/../libswe-dev
 swedoc_DATA = \
 	README\
-	copyright\
+	COPYING\
 	AUTHORS\
 	ChangeLog\
 	INSTALL\
