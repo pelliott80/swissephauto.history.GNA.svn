@@ -11,7 +11,7 @@ Homepage: http://swissephauto.blackpatchpanel.com/
 Package: libswe-dev
 Section: libdevel
 Architecture: any
-Depends: libswe0 (= ${binary:Version}), ${misc:Depends}
+Depends: libswe0 (= ${binary:Version}), ${misc:Depends}, libc6
 Description: C library for The Swiss Ephemeris
  Contains static library, headers, example code and development manpages
  for libswe0.
