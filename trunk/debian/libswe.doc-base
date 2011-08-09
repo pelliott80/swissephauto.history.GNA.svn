@@ -6,7 +6,7 @@ Abstract: This manual describes the Swiss Ephemeris and its
 Section: Science/Data Analysis
 
 Format: PDF
-Files: /usr/share/doc/libswe/*.pdf
+Files: /usr/share/doc/libswe-dev/*.pdf
 
 Format: HTML
-Files: /usr/share/doc/libswe/*.html
+Files: /usr/share/doc/libswe-dev/*.html
