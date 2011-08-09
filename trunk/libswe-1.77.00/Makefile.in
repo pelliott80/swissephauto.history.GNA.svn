@@ -267,7 +267,7 @@ top_srcdir = @top_srcdir@
 SUBDIRS = src \
 	doc
 
-swedocdir = ${docdir}
+swedocdir = ${docdir}/../libswe-dev
 swedoc_DATA = \
 	README\
 	copyright\

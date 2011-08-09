@@ -21,20 +21,23 @@
 vpath %.doc $(astrodocsrc)
 vpath %.gif $(astrodienst)/doc
 
+pdfdir=${docdir}/../libswe-dev
+htmldir=${docdir}/../libswe-dev
+astrodocdir=${docdir}/../libswe-dev
+
 SUFFIXES = .pdf .html .doc
 
 #%.pdf : %.doc
 .doc.pdf:
 	unoconv --listener &
 	sleep 4
-	unoconv --stdout -f pdf $<   >  $@ || sleep 2 ;unoconv --stdout -f pdf $<   >  $@ 
-	
+	unoconv --stdout -f pdf $<   >  $@ || sleep 2 ;unoconv --stdout -f pdf $<   >  $@
+
 #%.html : %.doc
 .doc.html:
 	unoconv --listener &
 	sleep 4
 	unoconv --stdout -f html $<   >  $@ || sleep 2 ;unoconv --stdout -f html $<   >  $@ 
-	
 
 html_DATA = swephprg.html  swisseph.html
 pdf_DATA = swephprg.pdf   swisseph.pdf
@@ -54,6 +57,6 @@ swisseph.pdf: swisseph.doc
 
 #do not distribute stuff distributed by astrodienst
 # change add nodist
-nodist_doc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
+nodist_astrodoc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
 
 CLEANFILES = $(html_DATA) $(pdf_DATA)

@@ -22,7 +22,7 @@ SUBDIRS = src \
 	doc
 
 
-swedocdir = ${docdir}
+swedocdir = ${docdir}/../libswe-dev
 swedoc_DATA = \
 	README\
 	copyright\

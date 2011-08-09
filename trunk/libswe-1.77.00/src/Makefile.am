@@ -117,9 +117,10 @@ nodist_pkgdata_DATA = \
 
 
 
-swedocdir = ${docdir}
+swedocdir = ${docdir}/../libswe-dev
 #do not distribute stuff distributed by astrodienst
 # change add nodist
 nodist_swedoc_DATA = \
-    $(astrosrc)/LICENSE
+    $(astrosrc)/LICENSE\
+    $(astrosrc)/swemini.c $(astrosrc)/swetest.c
 
