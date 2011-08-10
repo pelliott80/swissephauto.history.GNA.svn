@@ -1,7 +1,7 @@
 Source: libswe
 Priority: extra
 Maintainer: Paul Elliott <pelliott@blackpatchpanel.com>
-Build-Depends: debhelper (>= 7.0.50~), autotools-dev, unoconv, libc6-dev
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev, unoconv
 Standards-Version: 3.9.1
 Section: libs
 Homepage: http://swissephauto.blackpatchpanel.com/
@@ -11,7 +11,7 @@ Homepage: http://swissephauto.blackpatchpanel.com/
 Package: libswe-dev
 Section: libdevel
 Architecture: any
-Depends: libswe0 (= ${binary:Version}), ${misc:Depends}, libc6
+Depends: libswe0 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
 Description: C library for The Swiss Ephemeris
  Contains static library, headers, example code and development manpages
  for libswe0.
