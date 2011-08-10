@@ -25,5 +25,6 @@ libswe (1.77.00-1) unstable; urgency=low
   * swetest.c swemini.c are examples
   * specify them by orignal location.
   * remove upstream ChangeLog
+  * add swetest.1 swemini.1 manpages
 
  -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 08 Aug 2011 22:48:57 -0500

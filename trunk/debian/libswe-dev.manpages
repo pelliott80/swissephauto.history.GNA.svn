@@ -1,1 +1,3 @@
 debian/libswe.3
+debian/swetest.1
+debian/swemini.1
