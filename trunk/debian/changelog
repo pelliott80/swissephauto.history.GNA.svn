@@ -20,5 +20,6 @@ libswe (1.77.00-1) unstable; urgency=low
   * usr/share/pkgconfig not used in libswe-dev.install
   * build depends on unoconv
   * remove LICNESE in copyright
+  * remove upstream INSTALL
 
  -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 08 Aug 2011 22:48:57 -0500
