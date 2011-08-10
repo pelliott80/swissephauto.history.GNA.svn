@@ -1,7 +1,7 @@
 Source: libswe
 Priority: extra
 Maintainer: Paul Elliott <pelliott@blackpatchpanel.com>
-Build-Depends: debhelper (>= 7.0.50~), autotools-dev, unoconv
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev, unoconv, libc6-dev
 Standards-Version: 3.9.1
 Section: libs
 Homepage: http://swissephauto.blackpatchpanel.com/

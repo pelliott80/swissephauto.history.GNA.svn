@@ -19,5 +19,7 @@ libswe (1.77.00-1) unstable; urgency=low
   * libswe-dev.docbase now uses /usr/share/doc/libswe-dev
   * usr/share/pkgconfig not used in libswe-dev.install
   * build depends on unoconv
+  * build depends on libc6-dev
+  * libswe-dev depends on libc6
 
  -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 08 Aug 2011 22:48:57 -0500
