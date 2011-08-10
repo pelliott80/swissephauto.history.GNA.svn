@@ -4,5 +4,18 @@ usr/lib/lib*.so
 usr/lib/pkgconfig/*
 #new packages should omit the .la file
 #usr/lib/*.la
-usr/share/doc/libswe-dev/*
+usr/share/doc/libswe-dev/AUTHORS
+usr/share/doc/libswe-dev/LICENSE
+usr/share/doc/libswe-dev/README
+usr/share/doc/libswe-dev/sweph.gif
+usr/share/doc/libswe-dev/swephprg.html
+usr/share/doc/libswe-dev/swetest.c
+usr/share/doc/libswe-dev/swisseph.pdf
+usr/share/doc/libswe-dev/ChangeLog
+usr/share/doc/libswe-dev/INSTALL
+usr/share/doc/libswe-dev/NEWS
+usr/share/doc/libswe-dev/swemini.c
+usr/share/doc/libswe-dev/swephin.gif
+usr/share/doc/libswe-dev/swephprg.pdf
+usr/share/doc/libswe-dev/swisseph.html
 usr/bin/*
