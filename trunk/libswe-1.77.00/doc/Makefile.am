@@ -27,20 +27,33 @@ astrodocdir=${docdir}/../libswe-dev
 
 SUFFIXES = .pdf .html .doc
 
-#%.pdf : %.doc
-.doc.pdf:
-	unoconv --listener &
-	sleep 4
-	unoconv --stdout -f pdf $<   >  $@ || sleep 2 ;unoconv --stdout -f pdf $<   >  $@
 
-#%.html : %.doc
-.doc.html:
-	unoconv --listener &
-	sleep 4
-	unoconv --stdout -f html $<   >  $@ || sleep 2 ;unoconv --stdout -f html $<   >  $@ 
+
+
+
+#above was multi target build.
+.NOTPARALLEL: 
 
 html_DATA = swephprg.html  swisseph.html
 pdf_DATA = swephprg.pdf   swisseph.pdf
+
+$(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
+#tricky code alert
+#in a subshell save pid of subshell, ($$$$) becomes $$ in subshell.
+#then exec the listener. result is listnener running detached with saved pid.
+	echo "echo "'$$$$'" >$@.pid ; exec unoconv --listener" | $(SHELL) &
+	for ext in html pdf ;do \
+	   for name in swephprg  swisseph ; do \
+	   		  echo "unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext}" ;\
+	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} \
+	   		  || \
+	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} ; \
+	   done; \
+	done
+#kill the saved pid, i.e. the listener. $$ becomes $ in the shell.
+	-kill $$(<$@.pid)
+#remove the pid save file
+	-rm $@.pid
 
 swephprg.html: swephprg.doc
 swisseph.html: swisseph.doc
@@ -59,4 +72,4 @@ swisseph.pdf: swisseph.doc
 # change add nodist
 nodist_astrodoc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
 
-CLEANFILES = $(html_DATA) $(pdf_DATA)
+CLEANFILES = $(html_DATA) $(pdf_DATA) *.pid
