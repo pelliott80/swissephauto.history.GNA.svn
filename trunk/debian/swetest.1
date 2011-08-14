@@ -52,12 +52,10 @@ This documentation can also be found on line on astrodienst's web pages.
 .PP
 However, below is the result of "swetest -h".
 .PP
-.RE
-.RE
 .PP
 
-.RS
 Command line options:
+.RS 3
 help commands:
 .RS
 .TP
@@ -84,7 +82,9 @@ display input date format
 .B
 \fB-hexamp\fP
 display examples
+.RE
 input time formats:
+.RS
 .TP
 .B
 \fB-bDATE\fP
@@ -108,7 +108,9 @@ input time (ephemeris time)
 input date is universal time
 \fB-utHH\fP:MM:SS input time
 \fB-utHH.MMSS\fP input time
+.RE
 object, number of steps, step with
+.RS
 .TP
 .B
 \fB-pSEQ\fP
@@ -165,22 +167,26 @@ blank.
 \fB-g\fP followed by white space sets the
 gap to the TAB character; which is useful for data entry
 into spreadsheets.
-astrological house system:
 .RE
-.TP
+.RE
+astrological house system:
+.RS
 .B
 \fB-house\fP[long,lat,hsys]
+.RS
 include house cusps. The longitude, latitude (degrees with
 DECIMAL fraction) and house system letter can be given, with
 commas separated, + for east and north. If none are given,
 Greenwich UK and Placidus is used: 0.00,51.50,p.
 The output lists 12 house cusps, Asc, MC, ARMC and Vertex.
 Houses can only be computed if option \fB-ut\fP is given.
-.TP
+.RE
 .B
 \fB-hsy\fP[hsys]
+.RS
 house system to be used (for house positions of planets)
 for long, lat, hsys, see \fB-house\fP
+.RE
 .TP
 .B
 \fB-geopos\fP[long,lat,elev]
@@ -190,8 +196,9 @@ The longitude, latitude (degrees with DECIMAL fraction)
 and elevation (meters) can be given, with
 commas separated, + for east and north. If none are given,
 Greenwich is used: 0,51.5,0
+.RE
 sidereal astrology:
-.TP
+.RS 
 .B
 \fB-ay..\fP
 ayanamsa, with number of method, e.g. ay0 for Fagan/Bradley
@@ -209,6 +216,7 @@ sidereal, projection on ecliptic of t0
 \fB-sidsp\fP..
 sidereal, projection on solar system plane 
 ephemeris specifications:
+.TP
 \fB-edirPATH\fP change the directory of the ephemeris files 
 .TP
 .B
@@ -282,8 +290,9 @@ round to seconds
 .B
 \fB-roundmin\fP
 round to minutes
+.RE
 observer position:
-.TP
+.RS
 .B
 \fB-hel\fP
 compute heliocentric positions
@@ -300,58 +309,89 @@ commas separated, + for east and north. If none are given,
 Zuerich is used: 8.55,47.38,400
 .RS
 .PP
+.RE
+.RS 4
 special events:
+.RE
 \fB-solecl\fP solar eclipse
+.RS
 output 1st line:
+.RS 2
 eclipse date,
 time of maximum (UT),
 core shadow width (negative with total eclipses),
 fraction of solar diameter that is eclipsed
 Julian day number (6-digit fraction) of maximum
+.RE
 output 2nd line:
+.RS 2
 start and end times for partial and total phase
+.RE
 output 3rd line:
+.RS 2
 geographical longitude and latitude of maximum eclipse,
 totality duration at that geographical position,
+.RE
 output with \fB-local\fP, see below.
+.RE
+.TP 7
 \fB-occult\fP occultation of planet or star by the moon. Use \fB-p\fP to 
 specify planet (\fB-pf\fP \fB-xfAldebaran\fP for stars) 
 output format same as with \fB-solecl\fP
+.P
+.TP 7
 \fB-lunecl\fP lunar eclipse
+.RS
 output 1st line:
+.RS
 eclipse date,
 time of maximum (UT),
 Julian day number (6-digit fraction) of maximum
+.RE
 output 2nd line:
+.RS
 6 contacts for start and end of penumbral, partial, and
 total phase
 .RE
-.TP
+.RE
+.P
 .B
+.TP 7
 \fB-local\fP
 only with \fB-solecl\fP or \fB-occult\fP, if the next event of this
 kind is wanted for a given geogr. position.
 Use \fB-geopos\fP[long,lat,elev] to specify that position.
 If \fB-local\fP is not set, the program 
 searches for the next event anywhere on earth.
+.RS
 output 1st line:
+.RS 2
 eclipse date,
 time of maximum,
 fraction of solar diameter that is eclipsed
+.RE
 output 2nd line:
+.RS 2
 local eclipse duration,
 local four contacts,
+.RE
+.RE
 \fB-hev\fP[type] heliacal events,
+.RS
 type 1 = heliacal rising
+.P
 type 2 = heliacal setting
+.P
 type 3 = evening first
+.P
 type 4 = morning last
+.P
 type 0 or missing = all four events are listed.
 .RS
-.TP
 .B
 \fB-rise\fP
 rising and setting of a planet or star.
+.RE
 Use \fB-geopos\fP[long,lat,elev] to specify geographical position.
 .RE
 .TP
@@ -359,239 +399,394 @@ Use \fB-geopos\fP[long,lat,elev] to specify geographical position.
 \fB-metr\fP
 southern and northern meridian transit of a planet of star
 Use \fB-geopos\fP[long,lat,elev] to specify geographical position.
+.RE
 specifications for eclipses:
-.TP
+.RS
 .B
 \fB-total\fP
 total eclipse (only with \fB-solecl\fP, \fB-lunecl\fP)
+.P
 \fB-partial\fP partial eclipse (only with \fB-solecl\fP, \fB-lunecl\fP)
+.P
 \fB-annular\fP annular eclipse (only with \fB-solecl\fP)
+.P
 \fB-anntot\fP annular-total (hybrid) eclipse (only with \fB-solecl\fP)
+.P
 \fB-penumbral\fP penumbral lunar eclipse (only with \fB-lunecl\fP)
+.P
 \fB-central\fP central eclipse (only with \fB-solecl\fP, nonlocal)
+.P
 \fB-noncentral\fP non-central eclipse (only with \fB-solecl\fP, nonlocal)
+.RE
 specifications for risings and settings:
-.TP
+.RS
 .B
 \fB-norefrac\fP
 neglect refraction (with option \fB-rise\fP)
+.P
 \fB-disccenter\fP find rise of disc center (with option \fB-rise\fP)
 .TP
 .B
 \fB-hindu\fP
 hindu version of sunrise (with option \fB-rise\fP)
+.RE
 specifications for heliacal events:
+.RS
 \fB-at\fP[press,temp,rhum,visr]:
+.RS 11
 pressure in hPa
+.P
 temperature in degrees Celsius
+.P
 relative humidity in %
+.P
 visual range, interpreted as follows:
+.RS 2
 > 1 : meteorological range in km
+.P
 1>visr>0 : total atmospheric coefficient (ktot)
+.P
 = 0 : calculated from press, temp, rhum
+.RE
 Default values are \fB-at1013.25\fP,15,40,0
+.RE
 \fB-obs\fP[age,SN] age of observer and Snellen ratio
+.RS 11
 Default values are \fB-obs36\fP,1
+.RE
 \fB-opt\fP[age,SN,binocular,magn,diam,transm]
+.RS 11
 age and SN as with \fB-obs\fP
+.P
 0 monocular or 1 binocular
+.P
 telescope magnification
+.P
 optical aperture in mm
+.P
 optical transmission
+.P
 Default values: \fB-opt36\fP,1,1,1,0,0 (naked eye)
+.RE
+.RE
 backward search:
+.RS
 \fB-bwd\fP
-.TP
+.HP 6
 .B
 \fB-rise\fP
 rising and setting of a planet or star.
 Use \fB-geopos\fP[long,lat,elev] to specify geographical position.
-.TP
+.HP 6
 .B
 \fB-metr\fP
 southern and northern meridian transit of a planet of star
 Use \fB-geopos\fP[long,lat,elev] to specify geographical position.
+.RE
 specifications for eclipses:
-.TP
+.RS
 .B
 \fB-total\fP
 total eclipse (only with \fB-solecl\fP, \fB-lunecl\fP)
+.P
 \fB-partial\fP partial eclipse (only with \fB-solecl\fP, \fB-lunecl\fP)
+.P
 \fB-annular\fP annular eclipse (only with \fB-solecl\fP)
+.P
 \fB-anntot\fP annular-total (hybrid) eclipse (only with \fB-solecl\fP)
+.P
 \fB-penumbral\fP penumbral lunar eclipse (only with \fB-lunecl\fP)
+.P
 \fB-central\fP central eclipse (only with \fB-solecl\fP, nonlocal)
+.P
 \fB-noncentral\fP non-central eclipse (only with \fB-solecl\fP, nonlocal)
+.RE
 specifications for risings and settings:
-.TP
+.RS
 .B
 \fB-norefrac\fP
 neglect refraction (with option \fB-rise\fP)
+.P
 \fB-disccenter\fP find rise of disc center (with option \fB-rise\fP)
-.TP
+.P
 .B
 \fB-hindu\fP
 hindu version of sunrise (with option \fB-rise\fP)
+.RE
 specifications for heliacal events:
+.RS
 \fB-at\fP[press,temp,rhum,visr]:
+.RS 11
 pressure in hPa
+.P
 temperature in degrees Celsius
+.P
 relative humidity in %
+.P
 visual range, interpreted as follows:
+.RS 2
 > 1 : meteorological range in km
+.P
 1>visr>0 : total atmospheric coefficient (ktot)
+.P
 = 0 : calculated from press, temp, rhum
+.RE
 Default values are \fB-at1013.25\fP,15,40,0
+.RE
 \fB-obs\fP[age,SN] age of observer and Snellen ratio
+.RS 2
 Default values are \fB-obs36\fP,1
+.RE
 \fB-opt\fP[age,SN,binocular,magn,diam,transm]
+.RS 5
 age and SN as with \fB-obs\fP
+.P
 0 monocular or 1 binocular
+.P
 telescope magnification
+.P
 optical aperture in mm
+.P
 optical transmission
+.P
 Default values: \fB-opt36\fP,1,1,1,0,0 (naked eye)
+.RE
 backward search:
+.RS
 \fB-bwd\fP
+.RE
 .RE
 .PP
 Planet selection letters:
+.RS 5
 planetary lists:
-d (default) main factors 0123456789mtABCcg
-p main factors as above, plus main asteroids DEFGHI
-h ficticious factors J..X
-a all factors
-(the letters above can only appear as a single letter)
 .RS
+d (default) main factors 0123456789mtABCcg
+.P
+p main factors as above, plus main asteroids DEFGHI
+.P
+h ficticious factors J..X
+.P
+a all factors
+.RS 4
+(the letters above can only appear as a single letter)
+.RE
+.RE
 .PP
 single planet letters:
-0 Sun (character zero)
-1 Moon (character 1)
-2 Mercury
- \.\.\.\.
-9 Pluto
-m mean lunar node
-t true lunar node
-n nutation
 .RS
+0 Sun (character zero)
+.P
+1 Moon (character 1)
+.P
+2 Mercury
+.P
+\&\.\.\.\.
+.P
+9 Pluto
+.P
+m mean lunar node
+.P
+t true lunar node
+.P
+n nutation
+.P
 .IP \(bu 3
 obliquity of ecliptic
+.P
 q delta t
+.P
 A mean lunar apogee (Lilith, Black Moon) 
+.P
 B osculating lunar apogee 
+.P
 c intp. lunar apogee 
+.P
 g intp. lunar perigee 
+.P
 C Earth (in heliocentric or barycentric calculation)
+.RE
 dwarf planets, plutoids
+.RS
 F Ceres
+.P
 9 Pluto
 .TP
 .B
-s \fB-xs136199\fP
-Eris
+s \fB-xs136199\fP Eris
 .TP
 .B
-s \fB-xs136472\fP
-Makemake
+s \fB-xs136472\fP Makemake
 .TP
 .B
-s \fB-xs136108\fP
-Haumea
+s \fB-xs136108\fP Haumea
+.RE
 some minor planets:
+.RS
 D Chiron
+.P
 E Pholus
+.P
 G Pallas 
+.P
 H Juno 
+.P
 I Vesta 
+.P
 s minor planet, with MPC number given in \fB-xs\fP
+.RE
 fixed stars:
+.RS
 f fixed star, with name or number given in \fB-xf\fP option
-.TP
+.P
 .B
 f \fB-xfSirius\fP
 Sirius
+.RE
 fictitious objects:
+.RS
 J Cupido 
+.P
 K Hades 
+.P
 L Zeus 
+.P
 M Kronos 
+.P
 N Apollon 
+.P
 O Admetos 
+.P
 P Vulkanus 
+.P
 Q Poseidon 
+.P
 R Isis (Sevin) 
+.P
 S Nibiru (Sitchin) 
+.P
 T Harrington 
+.P
 U Leverrier's Neptune
+.P
 V Adams' Neptune
+.P
 W Lowell's Pluto
+.P
 X Pickering's Pluto
+.P
 Y Vulcan
+.P
 Z White Moon
+.P
 w Waldemath's dark Moon
+.P
 z hypothetical body, with number given in \fB-xz\fP
+.P
 e print a line of labels
 .RE
 .RE
 .RE
-.PP
-
-.RS
 Output format SEQ letters:
 In the standard setting five columns of coordinates are printed with
 the default format PLBRS. You can change the default by providing an
 option like \fB-fCCCC\fP where CCCC is your sequence of columns.
 The coding of the sequence is like this:
+.RS 16
 y year
+.P
 Y year.fraction_of_year
+.P
 p planet index
+.P
 P planet name
+.P
 J absolute juldate
+.P
 T date formatted like 23.02.1992 
+.P
 t date formatted like 920223 for 1992 february 23
+.P
 L longitude in degree ddd mm'ss"
+.P
 l longitude decimal
+.P
 Z longitude ddsignmm'ss"
+.P
 S speed in longitude in degree ddd:mm:ss per day
+.P
 SS speed for all values specified in fmt
+.P
 s speed longitude decimal (degrees/day)
+.P
 ss speed for all values specified in fmt
+.P
 B latitude degree
+.P
 b latitude decimal
+.P
 R distance decimal in AU
+.P
 r distance decimal in AU, Moon in seconds parallax
+.P
 relative distance (1000=nearest, 0=furthest)
+.P
 A right ascension in hh:mm:ss
+.P
 a right ascension hours decimal
+.P
 D declination degree
+.P
 d declination decimal
+.P
 I Azimuth degree
+.P
 i Azimuth decimal
+.P
 H Height degree
+.P
 h Height decimal
+.P
 K Height (with refraction) degree
+.P
 k Height (with refraction) decimal
+.P
 G house position in degrees
+.P
 g house position in degrees decimal
+.P
 j house number 1.0 - 12.99999
+.P
 X x-, y-, and z-coordinates ecliptical
+.P
 x x-, y-, and z-coordinates equatorial
+.P
 U unit vector ecliptical
+.P
 u unit vector equatorial
+.P
 Q l, b, r, dl, db, dr, a, d, da, dd
+.P
 n nodes (mean): ascending/descending (Me - Ne); longitude decimal
+.P
 N nodes (osculating): ascending/descending, longitude; decimal
+.P
 f apsides (mean): perihel, aphel, second focal point; longitude dec.
+.P
 F apsides (osc.): perihel, aphel, second focal point; longitude dec.
+.P
 + phase angle
-.RS
-.IP \(bu 3
-phase
-.IP \(bu 3
-elongation
+.P
+\&\- phase
+.P
+\&\?*\? elongation
+.P
 / apparent diameter of disc (without refraction)
+.P
 = magnitude
+.P
 v (reserved)
+.P
 V (reserved)
 .RE
 .PP
@@ -599,6 +794,7 @@ Date entry:
 In the interactive mode, when you are asked for a start date,
 you can enter data in one of the following formats:
 .PP
+.RS
 .nf
 .fam C
         1.2.1991        three integers separated by a nondigit character for
@@ -627,6 +823,7 @@ you can enter data in one of the following formats:
 
 .fam T
 .fi
+.RE
 Examples:
 .PP
 .nf
