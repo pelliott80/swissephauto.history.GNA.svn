@@ -1,4 +1,4 @@
-libswe (1.77.00-1) unstable; urgency=low
+libswe (1.77.00.0001-1) unstable; urgency=low
 
   * Initial release (Closes: #635672)  <635672 is the bug number of your ITP>
   * done dh_make much configuring remains to be done.

@@ -3,6 +3,13 @@ autotools on GNU/LINUX or other autotools friendly environments.
 As of today, no changes have been made to the original Swiss Ephemeris
 source code.
 
+Format of source version. The current source version is
+1.77.00.0001. In this number is the source version of the 
+Astrodienst files. That is this version of the Swiss Ephemeris library for
+Autotools is based on the file swe_unix_src_1.77.00.tar.gz
+from Astrodienst. The 0001 part indicates this is the first version for the
+autotools part.
+
 
 The Swiss Ephemeris also runs under MSDOS, Windows, and other
 environments. For that version see: http://www.astro.com/swisseph/

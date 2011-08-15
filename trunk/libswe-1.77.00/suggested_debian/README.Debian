@@ -7,7 +7,8 @@ Ephemeris can be used without any installed data at all, if the user
 supplies data in his own private directory.
 
 The Swiss Ephemeris was not created in the UNIX/Gnu Linux world and
-hence does not have an  UNIX/Gnu Linux style manpage. It is however
+hence does not have an  UNIX/Gnu Linux style manpage. The manpages
+merely refer to documentation available elsewhere. It is however
 well documented in the following files in the package libswe-devel:
 /usr/share/doc/libswe/swephprg.pdf 
 /usr/share/doc/libswe/swisseph.pdf
@@ -16,6 +17,6 @@ well documented in the following files in the package libswe-devel:
 
 This documentation can also be found on line on astrodienst's web pages.
 
-The current source version is 1.77.00.
+The current source version is 1.77.00.0001
 
  -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 01 Aug 2011 23:38:57 -0500
