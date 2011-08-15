@@ -31,8 +31,9 @@ swedoc_DATA = \
 	INSTALL\
 	NEWS
 
+man_MANS = libswe.3 swetest.1 swemini.1
 
-EXTRA_DIST = $(swedoc_DATA)
+EXTRA_DIST = $(man_MANS) $(swedoc_DATA)
 
 
 # Remove doc directory on uninstall

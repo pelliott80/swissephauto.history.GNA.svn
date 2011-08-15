@@ -50,3 +50,6 @@ The astrodienst distribution contains pdf and html files that document
 the library extensively. These files have been rebuild from their
 sources in the for GNU/LINUX versions. Refer to these files for all
 documentation.
+
+Astrodienst did not provide GNU/Linux style man pages. My man pages refer
+users to astrodienst's other documentation.
