@@ -89,7 +89,7 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
-	"$(DESTDIR)$(pkgdatadir)" "$(DESTDIR)$(swedocdir)" \
+	"$(DESTDIR)$(ephepkgdatadir)" "$(DESTDIR)$(swedocdir)" \
 	"$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libswe_la_DEPENDENCIES =
@@ -139,7 +139,8 @@ am__v_GEN_0 = @echo "  GEN   " $@;
 SOURCES = $(nodist_libswe_la_SOURCES) $(nodist_swemini_SOURCES) \
 	$(nodist_swetest_SOURCES)
 DIST_SOURCES =
-DATA = $(nodist_pkgdata_DATA) $(nodist_swedoc_DATA) $(pkgconfig_DATA)
+DATA = $(nodist_ephepkgdata_DATA) $(nodist_swedoc_DATA) \
+	$(pkgconfig_DATA)
 HEADERS = $(nodist_include_HEADERS)
 ETAGS = etags
 CTAGS = ctags
@@ -339,7 +340,8 @@ swemini_LDADD = \
 
 #do not distribute stuff distributed by astrodienst
 # change dist -> nodist
-nodist_pkgdata_DATA = \
+ephepkgdatadir = $(pkgdatadir)/users/ephe/
+nodist_ephepkgdata_DATA = \
     $(astrosrc)/fixstars.cat\
     $(astrosrc)/sedeltat.txt.inactive\
     $(astrosrc)/sefstars.txt\
@@ -521,26 +523,26 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-nodist_pkgdataDATA: $(nodist_pkgdata_DATA)
+install-nodist_ephepkgdataDATA: $(nodist_ephepkgdata_DATA)
 	@$(NORMAL_INSTALL)
-	test -z "$(pkgdatadir)" || $(MKDIR_P) "$(DESTDIR)$(pkgdatadir)"
-	@list='$(nodist_pkgdata_DATA)'; test -n "$(pkgdatadir)" || list=; \
+	test -z "$(ephepkgdatadir)" || $(MKDIR_P) "$(DESTDIR)$(ephepkgdatadir)"
+	@list='$(nodist_ephepkgdata_DATA)'; test -n "$(ephepkgdatadir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
 	done | $(am__base_list) | \
 	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(pkgdatadir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(pkgdatadir)" || exit $$?; \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(ephepkgdatadir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(ephepkgdatadir)" || exit $$?; \
 	done
 
-uninstall-nodist_pkgdataDATA:
+uninstall-nodist_ephepkgdataDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(nodist_pkgdata_DATA)'; test -n "$(pkgdatadir)" || list=; \
+	@list='$(nodist_ephepkgdata_DATA)'; test -n "$(ephepkgdatadir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(pkgdatadir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(pkgdatadir)" && rm -f $$files
+	echo " ( cd '$(DESTDIR)$(ephepkgdatadir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(ephepkgdatadir)" && rm -f $$files
 install-nodist_swedocDATA: $(nodist_swedoc_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(swedocdir)" || $(MKDIR_P) "$(DESTDIR)$(swedocdir)"
@@ -690,7 +692,7 @@ all-am: Makefile $(LTLIBRARIES) $(PROGRAMS) $(DATA) $(HEADERS)
 install-binPROGRAMS: install-libLTLIBRARIES
 
 installdirs:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkgdatadir)" "$(DESTDIR)$(swedocdir)" "$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(ephepkgdatadir)" "$(DESTDIR)$(swedocdir)" "$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -741,8 +743,8 @@ info: info-am
 
 info-am:
 
-install-data-am: install-nodist_includeHEADERS \
-	install-nodist_pkgdataDATA install-nodist_swedocDATA \
+install-data-am: install-nodist_ephepkgdataDATA \
+	install-nodist_includeHEADERS install-nodist_swedocDATA \
 	install-pkgconfigDATA
 
 install-dvi: install-dvi-am
@@ -790,8 +792,9 @@ ps: ps-am
 ps-am:
 
 uninstall-am: uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
-	uninstall-nodist_includeHEADERS uninstall-nodist_pkgdataDATA \
-	uninstall-nodist_swedocDATA uninstall-pkgconfigDATA
+	uninstall-nodist_ephepkgdataDATA \
+	uninstall-nodist_includeHEADERS uninstall-nodist_swedocDATA \
+	uninstall-pkgconfigDATA
 
 .MAKE: install-am install-strip
 
@@ -803,16 +806,17 @@ uninstall-am: uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
 	install-data install-data-am install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
 	install-info install-info-am install-libLTLIBRARIES \
-	install-man install-nodist_includeHEADERS \
-	install-nodist_pkgdataDATA install-nodist_swedocDATA \
+	install-man install-nodist_ephepkgdataDATA \
+	install-nodist_includeHEADERS install-nodist_swedocDATA \
 	install-pdf install-pdf-am install-pkgconfigDATA install-ps \
 	install-ps-am install-strip installcheck installcheck-am \
 	installdirs maintainer-clean maintainer-clean-generic \
 	mostlyclean mostlyclean-compile mostlyclean-generic \
 	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
 	uninstall-am uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
-	uninstall-nodist_includeHEADERS uninstall-nodist_pkgdataDATA \
-	uninstall-nodist_swedocDATA uninstall-pkgconfigDATA
+	uninstall-nodist_ephepkgdataDATA \
+	uninstall-nodist_includeHEADERS uninstall-nodist_swedocDATA \
+	uninstall-pkgconfigDATA
 
 vpath %.c $(astrosrc)
 vpath %.h $(astrosrc)

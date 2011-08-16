@@ -108,7 +108,8 @@ swemini_LDADD = \
 
 #do not distribute stuff distributed by astrodienst
 # change dist -> nodist
-nodist_pkgdata_DATA = \
+ephepkgdatadir = $(pkgdatadir)/users/ephe/
+nodist_ephepkgdata_DATA = \
     $(astrosrc)/fixstars.cat\
     $(astrosrc)/sedeltat.txt.inactive\
     $(astrosrc)/sefstars.txt\
