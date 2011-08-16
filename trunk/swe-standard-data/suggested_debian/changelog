@@ -4,5 +4,6 @@ swe-standard-data (00001-1) unstable; urgency=low
   * updated description fields of control
   * updated copywight file
   * update README.Debian
+  * add install file restricts what is installed.
 
  -- Paul Elliott <pelliott@blackpatchpanel.com>  Tue, 16 Aug 2011 11:19:16 -0500

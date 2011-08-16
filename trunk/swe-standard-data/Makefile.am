@@ -14,7 +14,10 @@ pkgdocdir=$(docdir)/$(PACKAGE)
 dist_pkgdoc_DATA = \
 	README.TXT\
 	COPYING\
-	LICENSE.TXT
+	LICENSE.TXT\
+	AUTHORS
+
+EXTRA_DIST = $(pkgdocdir)
 
 ephedatadir = $(datadir)/libswe/users/ephe/
 dist_ephedata_DATA = \
