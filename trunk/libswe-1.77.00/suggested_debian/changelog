@@ -30,5 +30,6 @@ libswe (1.77.00.0001-1) unstable; urgency=low
   * move data files to $(pkgdatadir)/users/ephe/
   * patch SE_EPHE_PATH to be a directory that exists!
   * this is ephepath-fix
+  * add vcs-svn, vcs-browser
 
  -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 08 Aug 2011 22:48:57 -0500

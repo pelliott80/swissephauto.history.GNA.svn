@@ -5,8 +5,8 @@ Build-Depends: debhelper (>= 7.0.50~), autotools-dev, unoconv
 Standards-Version: 3.9.1
 Section: libs
 Homepage: http://swissephauto.blackpatchpanel.com/
-#Vcs-Git: git://git.debian.org/collab-maint/libswe.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/libswe.git;a=summary
+Vcs-Svn: http://svn.berlios.de/svnroot/repos/swissephauto/trunk/libswe-1.77.00/
+Vcs-Browser: http://svn.berlios.de/viewvc/swissephauto/trunk/libswe-1.77.00/
 
 Package: libswe-dev
 Section: libdevel
