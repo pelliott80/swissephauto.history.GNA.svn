@@ -33,10 +33,10 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 subdir = .
-DIST_COMMON = $(am__configure_deps) $(dist_ephedata_DATA) \
-	$(dist_pkgdoc_DATA) $(srcdir)/Makefile.am \
+DIST_COMMON = $(am__configure_deps) $(dist_doc_DATA) \
+	$(dist_ephedata_DATA) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(top_srcdir)/configure COPYING install-sh missing
+	$(top_srcdir)/configure AUTHORS COPYING install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -76,8 +76,8 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(ephedatadir)" "$(DESTDIR)$(pkgdocdir)"
-DATA = $(dist_ephedata_DATA) $(dist_pkgdoc_DATA)
+am__installdirs = "$(DESTDIR)$(docdir)" "$(DESTDIR)$(ephedatadir)"
+DATA = $(dist_doc_DATA) $(dist_ephedata_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -89,12 +89,12 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001/missing --run aclocal-1.11
-AMTAR = ${SHELL} /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001/missing --run tar
+ACLOCAL = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run aclocal-1.11
+AMTAR = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run tar
 AM_DEFAULT_VERBOSITY = 0
-AUTOCONF = ${SHELL} /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=none
@@ -112,12 +112,12 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-LDFLAGS = -Wl,-Bsymbolic-functions
+LDFLAGS = 
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAINT = #
-MAKEINFO = ${SHELL} /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001/missing --run makeinfo
+MAINT = 
+MAKEINFO = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = swe-standard-data
@@ -132,10 +132,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 00001
-abs_builddir = /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001
-abs_srcdir = /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001
-abs_top_builddir = /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001
-abs_top_srcdir = /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001
+abs_builddir = /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data
+abs_srcdir = /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data
+abs_top_builddir = /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data
+abs_top_srcdir = /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -143,7 +143,7 @@ am__quote =
 am__tar = ${AMTAR} chof - "$$tardir"
 am__untar = ${AMTAR} xf -
 bindir = ${exec_prefix}/bin
-build_alias = i686-linux-gnu
+build_alias = 
 builddir = .
 datadir = ${datarootdir}
 datarootdir = ${prefix}/share
@@ -153,23 +153,23 @@ exec_prefix = ${prefix}
 host_alias = 
 htmldir = ${docdir}
 includedir = ${prefix}/include
-infodir = ${prefix}/share/info
-install_sh = ${SHELL} /home/pelliott/develop/astrology/newlibswe/deb2/try/swe-standard-data-00001/install-sh
+infodir = ${datarootdir}/info
+install_sh = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/install-sh
 libdir = ${exec_prefix}/lib
-libexecdir = ${prefix}/lib/swe-standard-data
+libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
-localstatedir = /var
-mandir = ${prefix}/share/man
+localstatedir = ${prefix}/var
+mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr
+prefix = /usr/local
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 srcdir = .
-sysconfdir = /etc
+sysconfdir = ${prefix}/etc
 target_alias = 
 top_build_prefix = 
 top_builddir = .
@@ -181,12 +181,13 @@ AM_CFLAGS = \
 	 -Wall\
 	 -g
 
-pkgdocdir = $(docdir)/$(PACKAGE)
-dist_pkgdoc_DATA = \
+dist_doc_DATA = \
 	README.TXT\
 	COPYING\
-	LICENSE.TXT
+	LICENSE.TXT\
+	AUTHORS
 
+EXTRA_DIST = $(dist_doc_DATA)
 ephedatadir = $(datadir)/libswe/users/ephe/
 dist_ephedata_DATA = \
 	seas_00.se1\
@@ -250,7 +251,7 @@ all: config.h
 .SUFFIXES:
 am--refresh:
 	@:
-$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -277,9 +278,9 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	$(SHELL) ./config.status --recheck
 
-$(top_srcdir)/configure: # $(am__configure_deps)
+$(top_srcdir)/configure:  $(am__configure_deps)
 	$(am__cd) $(srcdir) && $(AUTOCONF)
-$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
+$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
 
@@ -292,13 +293,33 @@ config.h: stamp-h1
 stamp-h1: $(srcdir)/config.h.in $(top_builddir)/config.status
 	@rm -f stamp-h1
 	cd $(top_builddir) && $(SHELL) ./config.status config.h
-$(srcdir)/config.h.in: # $(am__configure_deps) 
+$(srcdir)/config.h.in:  $(am__configure_deps) 
 	($(am__cd) $(top_srcdir) && $(AUTOHEADER))
 	rm -f stamp-h1
 	touch $@
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
+install-dist_docDATA: $(dist_doc_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(docdir)" || $(MKDIR_P) "$(DESTDIR)$(docdir)"
+	@list='$(dist_doc_DATA)'; test -n "$(docdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(docdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(docdir)" || exit $$?; \
+	done
+
+uninstall-dist_docDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(dist_doc_DATA)'; test -n "$(docdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(docdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(docdir)" && rm -f $$files
 install-dist_ephedataDATA: $(dist_ephedata_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(ephedatadir)" || $(MKDIR_P) "$(DESTDIR)$(ephedatadir)"
@@ -319,26 +340,6 @@ uninstall-dist_ephedataDATA:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(ephedatadir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(ephedatadir)" && rm -f $$files
-install-dist_pkgdocDATA: $(dist_pkgdoc_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(pkgdocdir)" || $(MKDIR_P) "$(DESTDIR)$(pkgdocdir)"
-	@list='$(dist_pkgdoc_DATA)'; test -n "$(pkgdocdir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(pkgdocdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(pkgdocdir)" || exit $$?; \
-	done
-
-uninstall-dist_pkgdocDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(dist_pkgdoc_DATA)'; test -n "$(pkgdocdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(pkgdocdir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(pkgdocdir)" && rm -f $$files
 tags: TAGS
 TAGS:
 
@@ -497,7 +498,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA) config.h
 installdirs:
-	for dir in "$(DESTDIR)$(ephedatadir)" "$(DESTDIR)$(pkgdocdir)"; do \
+	for dir in "$(DESTDIR)$(docdir)" "$(DESTDIR)$(ephedatadir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -546,7 +547,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-dist_ephedataDATA install-dist_pkgdocDATA
+install-data-am: install-dist_docDATA install-dist_ephedataDATA
 
 install-dvi: install-dvi-am
 
@@ -592,7 +593,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-dist_ephedataDATA uninstall-dist_pkgdocDATA
+uninstall-am: uninstall-dist_docDATA uninstall-dist_ephedataDATA
 
 .MAKE: all install-am install-strip
 
@@ -601,15 +602,15 @@ uninstall-am: uninstall-dist_ephedataDATA uninstall-dist_pkgdocDATA
 	dist-xz dist-zip distcheck distclean distclean-generic \
 	distclean-hdr distcleancheck distdir distuninstallcheck dvi \
 	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-dist_ephedataDATA \
-	install-dist_pkgdocDATA install-dvi install-dvi-am \
+	install-data install-data-am install-dist_docDATA \
+	install-dist_ephedataDATA install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
 	install-info install-info-am install-man install-pdf \
 	install-pdf-am install-ps install-ps-am install-strip \
 	installcheck installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
-	pdf-am ps ps-am uninstall uninstall-am \
-	uninstall-dist_ephedataDATA uninstall-dist_pkgdocDATA
+	pdf-am ps ps-am uninstall uninstall-am uninstall-dist_docDATA \
+	uninstall-dist_ephedataDATA
 
 
 #bin_PROGRAMS = swe_standard_data

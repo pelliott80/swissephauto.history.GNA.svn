@@ -10,14 +10,13 @@ AM_CFLAGS =\
 	 -g
 
 
-pkgdocdir=$(docdir)/$(PACKAGE)
-dist_pkgdoc_DATA = \
+dist_doc_DATA = \
 	README.TXT\
 	COPYING\
 	LICENSE.TXT\
 	AUTHORS
 
-EXTRA_DIST = $(pkgdocdir)
+EXTRA_DIST = $(dist_doc_DATA)
 
 ephedatadir = $(datadir)/libswe/users/ephe/
 dist_ephedata_DATA = \
