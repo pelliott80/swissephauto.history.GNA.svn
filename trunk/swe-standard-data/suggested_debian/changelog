@@ -5,5 +5,7 @@ swe-standard-data (00001-1) unstable; urgency=low
   * updated copywight file
   * update README.Debian
   * add install file restricts what is installed.
+  * remove COPYING LICENSE.TXT using rules file
+  * remove LICENSE.TXT from docs
 
  -- Paul Elliott <pelliott@blackpatchpanel.com>  Tue, 16 Aug 2011 11:19:16 -0500
