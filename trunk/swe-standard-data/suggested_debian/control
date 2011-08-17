@@ -12,6 +12,7 @@ Vcs-Browser: http://svn.berlios.de/viewvc/swissephauto/trunk/swe-standard-data/
 Package: swe-standard-data
 Architecture: all
 Depends: ${misc:Depends}
+Recommends: swe-basic-data
 Description: standard data for the Swiss Ephemeris.
  all of the standard data, i.e. the usual .se1 files, for the Swiss Ephemeris.
 

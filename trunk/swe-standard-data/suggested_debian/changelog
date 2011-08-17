@@ -8,5 +8,6 @@ swe-standard-data (00001-1) unstable; urgency=low
   * remove LICENSE.TXT from docs
   * change section to science
   * add vcs-svn vcs-browser ot control
+  * recomend on swe-basic-data
 
  -- Paul Elliott <pelliott@blackpatchpanel.com>  Tue, 16 Aug 2011 11:19:16 -0500
