@@ -1,12 +1,13 @@
 Source: swe-standard-data
-Section: unknown
+Section: science
 Priority: extra
 Maintainer: Paul Elliott <pelliott@blackpatchpanel.com>
 Build-Depends: debhelper (>= 7.0.50~), autotools-dev
 Standards-Version: 3.9.1
 Homepage: http://swissephauto.blackpatchpanel.com/
-#Vcs-Git: git://git.debian.org/collab-maint/swe-standard-data.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/swe-standard-data.git;a=summary
+Vcs-Svn: http://svn.berlios.de/svnroot/repos/swissephauto/trunk/swe-standard-data/
+Vcs-Browser: http://svn.berlios.de/viewvc/swissephauto/trunk/swe-standard-data/
+
 
 Package: swe-standard-data
 Architecture: all
