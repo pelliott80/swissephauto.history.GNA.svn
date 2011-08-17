@@ -31,5 +31,6 @@ libswe (1.77.00.0001-1) unstable; urgency=low
   * patch SE_EPHE_PATH to be a directory that exists!
   * this is ephepath-fix
   * add vcs-svn, vcs-browser
+  * control Recommends: swe-basic-data, swe-standard-data
 
  -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 08 Aug 2011 22:48:57 -0500

@@ -21,6 +21,7 @@ Package: libswe0
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: swe-basic-data, swe-standard-data
 Description: C library for the Swiss Ephemeris
  libswe0 allows programs to access the Swiss Ephemeris.
  The SWISS EPHEMERIS is the high precision ephemeris developed 
