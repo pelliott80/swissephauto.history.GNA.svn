@@ -43,3 +43,19 @@ is rebuilt from source in this package.
 This was resourced by Paul Elliott. Hopefully, this file will not be needed
 in the next release.
 
+With all the the problems with the astrodienst tarball, it may be asked,
+"Why do you not resource the astrodiest tarball into the tarball
+containing your auto*tools tarball creating one unified source
+without the confusion and complications of a multi source tarball?
+Everything could be done in a GNU/Linux standard way."
+
+The answer to this is that I know my limitations. Astrological programming
+is an arcane art that requires years of study. While I am a C language
+programer and a packager, I simply am not an astrological programmer.
+
+Not having any .c or .h files in my release is my institutional way of
+refusing responsibility for the content of these files. All bugs
+associated with the content of these files will be refered to the true
+upstream, i.e. the folks at Astrodienst. The only reason they are in
+my SVN repository is that the GPL requires that I publish these files
+if I use them.
