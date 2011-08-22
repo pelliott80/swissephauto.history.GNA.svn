@@ -33,5 +33,6 @@ libswe (1.77.00.0001-1) unstable; urgency=low
   * add vcs-svn, vcs-browser
   * control Recommends: swe-basic-data, swe-standard-data
   * explain multi tar ball source.
+  * openoffice.org-writer, openoffice.org-java-common needed for unoconv work
 
- -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 08 Aug 2011 22:48:57 -0500
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Sun, 21 Aug 2011 19:57:56 -0500
