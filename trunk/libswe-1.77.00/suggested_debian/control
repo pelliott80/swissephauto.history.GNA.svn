@@ -105,14 +105,14 @@ Description: C library for the Swiss Ephemeris
  (3 arcsec for the Moon). 
  In addition to the astronomical planets as contained in the JPL
  integration, Astrodienst's have included all other bodies and 
- hypothetical  factors which are of interest to the astrologer. We have 
- used Astrodienst's own numerical integration program to provide ephemerides 
- for ALL known asteroids. There are over 55'000 of them and nobody will 
- be able to use them all. Astrodienst distribute these extended asteroid 
- files via Astrodienst's download area; there are also CDROMs available 
- with large sets of asteroid files. Asteroid reaserachers may be interested 
- in a December  1998 article in the Economist magazine about the naming 
- of asteroids.
+ hypothetical  factors which are of interest to the astrologer. 
+ Astrodienst have used Astrodienst's own numerical integration program 
+ to provide ephemerides for ALL known asteroids. There are over 55'000 
+ of them and nobody will be able to use them all. Astrodienst distribute 
+ these extended asteroid files via Astrodienst's download area; there 
+ are also CDROMs available with large sets of asteroid files. Asteroid 
+ reaserachers may be interested in a December  1998 article in the 
+ Economist magazine about the naming of asteroids.
  Speed: The Swiss Ephemeris is precise and fast. On Astrodienst's Linux 
  test machine, a 1000 MHz Pentium III, Astrodienst compute 10'000 complete 
  sets of planetary positions, i.e. 10'000 x 11 planets, in 9 seconds. This 

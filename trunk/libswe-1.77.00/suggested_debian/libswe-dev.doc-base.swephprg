@@ -1,0 +1,13 @@
+Document: swephprg
+Title: Swiss Ephemeris Programmer's Documentation
+Author: Dieter Koch and Alois Treindl
+Abstract: This document describes the programmer's interface to the
+ Swiss Ephemeris.
+Section: Science/Data Analysis
+
+Format: PDF
+Files: /usr/share/doc/libswe-dev/swephprg.pdf.gz
+
+Format: HTML
+Index: /usr/share/doc/libswe-dev/swephprg.html
+Files: /usr/share/doc/libswe-dev/swephprg.html
