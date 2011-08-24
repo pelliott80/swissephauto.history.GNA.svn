@@ -37,5 +37,6 @@ libswe (1.77.00.0001-1) unstable; urgency=low
   * fix section in control file
   * create a comment only watch file
   * increase description verbosity in control file
+  * remove 1st person reference from libswe-dev.doc-base.swisseph
 
- -- Paul Elliott <pelliott@blackpatchpanel.com>  Tue, 23 Aug 2011 11:54:32 -0500
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Wed, 24 Aug 2011 04:09:51 -0500
