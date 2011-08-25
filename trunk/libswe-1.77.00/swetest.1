@@ -50,7 +50,7 @@ This documentation can also be found on line on astrodienst's web pages.
 .HP 0
 .URL "http://www.astro.com/swisseph/swephprg.htm" "Programmer's Documentation"
 .PP
-However, below is the result of "swetest -h".
+However, below is the result of "swetest \-h".
 .PP
 .PP
 
@@ -818,7 +818,7 @@ you can enter data in one of the following formats:
 
         +20             advance the date by 20 days
 
-        -10             go back in time 10 days
+        \-10             go back in time 10 days
 
 
 .fam T
@@ -828,36 +828,36 @@ Examples:
 .PP
 .nf
 .fam C
-    swetest -p2 -b1.12.1900 -n15 -s2
-        ephemeris of Mercury (-p2) starting on 1 Dec 1900,
-        15 positions (-n15) in two-day steps (-s2)
+    swetest \-p2 \-b1.12.1900 \-n15 \-s2
+        ephemeris of Mercury (\-p2) starting on 1 Dec 1900,
+        15 positions (\-n15) in two-day steps (\-s2)
 
-    swetest -p2 -b1.12.1900 -n15 -s2 -fTZ -roundsec -g, -head
-        same, but output format =  date and zodiacal position (-fTZ),
-        separated by comma (-g,) and rounded to seconds (-roundsec),
-        without header (-head).
+    swetest \-p2 \-b1.12.1900 \-n15 \-s2 \-fTZ \-roundsec \-g, \-head
+        same, but output format =  date and zodiacal position (\-fTZ),
+        separated by comma (\-g,) and rounded to seconds (\-roundsec),
+        without header (\-head).
 
-    swetest -ps -xs433 -b1.12.1900
-        position of asteroid 433 Eros (-ps -xs433)
+    swetest \-ps \-xs433 \-b1.12.1900
+        position of asteroid 433 Eros (\-ps \-xs433)
 
-    swetest -pf -xfAldebaran -b1.1.2000
+    swetest \-pf \-xfAldebaran \-b1.1.2000
         position of fixed star Aldebaran 
 
-    swetest -p1 -d0 -b1.12.1900 -n10 -fPTl -head
-        angular distance of moon (-p1) from sun (-d0) for 10
-        consecutive days (-n10).
+    swetest \-p1 \-d0 \-b1.12.1900 \-n10 \-fPTl \-head
+        angular distance of moon (\-p1) from sun (\-d0) for 10
+        consecutive days (\-n10).
 
-    swetest -p6 -DD -b1.12.1900 -n100 -s5 -fPTZ -head -roundmin
-      Midpoints between Saturn (-p6) and Chiron (-DD) for 100
-      consecutive steps (-n100) with 5-day steps (-s5) with
-      longitude in degree-sign format (-f..Z) rounded to minutes (-roundmin)
+    swetest \-p6 \-DD \-b1.12.1900 \-n100 \-s5 \-fPTZ \-head \-roundmin
+      Midpoints between Saturn (\-p6) and Chiron (\-DD) for 100
+      consecutive steps (\-n100) with 5\(hyday steps (\-s5) with
+      longitude in degree\(hysign format (\-f..Z) rounded to minutes (\-roundmin)
 
-    swetest -b5.1.2002 -p -house12.05,49.50,k -ut12:30
+    swetest \-b5.1.2002 \-p \-house12.05,49.50,k \-ut12:30
         Koch houses for a location in Germany at a given date and time
 
 .SH AUTHOR
 The Swiss Ephemeris and swetest were written by Dieter Koch and Alois Treindl of Astrodienst.
 .PP
 This manual page was written by Paul Elliott <pelliott@blackpatchpanel.com>
-using the results of "swetest -h",
+using the results of "swetest \-h",
 for the Debian project (and may be used by others).
