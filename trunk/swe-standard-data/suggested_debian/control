@@ -13,6 +13,11 @@ Package: swe-standard-data
 Architecture: all
 Depends: ${misc:Depends}
 Recommends: swe-basic-data
-Description: standard data for the Swiss Ephemeris.
+Description: standard data for the Swiss Ephemeris
  all of the standard data, i.e. the usual .se1 files, for the Swiss Ephemeris.
-
+ All of the .se1 files located here: 
+   ftp://ftp.astro.com/pub/swisseph/ephe/*.se1
+ are in the package. This data can be used with the Swiss Ephemeris library,
+ libswe0. This package uses 36 meg. Installed in /usr/share/libswe/users/ephe/
+ The Swiss Ephemeris library has been patched so that it looks to this location
+ by default.
