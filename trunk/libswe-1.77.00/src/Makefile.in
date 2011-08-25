@@ -306,6 +306,7 @@ libswe_la_LIBADD =
 # change add nodist
 nodist_include_HEADERS = \
 	$(astrosrc)/sweodef.h    \
+	$(astrosrc)/swepcalc.h   \
 	$(astrosrc)/swephexp.h
 
 pkgconfigdir = $(libdir)/pkgconfig
