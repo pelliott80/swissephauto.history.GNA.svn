@@ -63,9 +63,13 @@ nodist_libswe_la_SOURCES = \
 	swephexp.h      \
 	swephlib.c      \
 	swephlib.h
+dist_libswe_la_SOURCES = \
+	symbols.sym
 
 libswe_la_LDFLAGS = \
-	-lm
+	-lm         \
+	-export-symbols symbols.sym
+
 
 libswe_la_LIBADD = 
 

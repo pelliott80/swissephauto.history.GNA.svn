@@ -93,10 +93,12 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
 	"$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libswe_la_DEPENDENCIES =
+dist_libswe_la_OBJECTS =
 nodist_libswe_la_OBJECTS = swecl.lo swedate.lo swehel.lo swehouse.lo \
 	swejpl.lo swemmoon.lo swemplan.lo swepcalc.lo swepdate.lo \
 	sweph.lo swephlib.lo
-libswe_la_OBJECTS = $(nodist_libswe_la_OBJECTS)
+libswe_la_OBJECTS = $(dist_libswe_la_OBJECTS) \
+	$(nodist_libswe_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
@@ -136,9 +138,9 @@ am__v_CCLD_0 = @echo "  CCLD  " $@;
 AM_V_GEN = $(am__v_GEN_$(V))
 am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))
 am__v_GEN_0 = @echo "  GEN   " $@;
-SOURCES = $(nodist_libswe_la_SOURCES) $(nodist_swemini_SOURCES) \
-	$(nodist_swetest_SOURCES)
-DIST_SOURCES =
+SOURCES = $(dist_libswe_la_SOURCES) $(nodist_libswe_la_SOURCES) \
+	$(nodist_swemini_SOURCES) $(nodist_swetest_SOURCES)
+DIST_SOURCES = $(dist_libswe_la_SOURCES)
 DATA = $(nodist_ephepkgdata_DATA) $(nodist_swedoc_DATA) \
 	$(pkgconfig_DATA)
 HEADERS = $(nodist_include_HEADERS)
@@ -297,8 +299,12 @@ nodist_libswe_la_SOURCES = \
 	swephlib.c      \
 	swephlib.h
 
+dist_libswe_la_SOURCES = \
+	symbols.sym
+
 libswe_la_LDFLAGS = \
-	-lm
+	-lm         \
+	-export-symbols symbols.sym
 
 libswe_la_LIBADD = 
 
