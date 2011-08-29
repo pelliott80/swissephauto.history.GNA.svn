@@ -55,20 +55,15 @@ nodist_libswe_la_SOURCES = \
 	swemplan.c      \
 	swenut2000a.h      \
 	sweodef.h      \
-	swepcalc.c      \
-	swepcalc.h      \
-	swepdate.c      \
 	sweph.c      \
 	sweph.h      \
 	swephexp.h      \
 	swephlib.c      \
 	swephlib.h
-dist_libswe_la_SOURCES = \
-	symbols.sym
 
 libswe_la_LDFLAGS = \
 	-lm         \
-	-export-symbols symbols.sym
+	-export-symbols-regex ^swe_
 
 
 libswe_la_LIBADD = 
@@ -77,7 +72,6 @@ libswe_la_LIBADD =
 # change add nodist
 nodist_include_HEADERS = \
 	$(astrosrc)/sweodef.h    \
-	$(astrosrc)/swepcalc.h   \
 	$(astrosrc)/swephexp.h
 
 pkgconfigdir = $(libdir)/pkgconfig
@@ -89,6 +83,9 @@ EXTRA_DIST = \
 #do not distribute stuff distributed by astrodienst
 # change add nodist
 nodist_EXTRA_DIST = \
+	swepcalc.c      \
+	swepcalc.h      \
+	swepdate.c      \
 	swemptab.c
 
 bin_PROGRAMS = \
