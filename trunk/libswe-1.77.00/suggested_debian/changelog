@@ -38,5 +38,6 @@ libswe (1.77.00.0001-1) unstable; urgency=low
   * create a comment only watch file
   * increase description verbosity in control file
   * remove 1st person reference from libswe-dev.doc-base.swisseph
+  * new debian/libswe0.symbols file
 
- -- Paul Elliott <pelliott@blackpatchpanel.com>  Wed, 24 Aug 2011 04:09:51 -0500
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 29 Aug 2011 01:58:37 -0500
