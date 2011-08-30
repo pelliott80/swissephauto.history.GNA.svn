@@ -3,6 +3,19 @@ Installation Instructions
 
 Copyright (C) 1994, 1995, 1996, 1999, 2000, 2001, 2002, 2004, 2005,
 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+2010 Paul Elliott
+
+
+Before doing the ./configure as described below, the true source
+from astrodienst: 
+ftp://ftp.astro.com/pub/swisseph/swe_unix_src_1.77.00.tar.gz
+should be unpacked in the subdirectory "astrodienst"
+The additional documentation sources:
+http://prdownload.berlios.de/softdevice/libswe-1.77.00.astrodocsrc.tar.gz
+should be installed in the subdirectory "astrodocsrc"
+
+One can then procede as described below.
+
 
    Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright
