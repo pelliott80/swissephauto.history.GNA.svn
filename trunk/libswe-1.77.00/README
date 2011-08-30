@@ -61,7 +61,7 @@ documentation.
 Astrodienst did not provide GNU/Linux style man pages. My man pages refer
 users to astrodienst's other documentation.
 
-Astrodienst has asked my to remove the public interface to pcalc, i.e.
+Astrodienst has asked me to remove the public interface to pcalc, i.e.
 swepcalc.h. 
 http://tech.groups.yahoo.com/group/swisseph/message/3129
 This will make this version of astrodienst upwards compatible

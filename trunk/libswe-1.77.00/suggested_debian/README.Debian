@@ -26,7 +26,7 @@ well documented in the following files in the package libswe-devel:
 
 This documentation can also be found on line on astrodienst's web pages.
 
-Astrodienst has asked my to remove the public interface to pcalc, i.e.
+Astrodienst has asked me to remove the public interface to pcalc, i.e.
 swepcalc.h. 
 http://tech.groups.yahoo.com/group/swisseph/message/3129
 This will make this version of astrodienst upwards compatible
