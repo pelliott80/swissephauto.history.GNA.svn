@@ -23,7 +23,12 @@ BuildRequires:  fdupes
 Source0:        http://download.berlios.de/swissephauto/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.astro.com/pub/swisseph/swe_unix_src_1.77.00.tar.gz
 Source2:	http://download.berlios.de/swissephauto/libswe_1.77.00.0001.orig-astrodocsrc.tar.gz
+
+#fix a location of data applies to distros
+#upstream does not need.
 Patch0:		ephepath-fix
+#fix a simple spelling error
+#upstream has been notified.
 Patch1:		swetest.spelling.calender.patch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
@@ -40,25 +45,12 @@ to 3000 AD and required 550 Mb of disk space. DE406 is a compressed
 version of DE405 which requires 200 MB while maintaining a precision
 of better than 1 m for the moon and 25 m for the planets.
 
-
-Author:
--------
-    Dieter Koch and Alois Treindl of Astrodienst AG, Switzerland
-    Paul Elliott <pelliott@blackpatchpanel.com>
-
-
 %package -n libswe0
 Summary:        Shared library for libswe
 Group:          Productivity/Scientific/Astronomy
 
 %description -n libswe0
 This package contains the shared library needed for libswe.
-
-Author:
--------
-    Dieter Koch and Alois Treindl of Astrodienst AG, Switzerland
-    Paul Elliott <pelliott@blackpatchpanel.com>
-
 
 %package        devel
 Summary:        Development files for libswe
@@ -69,16 +61,40 @@ Requires:       %{name} = %{version}
 The libswe-devel package contains libraries and header files, man pages,
 and documentation for developing applications that use libswe.
 
-Author:
--------
-    Dieter Koch and Alois Treindl of Astrodienst AG, Switzerland
-    Paul Elliott <pelliott@blackpatchpanel.com>
+%package -n swe-basic-data
+Summary:	Basic data required to use libswe
+Group:          Productivity/Scientific/Astronomy
+%description    -n swe-basic-data
+basic data files for the libswe package
+This package includes basic data files needed by libswe, the Swiss Ephemeris.
+The basic data consists of these files:
+/usr/share/libswe/users/ephe/sedeltat.txt.inactive
+/usr/share/libswe/users/ephe/sefstars.txt
+/usr/share/libswe/users/ephe/seleapsec.txt
+/usr/share/libswe/users/ephe/seorbel.txt
+/usr/share/libswe/users/ephe/fixstars.cat
+The Swiss Ephemeris library can be used without installed data,
+if the user provides that data in her own private directory
+and points to it with SE_EPHE_PATH.
+
 
 
 %prep
-%setup -q
-%patch0 -p1 -z .deb
-%patch1 -p1 -b .tar_header
+%setup
+%setup -T -D -a 1 -c -n %{name}-%{version}/astrodienst
+%setup -T -D -a 2 -c -n %{name}-%{version}/astrodocsrc
+cd ..
+echo aftercd
+ls -R
+pwd
+%patch0 -p1
+%patch1 -p1
+
+
+
+
+
+
 # set correct version for .so build
 %define ltversion %(echo %{version} | tr '.' ':')
 sed -i 's/-rpath $(libdir)/-rpath $(libdir) -version-number %{ltversion}/' \
@@ -124,5 +140,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.so
 %{_mandir}/man3/*.3*
 
+%files -n swe-basic-data
 
 %changelog
