@@ -1,0 +1,24 @@
+Source: swe-standard-data
+Section: science
+Priority: extra
+Maintainer: Paul Elliott <pelliott@blackpatchpanel.com>
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev
+Standards-Version: 3.9.1
+Homepage: http://swissephauto.blackpatchpanel.com/
+Vcs-Svn: http://svn.berlios.de/svnroot/repos/swissephauto/trunk/swe-standard-data/
+Vcs-Browser: http://svn.berlios.de/viewvc/swissephauto/trunk/swe-standard-data/
+
+
+Package: swe-standard-data
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: swe-basic-data
+Description: standard data for the Swiss Ephemeris
+ all of the standard data, i.e. the usual .se1 files, for the Swiss Ephemeris.
+ All of the .se1 files located here: 
+   ftp://ftp.astro.com/pub/swisseph/ephe/*.se1
+ are in the package. This data can be used with the Swiss Ephemeris library,
+ libswe0. This package uses 36 meg. It contains 54 .se1 files.
+ Installed in /usr/share/libswe/users/ephe/
+ The Swiss Ephemeris library has been patched so that it looks to this location
+ by default.

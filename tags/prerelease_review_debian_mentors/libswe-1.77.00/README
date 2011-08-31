@@ -1,0 +1,73 @@
+This is the README file for Swiss Ephemeris library made with
+autotools on GNU/LINUX or other autotools friendly environments.
+As of today, no changes have been made to the original Swiss Ephemeris
+source code.
+
+Format of source version. The current source version is
+1.77.00.0001. In this number is the source version of the 
+Astrodienst files. That is this version of the Swiss Ephemeris library for
+Autotools is based on the file swe_unix_src_1.77.00.tar.gz
+from Astrodienst. The 0001 part indicates this is the first version for the
+autotools part.
+
+
+The Swiss Ephemeris also runs under MSDOS, Windows, and other
+environments. For that version see: http://www.astro.com/swisseph/
+
+The file COPYING and LICENSE  describe the license for this version
+of the program.
+
+the doc subdirectory contains the original documentation which exhaustively
+documents the API.
+
+The file INSTALL tells how the library may be installed.
+
+The files should be organized like this:
+
+
+$(top_builddir)  -----|  main autotools control files including configure.ac
+                 |
+                 +----|  $(top_builddir)/src -- build autotools files for
+                 |                              libraries, executables
+                 +----|  $(top_builddir)/doc -- build autotools files for
+                 |                              documentation
+                 +----|  $(top_builddir)/astrodienst =$(astrodienst)
+                 |                              source distribution files from
+                 |                              astrodienst 
+                 +----|  $(top_builddir)/astrodocsrc =$(astrodocsrc)
+                                                Astrodienst source files left out
+                                                of astrodienst's distribution.
+                                                Resourced by Paul Elliott.
+                                                contains note from astrodienst
+                                                asserting the LICENSE.
+
+The files refered to by $(astrodienst) and $(astrodocsrc) can be moved
+at make time by defining astrodienst and astrodocsrc on the make line:
+i.e.
+./configure   my_other_parameters
+make astrodienst=my_location_for_swe_distribution_files \
+astrodocsrc=my_location_for_swe_doc_files
+sudo make install
+
+
+Hopefully the astrodocsrc directory will be come unneccessary at the
+next release from astrodienst!
+
+The astrodienst distribution contains pdf and html files that document
+the library extensively. These files have been rebuild from their
+sources in the for GNU/LINUX versions. Refer to these files for all
+documentation.
+
+Astrodienst did not provide GNU/Linux style man pages. My man pages refer
+users to astrodienst's other documentation.
+
+Astrodienst has asked me to remove the public interface to pcalc, i.e.
+swepcalc.h. 
+http://tech.groups.yahoo.com/group/swisseph/message/3129
+This will make this version of astrodienst upwards compatible
+with the next release from astrodienst which will not included it.
+I believe no freesoftware actualy uses this code.
+Remove #include "swepcalc.h" from your code if you have it.
+This version of the library will not work if you do this include.
+You will have to remove it anyway when v 78 comes out because astrodienst is 
+making it go away.
