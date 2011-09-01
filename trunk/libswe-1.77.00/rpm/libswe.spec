@@ -98,7 +98,7 @@ pwd
 
 %build
 
-%configure --disable-static
+%configure --disable-static --docdir=%{_defaultdocdir}/libswe-devel
 make %{?jobs:-j %jobs}
 
 %install
