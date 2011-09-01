@@ -21,9 +21,9 @@
 vpath %.doc $(astrodocsrc)
 vpath %.gif $(astrodienst)/doc
 
-pdfdir=${docdir}/../libswe-dev
-htmldir=${docdir}/../libswe-dev
-astrodocdir=${docdir}/../libswe-dev
+pdfdir=${docdir}
+htmldir=${docdir}
+astrodocdir=${docdir}
 
 SUFFIXES = .pdf .html .doc
 

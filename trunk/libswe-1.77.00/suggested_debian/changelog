@@ -39,5 +39,6 @@ libswe (1.77.00.0001-1) unstable; urgency=low
   * increase description verbosity in control file
   * remove 1st person reference from libswe-dev.doc-base.swisseph
   * new debian/libswe0.symbols file
+  * move docdir to /usr/share/doc/libswe-dev
 
- -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 29 Aug 2011 01:58:37 -0500
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Thu, 01 Sep 2011 03:32:10 -0500
