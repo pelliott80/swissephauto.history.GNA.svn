@@ -95,49 +95,38 @@ pwd
 
 
 
-# set correct version for .so build
-%define ltversion %(echo %{version} | tr '.' ':')
-sed -i 's/-rpath $(libdir)/-rpath $(libdir) -version-number %{ltversion}/' \
-  lib/Makefile.in
-
 
 %build
-cp /usr/share/libtool/config/config.sub /usr/share/libtool/config/ltmain.sh autoconf
+
 %configure --disable-static
-# Don't use rpath!
-cp /usr/bin/libtool .
-sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
-sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 make %{?jobs:-j %jobs}
 
 %install
 %makeinstall
-# Without this we get no debuginfo and stripping
-chmod +x $RPM_BUILD_ROOT%{_libdir}/libtar.so.%{version}
-rm $RPM_BUILD_ROOT%{_libdir}/*.la
-rm $RPM_BUILD_ROOT%{_libdir}/*.a
+rm $RPM_BUILD_ROOT/%_libdir/libswe*.la
+%if 0%{?suse_version} || 0%{?sles_version}
 %fdupes -s %{buildroot}%{_mandir}
+%endif
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -n libtar1 -p /sbin/ldconfig
-%postun -n libtar1 -p /sbin/ldconfig
 
 %files
 %defattr(-,root,root,-)
 %doc COPYRIGHT TODO README ChangeLog*
 %{_bindir}/%{name}
 
-%files -n libtar1
+%files -n libswe0
 %defattr(-,root,root,-)
 %{_libdir}/lib*.so.*
 
 %files devel
 %defattr(-,root,root,-)
-%{_includedir}/libtar.h
-%{_includedir}/libtar_listhash.h
+%{_includedir}/*.h
 %{_libdir}/lib*.so
+%{_mandir}/man1/*.1*
 %{_mandir}/man3/*.3*
 
 %files -n swe-basic-data
