@@ -71,3 +71,9 @@ Remove #include "swepcalc.h" from your code if you have it.
 This version of the library will not work if you do this include.
 You will have to remove it anyway when v 78 comes out because astrodienst is 
 making it go away.
+
+Most GNU/linux users will want the Swiss Emphemris basic data, that is
+all the .txt files in Astrodienst distribution. Alternatively,
+the user can supply his own data in a private directory.
+
+In addition users will want the astrodienst .se1 files.
