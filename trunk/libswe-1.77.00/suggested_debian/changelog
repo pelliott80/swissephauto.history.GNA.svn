@@ -40,5 +40,6 @@ libswe (1.77.00.0001-1) unstable; urgency=low
   * remove 1st person reference from libswe-dev.doc-base.swisseph
   * new debian/libswe0.symbols file
   * move docdir to /usr/share/doc/libswe-dev
+  * insure copyright installed.
 
- -- Paul Elliott <pelliott@blackpatchpanel.com>  Thu, 01 Sep 2011 03:32:10 -0500
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Thu, 01 Sep 2011 08:26:13 -0500
