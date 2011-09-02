@@ -21,6 +21,7 @@ BuildRequires:  fdupes
 
 
 Source0:        http://download.berlios.de/swissephauto/%{name}-%{version}.tar.gz
+	cp %{builddir}/COPYING %{builddir}/copyright
 Source1:	ftp://ftp.astro.com/pub/swisseph/swe_unix_src_1.77.00.tar.gz
 Source2:	http://download.berlios.de/swissephauto/libswe_1.77.00.0001.orig-astrodocsrc.tar.gz
 
@@ -48,6 +49,7 @@ of better than 1 m for the moon and 25 m for the planets.
 %package -n libswe0
 Summary:        Shared library for libswe
 Group:          Productivity/Scientific/Astronomy
+Recommends:	swe-basic-data, swe-standard-data
 
 %description -n libswe0
 This package contains the shared library needed for libswe.
@@ -113,10 +115,6 @@ rm $RPM_BUILD_ROOT/%_libdir/libswe*.la
 rm -rf $RPM_BUILD_ROOT
 
 
-%files
-%defattr(-,root,root,-)
-%doc COPYRIGHT TODO README ChangeLog*
-%{_bindir}/%{name}
 
 %files -n libswe0
 %defattr(-,root,root,-)
@@ -124,11 +122,27 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(-,root,root,-)
+%dir %{_defaultdocdir}/libswe-devel
+%doc copyright
+%{_defaultdocdir}/libswe-devel/AUTHORS
+%{_defaultdocdir}/libswe-devel/README
+%{_defaultdocdir}/libswe-devel/NEWS
+%{_defaultdocdir}/libswe-devel/*.gif
+%{_defaultdocdir}/libswe-devel/*.html
+%{_defaultdocdir}/libswe-devel/*.pdf
 %{_includedir}/*.h
 %{_libdir}/lib*.so
 %{_mandir}/man1/*.1*
 %{_mandir}/man3/*.3*
+%{_bindir}/*
 
 %files -n swe-basic-data
+%defattr(-,root,root,-)
+%doc copyright README
+%dir %{_datadir}/libswe
+%dir %{_datadir}/libswe/users
+%dir %{_datadir}/libswe/users/ephe
+%{_datadir}/libswe/users/ephe/*
+
 
 %changelog
