@@ -13,5 +13,6 @@ swe-standard-data (00001-1) unstable; urgency=low
   * empty watch file
   * remove period from 1st line of description.
   * more information in extended description.
+  * new README.Linux
 
- -- Paul Elliott <pelliott@blackpatchpanel.com>  Thu, 25 Aug 2011 00:50:32 -0500
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Thu, 01 Sep 2011 22:26:20 -0500
