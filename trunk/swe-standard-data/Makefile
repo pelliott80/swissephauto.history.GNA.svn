@@ -183,6 +183,7 @@ AM_CFLAGS = \
 
 dist_doc_DATA = \
 	README.TXT\
+	README.Linux\
 	COPYING\
 	LICENSE.TXT\
 	AUTHORS
