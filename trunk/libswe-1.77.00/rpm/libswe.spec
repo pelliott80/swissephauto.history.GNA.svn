@@ -11,8 +11,10 @@ License:        GPL2+
 Group:          Productivity/Scientific/Astronomy
 Url:            http://swissephauto.blackpatchpanel.com/
 
-
 BuildRequires:  libtool 
+BuildRequires:	unoconv
+BuildRequires:	OpenOffice_org-writer
+
  
 #suse version uses fdupes
 %if 0%{?suse_version} || 0%{?sles_version}
@@ -21,9 +23,8 @@ BuildRequires:  fdupes
 
 
 Source0:        http://download.berlios.de/swissephauto/%{name}-%{version}.tar.gz
-	cp %{builddir}/COPYING %{builddir}/copyright
 Source1:	ftp://ftp.astro.com/pub/swisseph/swe_unix_src_1.77.00.tar.gz
-Source2:	http://download.berlios.de/swissephauto/libswe_1.77.00.0001.orig-astrodocsrc.tar.gz
+Source2:	http://download.berlios.de/swissephauto/swe_unix_docsrc_1.77.00.tar.gz
 
 #fix a location of data applies to distros
 #upstream does not need.
@@ -82,13 +83,10 @@ and points to it with SE_EPHE_PATH.
 
 
 %prep
-%setup
-%setup -T -D -a 1 -c -n %{name}-%{version}/astrodienst
-%setup -T -D -a 2 -c -n %{name}-%{version}/astrodocsrc
+%setup -q
+%setup -q -T -D -a 1 -c -n %{name}-%{version}/astrodienst
+%setup -q -T -D -a 2 -c -n %{name}-%{version}/astrodocsrc
 cd ..
-echo aftercd
-ls -R
-pwd
 %patch0 -p1
 %patch1 -p1
 
@@ -99,7 +97,8 @@ pwd
 
 
 %build
-
+cd ..
+cp COPYING copyright
 %configure --disable-static --docdir=%{_defaultdocdir}/libswe-devel
 make %{?jobs:-j %jobs}
 
