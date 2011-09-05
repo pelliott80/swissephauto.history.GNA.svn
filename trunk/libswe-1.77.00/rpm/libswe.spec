@@ -12,8 +12,8 @@ Group:          Productivity/Scientific/Astronomy
 Url:            http://swissephauto.blackpatchpanel.com/
 
 BuildRequires:  libtool 
-BuildRequires:	unoconv
-BuildRequires:	OpenOffice_org-writer
+
+BuildRequires:	libreoffice-converter
 
  
 #suse version uses fdupes

@@ -3,7 +3,7 @@ dnl
 dnl
 dnl  This file is part of libswe for GNU/LINUX.
 dnl
-dnl    swelib for GNU/LINUX is free software: you can redistribute it and/or modify
+dnl    swelib for GNU/LINUX is free software: you can redistribute it and/or modif
 dnl    it under the terms of the GNU General Public License as published by
 dnl    the Free Software Foundation, either version 2 of the License, or
 dnl    (at your option) any later version.
@@ -27,7 +27,12 @@ AM_MAINTAINER_MODE
 
 AC_PROG_CC
 
+AC_ARG_VAR(WPCONVERT, [word processing conversion program, loconvert or unoconv])
 
+AC_CHECK_PROGS(WPCONVERT,[loconvert unoconv])
+
+AM_CONDITIONAL(HAVE_LOCONVERT,[test "x$WPCONVERT" == "xloconvert"])
+AM_CONDITIONAL(HAVE_UNOCONV,[test "x$WPCONVERT" == "xunoconv"])
 
 
 astrodienst='$(top_builddir)/astrodienst'

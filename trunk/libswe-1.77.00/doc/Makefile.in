@@ -156,6 +156,7 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
 VERSION = @VERSION@
+WPCONVERT = @WPCONVERT@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -485,26 +486,32 @@ uninstall-am: uninstall-htmlDATA uninstall-nodist_astrodocDATA \
 vpath %.doc $(astrodocsrc)
 vpath %.gif $(astrodienst)/doc
 
-#above was multi target build.
-.NOTPARALLEL: 
+@HAVE_LOCONVERT_TRUE@%.html : %.doc
+@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
 
-$(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
+@HAVE_LOCONVERT_TRUE@%.pdf : %.doc
+@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+
+#above was multi target build.
+@HAVE_UNOCONV_TRUE@.NOTPARALLEL: 
+
+@HAVE_UNOCONV_TRUE@$(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 #tricky code alert
 #in a subshell save pid of subshell, ($$$$) becomes $$ in subshell.
 #then exec the listener. result is listnener running detached with saved pid.
-	echo "echo "'$$$$'" >$@.pid ; exec unoconv --listener" | $(SHELL) &
-	for ext in html pdf ;do \
-	   for name in swephprg  swisseph ; do \
-	   		  echo "unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext}" ;\
-	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} \
-	   		  || \
-	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} ; \
-	   done; \
-	done
+@HAVE_UNOCONV_TRUE@	echo "echo "'$$$$'" >$@.pid ; exec unoconv --listener" | $(SHELL) &
+@HAVE_UNOCONV_TRUE@	for ext in html pdf ;do \
+@HAVE_UNOCONV_TRUE@	   for name in swephprg  swisseph ; do \
+@HAVE_UNOCONV_TRUE@	   		  echo "unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext}" ;\
+@HAVE_UNOCONV_TRUE@	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} \
+@HAVE_UNOCONV_TRUE@	   		  || \
+@HAVE_UNOCONV_TRUE@	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} ; \
+@HAVE_UNOCONV_TRUE@	   done; \
+@HAVE_UNOCONV_TRUE@	done
 #kill the saved pid, i.e. the listener. $$ becomes $ in the shell.
-	-kill $$(<$@.pid)
+@HAVE_UNOCONV_TRUE@	-kill $$(<$@.pid)
 #remove the pid save file
-	-rm $@.pid
+@HAVE_UNOCONV_TRUE@	-rm $@.pid
 
 swephprg.html: swephprg.doc
 swisseph.html: swisseph.doc

@@ -28,14 +28,23 @@ astrodocdir=${docdir}
 SUFFIXES = .pdf .html .doc
 
 
+html_DATA = swephprg.html  swisseph.html
+pdf_DATA = swephprg.pdf   swisseph.pdf
 
+if HAVE_LOCONVERT
 
+%.html : %.doc
+	loconvert --force $<  $@
+
+%.pdf : %.doc
+	loconvert --force $<  $@
+
+endif
+
+if HAVE_UNOCONV
 
 #above was multi target build.
 .NOTPARALLEL: 
-
-html_DATA = swephprg.html  swisseph.html
-pdf_DATA = swephprg.pdf   swisseph.pdf
 
 $(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 #tricky code alert
@@ -54,6 +63,8 @@ $(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 	-kill $$(<$@.pid)
 #remove the pid save file
 	-rm $@.pid
+
+endif
 
 swephprg.html: swephprg.doc
 swisseph.html: swisseph.doc
