@@ -13,12 +13,14 @@ Url:            http://swissephauto.blackpatchpanel.com/
 
 BuildRequires:  libtool 
 
-BuildRequires:	libreoffice-converter
 
  
 #suse version uses fdupes
 %if 0%{?suse_version} || 0%{?sles_version}
 BuildRequires:  fdupes
+#BuildRequires:	libreoffice-converter
+BuildRequires:	htmldoc
+
 %endif
 
 
@@ -83,10 +85,10 @@ and points to it with SE_EPHE_PATH.
 
 
 %prep
-%setup -q
 %setup -q -T -D -a 1 -c -n %{name}-%{version}/astrodienst
 %setup -q -T -D -a 2 -c -n %{name}-%{version}/astrodocsrc
-cd ..
+%setup -q -D -T -b 0
+
 %patch0 -p1
 %patch1 -p1
 
@@ -97,17 +99,23 @@ cd ..
 
 
 %build
-cd ..
 cp COPYING copyright
-%configure --disable-static --docdir=%{_defaultdocdir}/libswe-devel
+mkdir -p %{_builddir}%{_defaultdocdir}/libswe-devel
+%configure WPCONVERT=htmldoc --disable-static --docdir=%{_defaultdocdir}/libswe-devel 
 make %{?jobs:-j %jobs}
 
+
 %install
-%makeinstall
+mkdir -p %{buildroot}/%{_defaultdocdir}/libswe-devel
+cp copyright %{buildroot}/%{_defaultdocdir}/libswe-devel/copyright
+mkdir -p %{buildroot}/%{_defaultdocdir}/swe-basic-data
+cp copyright %{buildroot}/%{_defaultdocdir}/swe-basic-data/copyright
+make DESTDIR=%{buildroot} install
 rm $RPM_BUILD_ROOT/%_libdir/libswe*.la
 %if 0%{?suse_version} || 0%{?sles_version}
 %fdupes -s %{buildroot}%{_mandir}
 %endif
+
 
 
 %clean
@@ -121,23 +129,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(-,root,root,-)
-%dir %{_defaultdocdir}/libswe-devel
-%doc copyright
-%{_defaultdocdir}/libswe-devel/AUTHORS
-%{_defaultdocdir}/libswe-devel/README
-%{_defaultdocdir}/libswe-devel/NEWS
-%{_defaultdocdir}/libswe-devel/*.gif
-%{_defaultdocdir}/libswe-devel/*.html
-%{_defaultdocdir}/libswe-devel/*.pdf
+%{_defaultdocdir}/libswe-devel
 %{_includedir}/*.h
-%{_libdir}/lib*.so
+%{_libdir}/libswe.so
+%{_libdir}/pkgconfig/*.pc
 %{_mandir}/man1/*.1*
 %{_mandir}/man3/*.3*
 %{_bindir}/*
 
 %files -n swe-basic-data
 %defattr(-,root,root,-)
-%doc copyright README
+%{_defaultdocdir}/swe-basic-data
 %dir %{_datadir}/libswe
 %dir %{_datadir}/libswe/users
 %dir %{_datadir}/libswe/users/ephe
