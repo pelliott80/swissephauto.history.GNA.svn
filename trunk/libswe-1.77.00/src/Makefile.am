@@ -120,7 +120,7 @@ nodist_ephepkgdata_DATA = \
 
 
 
-swedocdir = ${docdir}/../libswe-dev
+swedocdir = ${docdir}
 #do not distribute stuff distributed by astrodienst
 # change add nodist
 nodist_swedoc_DATA = \

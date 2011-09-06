@@ -19,6 +19,10 @@ One can then procede as described below.
 make requires a program to convert .doc files to .html and .rpm.
 This program can be unoconv or loconvert.
 
+If both of these programs fail for a distro, declare the distributed
+.html to be the source, (most convenient), and create the .pdf
+with htmldoc.
+
 
    Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright

@@ -485,12 +485,18 @@ uninstall-am: uninstall-htmlDATA uninstall-nodist_astrodocDATA \
 
 vpath %.doc $(astrodocsrc)
 vpath %.gif $(astrodienst)/doc
+vpath %.htm $(astrodienst)/doc
 
 @HAVE_LOCONVERT_TRUE@%.html : %.doc
 @HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
 
 @HAVE_LOCONVERT_TRUE@%.pdf : %.doc
 @HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+
+@HAVE_LOCONVERT_TRUE@swephprg.html: swephprg.doc
+@HAVE_LOCONVERT_TRUE@swisseph.html: swisseph.doc
+@HAVE_LOCONVERT_TRUE@swephprg.pdf: swephprg.doc
+@HAVE_LOCONVERT_TRUE@swisseph.pdf: swisseph.doc
 
 #above was multi target build.
 @HAVE_UNOCONV_TRUE@.NOTPARALLEL: 
@@ -513,10 +519,21 @@ vpath %.gif $(astrodienst)/doc
 #remove the pid save file
 @HAVE_UNOCONV_TRUE@	-rm $@.pid
 
-swephprg.html: swephprg.doc
-swisseph.html: swisseph.doc
-swephprg.pdf: swephprg.doc
-swisseph.pdf: swisseph.doc
+@HAVE_UNOCONV_TRUE@swephprg.html: swephprg.doc
+@HAVE_UNOCONV_TRUE@swisseph.html: swisseph.doc
+@HAVE_UNOCONV_TRUE@swephprg.pdf: swephprg.doc
+@HAVE_UNOCONV_TRUE@swisseph.pdf: swisseph.doc
+
+@HAVE_HTMLDOC_TRUE@swephprg.html:	$(astrodienst)/doc/swephprg.htm
+@HAVE_HTMLDOC_TRUE@	cp  $<  $@
+@HAVE_HTMLDOC_TRUE@swisseph.html:	$(astrodienst)/doc/swisseph.htm
+@HAVE_HTMLDOC_TRUE@	cp  $<  $@
+
+@HAVE_HTMLDOC_TRUE@%.pdf:	%.html
+@HAVE_HTMLDOC_TRUE@	htmldoc -f $@ --webpage $<
+
+@HAVE_HTMLDOC_TRUE@swephprg.pdf:	swephprg.html
+@HAVE_HTMLDOC_TRUE@swisseph.pdf:	swisseph.html
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

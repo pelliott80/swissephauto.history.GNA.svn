@@ -20,6 +20,7 @@
 
 vpath %.doc $(astrodocsrc)
 vpath %.gif $(astrodienst)/doc
+vpath %.htm $(astrodienst)/doc
 
 pdfdir=${docdir}
 htmldir=${docdir}
@@ -38,6 +39,12 @@ if HAVE_LOCONVERT
 
 %.pdf : %.doc
 	loconvert --force $<  $@
+
+
+swephprg.html: swephprg.doc
+swisseph.html: swisseph.doc
+swephprg.pdf: swephprg.doc
+swisseph.pdf: swisseph.doc
 
 endif
 
@@ -64,12 +71,26 @@ $(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 #remove the pid save file
 	-rm $@.pid
 
-endif
-
 swephprg.html: swephprg.doc
 swisseph.html: swisseph.doc
 swephprg.pdf: swephprg.doc
 swisseph.pdf: swisseph.doc
+
+endif
+
+if HAVE_HTMLDOC
+swephprg.html:	$(astrodienst)/doc/swephprg.htm
+	cp  $<  $@
+swisseph.html:	$(astrodienst)/doc/swisseph.htm
+	cp  $<  $@
+
+%.pdf:	%.html
+	htmldoc -f $@ --webpage $<
+
+swephprg.pdf:	swephprg.html
+swisseph.pdf:	swisseph.html
+
+endif
 
 #swephprg_html_SOURCES = swephprg.doc
 
