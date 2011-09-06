@@ -13,7 +13,7 @@ Url:            http://swissephauto.blackpatchpanel.com/
 
 BuildRequires:  libtool 
 
-
+BuildRequires:  pkg-config
  
 #suse version uses fdupes
 %if 0%{?suse_version} || 0%{?sles_version}
@@ -59,7 +59,7 @@ This package contains the shared library needed for libswe.
 
 %package        devel
 Summary:        Development files for libswe
-Group:          Productivity/Scientific/Astronomy
+Group:          Development/Libraries/C and C++
 Requires:       %{name} = %{version}
 
 %description    devel
@@ -99,28 +99,35 @@ and points to it with SE_EPHE_PATH.
 
 
 %build
-cp COPYING copyright
 mkdir -p %{_builddir}%{_defaultdocdir}/libswe-devel
 %configure WPCONVERT=htmldoc --disable-static --docdir=%{_defaultdocdir}/libswe-devel 
 make %{?jobs:-j %jobs}
 
-
 %install
-mkdir -p %{buildroot}/%{_defaultdocdir}/libswe-devel
-cp copyright %{buildroot}/%{_defaultdocdir}/libswe-devel/copyright
-mkdir -p %{buildroot}/%{_defaultdocdir}/swe-basic-data
-cp copyright %{buildroot}/%{_defaultdocdir}/swe-basic-data/copyright
+ls -lR %{buildroot}
+mkdir -p %{buildroot}%{_defaultdocdir}/libswe-devel
+mkdir -p %{buildroot}%{_defaultdocdir}/swe-basic-data
 make DESTDIR=%{buildroot} install
 rm $RPM_BUILD_ROOT/%_libdir/libswe*.la
+cp COPYING %{buildroot}%{_defaultdocdir}/libswe-devel/copyright
+rm %{buildroot}%{_defaultdocdir}/libswe-devel/COPYING
+cp COPYING %{buildroot}%{_defaultdocdir}/swe-basic-data/copyright
+
+
 %if 0%{?suse_version} || 0%{?sles_version}
 %fdupes -s %{buildroot}%{_mandir}
 %endif
 
 
 
+
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post -n libswe0 -p /sbin/ldconfig
+%postun -n libswe0 -p /sbin/ldconfig
+ 
 
 
 %files -n libswe0
