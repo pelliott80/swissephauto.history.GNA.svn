@@ -14,8 +14,8 @@ is 1.77.00.0001.
 This describes these 3 tarballs where they come from and what they do.
 
 (1)
-http://prdownload.berlios.de/softdevice/libswe-1.77.00.0001.tar.gz
-	becomes libswe_1.77.00.0001.orig.tar.gz in the source.
+http://prdownload.berlios.de/softdevice/libswe-1.77.00.0001.tar.bz2
+	becomes libswe_1.77.00.0001.orig.tar.bz2 in the source.
 
 This was create by Paul Elliott the web pages for this file are:
 http://swissephauto.blackpatchpanel.com/
@@ -38,8 +38,8 @@ files is missing.  Web page for this is:
 http://www.astro.com/swisseph/swephinfo_e.htm?lang=e
 
 (3)
-http://prdownload.berlios.de/softdevice/libswe-1.77.00.astrodocsrc.tar.gz
-	becomes libswe_1.77.00.0001.orig-astrodocsrc.tar.gz  in the source.
+http://prdownload.berlios.de/softdevice/libswe-1.77.00.astrodocsrc.tar.bz2
+	becomes libswe_1.77.00.0001.orig-astrodocsrc.tar.bz2  in the source.
 
 This provides the missing documentation source and it contains a statment
 from the upstream authors that the license applies to these files as well.
@@ -55,12 +55,13 @@ With all the the problems with the astrodienst tarball, it may be asked,
 "Why do you not resource the astrodiest tarball into the tarball
 containing your auto*tools tarball creating one unified source
 without the confusion and complications of a multi source tarball?
-Everything could be done in a GNU/Linux standard way, the Faux pas
+Everything could be done in a GNU/Linux standard way, the faux pas
 associated with the astrodienst tarball could be eliminated."
 
-The answer to this is that I know my limitations. Astrological programming
-is an arcane art that requires years of study. While I am a C language
-programer and a packager, I simply am not an astrological programmer.
+The answer to this is that I know my limitations. Astrological
+programming is an arcane art that requires many years of study. While
+I am a C language programer and a packager, I simply am not an
+astrological programmer.
 
 Not having any .c or .h files in my release is my institutional way of
 refusing responsibility for the content of these files. All bugs
