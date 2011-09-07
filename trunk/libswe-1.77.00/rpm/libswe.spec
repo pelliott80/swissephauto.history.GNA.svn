@@ -24,9 +24,9 @@ BuildRequires:	htmldoc
 %endif
 
 
-Source0:        http://download.berlios.de/swissephauto/%{name}-%{version}.tar.gz
+Source0:        http://download.berlios.de/swissephauto/%{name}-%{version}.tar.bz2
 Source1:	ftp://ftp.astro.com/pub/swisseph/swe_unix_src_1.77.00.tar.gz
-Source2:	http://download.berlios.de/swissephauto/swe_unix_docsrc_1.77.00.tar.gz
+Source2:	http://download.berlios.de/swissephauto/swe_unix_docsrc_1.77.00.tar.bz2
 
 #fix a location of data applies to distros
 #upstream does not need.
@@ -67,6 +67,7 @@ The libswe-devel package contains libraries and header files, man pages,
 and documentation for developing applications that use libswe.
 
 %package -n swe-basic-data
+BuildArch: noarch
 Summary:	Basic data required to use libswe
 Group:          Productivity/Scientific/Astronomy
 %description    -n swe-basic-data
