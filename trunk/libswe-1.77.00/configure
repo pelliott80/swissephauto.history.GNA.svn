@@ -2706,8 +2706,8 @@ fi
 
 
 # Define the identity of the package.
- PACKAGE=libswe
- VERSION=1.77.00.0001
+ PACKAGE='libswe'
+ VERSION='1.77.00.0001'
 
 
 cat >>confdefs.h <<_ACEOF

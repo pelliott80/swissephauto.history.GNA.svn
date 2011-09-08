@@ -21,7 +21,7 @@ dnl Created by Anjuta application wizard.
 AC_INIT(libswe, 1.77.00.0001)
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
-AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
+AM_INIT_AUTOMAKE([dist-bzip2 no-dist-gzip])
 AC_CONFIG_HEADERS([config.h])
 AM_MAINTAINER_MODE
 
