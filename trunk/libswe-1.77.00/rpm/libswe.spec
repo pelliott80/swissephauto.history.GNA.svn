@@ -19,15 +19,24 @@ BuildRequires:  pkg-config
 %if 0%{?suse_version} || 0%{?sles_version}
 BuildRequires:  fdupes
 
+
 BuildRequires:	libreoffice-converter
 BuildRequires:  libreoffice-ure, libreoffice-writer, libreoffice-filters, libreoffice-base
 BuildRequires:  procps
-
+%define wpconvert loconvert
 
 #BuildRequires:	htmldoc
 
 %endif
 
+%if %{defined fedora}
+
+BuildRequires:	unoconv
+BuildRequires:  libreoffice-ure, libreoffice-writer, libreoffice-filters, libreoffice-base
+%define wpconvert unoconv
+
+
+%endif
 
 Source0:        http://download.berlios.de/swissephauto/%{name}-%{version}.tar.bz2
 Source1:	ftp://ftp.astro.com/pub/swisseph/swe_unix_src_1.77.00.tar.gz
@@ -57,7 +66,9 @@ of better than 1 m for the moon and 25 m for the planets.
 %package -n libswe0
 Summary:        Shared library for libswe
 Group:          Productivity/Scientific/Astronomy
+%if 0%?suse_version >= 1010
 Recommends:	swe-basic-data, swe-standard-data
+%endif
 
 %description -n libswe0
 This package contains the shared library needed for libswe.
@@ -106,7 +117,7 @@ and points to it with SE_EPHE_PATH.
 
 %build
 mkdir -p %{_builddir}%{_defaultdocdir}/libswe-devel
-%configure WPCONVERT=loconvert --disable-static --docdir=%{_defaultdocdir}/libswe-devel 
+%configure WPCONVERT=$(wpconvert) --disable-static --docdir=%{_defaultdocdir}/libswe-devel 
 make 
 
 %install
