@@ -18,8 +18,13 @@ BuildRequires:  pkg-config
 #suse version uses fdupes
 %if 0%{?suse_version} || 0%{?sles_version}
 BuildRequires:  fdupes
-#BuildRequires:	libreoffice-converter
-BuildRequires:	htmldoc
+
+BuildRequires:	libreoffice-converter
+BuildRequires:  libreoffice-ure, libreoffice-writer, libreoffice-filters, libreoffice-base
+BuildRequires:  procps
+
+
+#BuildRequires:	htmldoc
 
 %endif
 
@@ -101,11 +106,10 @@ and points to it with SE_EPHE_PATH.
 
 %build
 mkdir -p %{_builddir}%{_defaultdocdir}/libswe-devel
-%configure WPCONVERT=htmldoc --disable-static --docdir=%{_defaultdocdir}/libswe-devel 
-make %{?jobs:-j %jobs}
+%configure WPCONVERT=loconvert --disable-static --docdir=%{_defaultdocdir}/libswe-devel 
+make 
 
 %install
-ls -lR %{buildroot}
 mkdir -p %{buildroot}%{_defaultdocdir}/libswe-devel
 mkdir -p %{buildroot}%{_defaultdocdir}/swe-basic-data
 make DESTDIR=%{buildroot} install
