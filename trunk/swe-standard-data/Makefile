@@ -85,8 +85,8 @@ am__remove_distdir = \
   { test ! -d "$(distdir)" \
     || { find "$(distdir)" -type d ! -perm -200 -exec chmod u+w {} ';' \
          && rm -fr "$(distdir)"; }; }
-DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
+DIST_ARCHIVES = $(distdir).tar.bz2
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
 ACLOCAL = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run aclocal-1.11
@@ -390,7 +390,6 @@ distdir: $(DISTFILES)
 dist-gzip: distdir
 	tardir=$(distdir) && $(am__tar) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz
 	$(am__remove_distdir)
-
 dist-bzip2: distdir
 	tardir=$(distdir) && $(am__tar) | bzip2 -9 -c >$(distdir).tar.bz2
 	$(am__remove_distdir)
@@ -417,7 +416,7 @@ dist-zip: distdir
 	$(am__remove_distdir)
 
 dist dist-all: distdir
-	tardir=$(distdir) && $(am__tar) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz
+	tardir=$(distdir) && $(am__tar) | bzip2 -9 -c >$(distdir).tar.bz2
 	$(am__remove_distdir)
 
 # This target untars the dist file and tries a VPATH configuration.  Then

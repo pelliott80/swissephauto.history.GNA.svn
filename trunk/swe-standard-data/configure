@@ -2235,8 +2235,8 @@ fi
 
 
 # Define the identity of the package.
- PACKAGE=swe-standard-data
- VERSION=00001
+ PACKAGE='swe-standard-data'
+ VERSION='00001'
 
 
 cat >>confdefs.h <<_ACEOF
