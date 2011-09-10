@@ -1,0 +1,54 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH swemini 1 "August  10, 2011"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.mso www.tmac
+.SH NAME
+swemini \- swemini.c
+.SH SYNOPSIS
+.B swemini
+.RI "A minimal program to test the Swiss Ephemeris."
+
+.SH DESCRIPTION
+.HP 8
+Input: a date (in gregorian calendar, sequence day.month.year)
+.HP 8
+Output: Planet positions at midnight Universal time, ecliptic coordinates,
+geocentric apparent positions relative to true equinox of date, as 
+usual in western astrology.
+.PP
+Additional documentation can be found in the following files in the package libswe-devel:
+.HP 0
+/usr/share/doc/libswe/swephprg.pdf 
+.HP 0
+/usr/share/doc/libswe/swisseph.pdf
+.HP 0
+/usr/share/doc/libswe/swephprg.html
+.HP 0
+/usr/share/doc/libswe/swisseph.html
+.PP
+This documentation can also be found on line on astrodienst's web pages.
+.HP 0
+.URL "http://www.astro.com/swisseph/swisseph.htm" "General Documentation"
+.HP 0
+.URL "http://www.astro.com/swisseph/swephprg.htm" "Programmer's Documentation"
+
+.SH AUTHOR
+The Swiss Ephemeris was written by Dieter Koch and Alois Treindl of Astrodienst.
+.PP
+This manual page was written by Paul Elliott <pelliott@blackpatchpanel.com>
+from source comments in swemini.c,
+for the Debian project (and may be used by others).

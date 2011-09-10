@@ -1,0 +1,5 @@
+April 2011 Paul Elliott ports Swiss Ephemeris to Linux adding
+auto*tools infrastructure.
+
+July 2011 Paul Elliott uses vpath to seperate source from astrodienst into a seperate
+directories from the directories containing the auto*tools control files.

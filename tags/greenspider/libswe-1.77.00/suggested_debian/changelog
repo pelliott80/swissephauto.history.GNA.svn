@@ -1,0 +1,45 @@
+libswe (1.77.00.0001-1) unstable; urgency=low
+
+  * Initial release (Closes: #635672)  <635672 is the bug number of your ITP>
+  * done dh_make much configuring remains to be done.
+  * remove emacsen-*
+  * rename BROKEN to 0. add descriptions. fill in homepage.
+  * remove .la file
+  * new package swe-basic-data
+  * remove init.d.ex, libswe.default.ex
+  * install usr/share/doc/libswe/*
+  * libswe.doc-base pdf and html
+  * Readme.Debian
+  * manpage.3
+  * libswe.manpage
+  * TODO
+  * ${misc:Depends} added to libswe-dev
+  * move *.ex elsewhere
+  * usb/bin added libswe-dev for asample programs.
+  * libswe-dev.docbase now uses /usr/share/doc/libswe-dev
+  * usr/share/pkgconfig not used in libswe-dev.install
+  * build depends on unoconv
+  * remove LICNESE in copyright
+  * remove upstream INSTALL
+  * libswe-dev.manpages
+  * swetest.c swemini.c are examples
+  * specify them by orignal location.
+  * remove upstream ChangeLog
+  * add swetest.1 swemini.1 manpages
+  * move man pages to swissephauto project
+  * move data files to $(pkgdatadir)/users/ephe/
+  * patch SE_EPHE_PATH to be a directory that exists!
+  * this is ephepath-fix
+  * add vcs-svn, vcs-browser
+  * control Recommends: swe-basic-data, swe-standard-data
+  * explain multi tar ball source.
+  * openoffice.org-writer, openoffice.org-java-common needed for unoconv work
+  * fix section in control file
+  * create a comment only watch file
+  * increase description verbosity in control file
+  * remove 1st person reference from libswe-dev.doc-base.swisseph
+  * new debian/libswe0.symbols file
+  * move docdir to /usr/share/doc/libswe-dev
+  * insure copyright installed.
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Thu, 01 Sep 2011 08:26:13 -0500

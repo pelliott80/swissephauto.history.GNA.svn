@@ -1,0 +1,14 @@
+# 3 tarball sources are used. because of this no debian/watch file is possible:
+# See this bug:
+# http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=531321
+#
+# if a watch file were possible first part would look like this:
+#version=3
+#
+#opts=downloadurlmangle=s/prdownload/download/ \
+#
+#   http://developer.berlios.de/project/showfiles.php?group_id=12390 \
+#   http://prdownload.berlios.de/softdevice/libswe-(.*).tar.(?:gz|bz2)
+#
+#
+#what the entries would look like for the other 2 files is unknown

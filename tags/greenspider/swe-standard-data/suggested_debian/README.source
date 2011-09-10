@@ -1,0 +1,15 @@
+swe-standard-data for Debian
+----------------------------
+
+dpkg-source -x works. The release tar ball has not been created on
+berlios. When it is, (after criticism and fixes of the project),
+this file will be deleted and the lines below will become the watch file.
+
+#version=3
+
+#opts=downloadurlmangle=s/prdownload/download/ \
+#
+#   http://developer.berlios.de/project/showfiles.php?group_id=12390 \
+#   http://prdownload.berlios.de/softdevice/swe-standard-data-(.*).tar.(?:gz|bz2)
+
+
