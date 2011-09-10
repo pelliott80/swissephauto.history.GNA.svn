@@ -6,7 +6,7 @@
 
 
 Name:           swe-standard-data
-Version:        1.77.00.0001
+Version:        00001
 Release:        1
 License:        GPL2+
 Summary:        Standerd Data for the Swiss Ephemeris
