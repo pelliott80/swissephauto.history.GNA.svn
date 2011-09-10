@@ -34,17 +34,21 @@ pdf_DATA = swephprg.pdf   swisseph.pdf
 
 if HAVE_LOCONVERT
 
-%.html : %.doc
-	loconvert --force $<  $@
 
-%.pdf : %.doc
-	loconvert --force $<  $@
+#above was multi target build.
+# see https://bugzilla.novell.com/show_bug.cgi?id=715856#c1
+.NOTPARALLEL: 
+
 
 
 swephprg.html: swephprg.doc
+	loconvert --force $<  $@
 swisseph.html: swisseph.doc
+	loconvert --force $<  $@
 swephprg.pdf: swephprg.doc
+	loconvert --force $<  $@
 swisseph.pdf: swisseph.doc
+	loconvert --force $<  $@
 
 endif
 
@@ -91,14 +95,6 @@ swephprg.pdf:	swephprg.html
 swisseph.pdf:	swisseph.html
 
 endif
-
-#swephprg_html_SOURCES = swephprg.doc
-
-#swisseph_html_SOURCES = swisseph.doc
-
-#swephprg_pdf_SOURCES = swephprg.doc
-
-#swisseph_pdf_SOURCES = swisseph.doc
 
 #do not distribute stuff distributed by astrodienst
 # change add nodist
