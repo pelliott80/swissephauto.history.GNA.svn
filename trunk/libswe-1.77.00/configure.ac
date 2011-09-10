@@ -35,6 +35,9 @@ AM_CONDITIONAL(HAVE_LOCONVERT,[test "x$WPCONVERT" == "xloconvert"])
 AM_CONDITIONAL(HAVE_UNOCONV,[test "x$WPCONVERT" == "xunoconv"])
 AM_CONDITIONAL(HAVE_HTMLDOC,[test "x$WPCONVERT" == "xhtmldoc"])
 
+AC_ARG_ENABLE([docs], [  --enable-docs		disable when creating docs is impossible])
+AM_CONDITIONAL(DOCS,[test "x$enable_docs" != "xno"])
+
 
 astrodienst='$(top_builddir)/astrodienst'
 AC_SUBST(astrodienst)

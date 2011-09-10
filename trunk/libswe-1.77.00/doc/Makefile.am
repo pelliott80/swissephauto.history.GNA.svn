@@ -28,9 +28,12 @@ astrodocdir=${docdir}
 
 SUFFIXES = .pdf .html .doc
 
+if DOCS
 
 html_DATA = swephprg.html  swisseph.html
 pdf_DATA = swephprg.pdf   swisseph.pdf
+
+
 
 if HAVE_LOCONVERT
 
@@ -93,6 +96,8 @@ swisseph.html:	$(astrodienst)/doc/swisseph.htm
 
 swephprg.pdf:	swephprg.html
 swisseph.pdf:	swisseph.html
+
+endif
 
 endif
 

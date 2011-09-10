@@ -213,8 +213,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 astrodocdir = ${docdir}
 SUFFIXES = .pdf .html .doc
-html_DATA = swephprg.html  swisseph.html
-pdf_DATA = swephprg.pdf   swisseph.pdf
+@DOCS_TRUE@html_DATA = swephprg.html  swisseph.html
+@DOCS_TRUE@pdf_DATA = swephprg.pdf   swisseph.pdf
 
 #do not distribute stuff distributed by astrodienst
 # change add nodist
@@ -481,53 +481,53 @@ vpath %.htm $(astrodienst)/doc
 
 #above was multi target build.
 # see https://bugzilla.novell.com/show_bug.cgi?id=715856#c1
-@HAVE_LOCONVERT_TRUE@.NOTPARALLEL: 
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@.NOTPARALLEL: 
 
-@HAVE_LOCONVERT_TRUE@swephprg.html: swephprg.doc
-@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
-@HAVE_LOCONVERT_TRUE@swisseph.html: swisseph.doc
-@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
-@HAVE_LOCONVERT_TRUE@swephprg.pdf: swephprg.doc
-@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
-@HAVE_LOCONVERT_TRUE@swisseph.pdf: swisseph.doc
-@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@swephprg.html: swephprg.doc
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@swisseph.html: swisseph.doc
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@swephprg.pdf: swephprg.doc
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@swisseph.pdf: swisseph.doc
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
 
 #above was multi target build.
-@HAVE_UNOCONV_TRUE@.NOTPARALLEL: 
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@.NOTPARALLEL: 
 
-@HAVE_UNOCONV_TRUE@$(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@$(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 #tricky code alert
 #in a subshell save pid of subshell, ($$$$) becomes $$ in subshell.
 #then exec the listener. result is listnener running detached with saved pid.
-@HAVE_UNOCONV_TRUE@	echo "echo "'$$$$'" >$@.pid ; exec unoconv --listener" | $(SHELL) &
-@HAVE_UNOCONV_TRUE@	for ext in html pdf ;do \
-@HAVE_UNOCONV_TRUE@	   for name in swephprg  swisseph ; do \
-@HAVE_UNOCONV_TRUE@	   		  echo "unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext}" ;\
-@HAVE_UNOCONV_TRUE@	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} \
-@HAVE_UNOCONV_TRUE@	   		  || \
-@HAVE_UNOCONV_TRUE@	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} ; \
-@HAVE_UNOCONV_TRUE@	   done; \
-@HAVE_UNOCONV_TRUE@	done
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	echo "echo "'$$$$'" >$@.pid ; exec unoconv --listener" | $(SHELL) &
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	for ext in html pdf ;do \
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	   for name in swephprg  swisseph ; do \
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	   		  echo "unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext}" ;\
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} \
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	   		  || \
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} ; \
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	   done; \
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	done
 #kill the saved pid, i.e. the listener. $$ becomes $ in the shell.
-@HAVE_UNOCONV_TRUE@	-kill $$(<$@.pid)
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	-kill $$(<$@.pid)
 #remove the pid save file
-@HAVE_UNOCONV_TRUE@	-rm $@.pid
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	-rm $@.pid
 
-@HAVE_UNOCONV_TRUE@swephprg.html: swephprg.doc
-@HAVE_UNOCONV_TRUE@swisseph.html: swisseph.doc
-@HAVE_UNOCONV_TRUE@swephprg.pdf: swephprg.doc
-@HAVE_UNOCONV_TRUE@swisseph.pdf: swisseph.doc
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@swephprg.html: swephprg.doc
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@swisseph.html: swisseph.doc
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@swephprg.pdf: swephprg.doc
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@swisseph.pdf: swisseph.doc
 
-@HAVE_HTMLDOC_TRUE@swephprg.html:	$(astrodienst)/doc/swephprg.htm
-@HAVE_HTMLDOC_TRUE@	cp  $<  $@
-@HAVE_HTMLDOC_TRUE@swisseph.html:	$(astrodienst)/doc/swisseph.htm
-@HAVE_HTMLDOC_TRUE@	cp  $<  $@
+@DOCS_TRUE@@HAVE_HTMLDOC_TRUE@swephprg.html:	$(astrodienst)/doc/swephprg.htm
+@DOCS_TRUE@@HAVE_HTMLDOC_TRUE@	cp  $<  $@
+@DOCS_TRUE@@HAVE_HTMLDOC_TRUE@swisseph.html:	$(astrodienst)/doc/swisseph.htm
+@DOCS_TRUE@@HAVE_HTMLDOC_TRUE@	cp  $<  $@
 
-@HAVE_HTMLDOC_TRUE@%.pdf:	%.html
-@HAVE_HTMLDOC_TRUE@	htmldoc -f $@ --webpage $<
+@DOCS_TRUE@@HAVE_HTMLDOC_TRUE@%.pdf:	%.html
+@DOCS_TRUE@@HAVE_HTMLDOC_TRUE@	htmldoc -f $@ --webpage $<
 
-@HAVE_HTMLDOC_TRUE@swephprg.pdf:	swephprg.html
-@HAVE_HTMLDOC_TRUE@swisseph.pdf:	swisseph.html
+@DOCS_TRUE@@HAVE_HTMLDOC_TRUE@swephprg.pdf:	swephprg.html
+@DOCS_TRUE@@HAVE_HTMLDOC_TRUE@swisseph.pdf:	swisseph.html
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
