@@ -13,15 +13,16 @@ Url:            http://swissephauto.blackpatchpanel.com/
 
 BuildRequires:  libtool 
 
-BuildRequires:  pkg-config
+%define do_docs --enable-docs
  
 #suse version uses fdupes
 %if 0%{?suse_version} || 0%{?sles_version}
 BuildRequires:  fdupes
+BuildRequires:  pkg-config
 
 
 BuildRequires:	libreoffice-converter
-BuildRequires:  libreoffice-ure, libreoffice-writer, libreoffice-filters, libreoffice-base
+BuildRequires:  libreoffice-ure, libreoffice-writer,  libreoffice-base
 BuildRequires:  procps
 %define wpconvert loconvert
 
@@ -31,9 +32,19 @@ BuildRequires:  procps
 
 %if %{defined fedora}
 
-BuildRequires:	unoconv
-BuildRequires:  libreoffice-ure, libreoffice-writer, libreoffice-filters, libreoffice-base
-%define wpconvert unoconv
+#BuildRequires:	libreoffice-converter
+#BuildRequires:  libreoffice-ure, libreoffice-writer,   libreoffice-base
+#BuildRequires:  procps
+%define wpconvert loconvert
+
+
+BuildRequires:  pkgconfig
+
+#loconvert does not work under fedora
+#neither does unoconv
+#suppress docs untill something fixed.
+
+%define do_docs --disable-docs
 
 
 %endif
@@ -117,7 +128,9 @@ and points to it with SE_EPHE_PATH.
 
 %build
 mkdir -p %{_builddir}%{_defaultdocdir}/libswe-devel
-%configure WPCONVERT=$(wpconvert) --disable-static --docdir=%{_defaultdocdir}/libswe-devel 
+%configure WPCONVERT=$(wpconvert) --disable-static \
+--docdir=%{_defaultdocdir}/libswe-devel \
+%{do_docs}
 make 
 
 %install
