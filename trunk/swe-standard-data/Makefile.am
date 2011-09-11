@@ -10,14 +10,12 @@ AM_CFLAGS =\
 	 -g
 
 
-dist_doc_DATA = \
+EXTRA_DIST = \
 	README.TXT\
 	README.Linux\
 	COPYING\
 	LICENSE.TXT\
 	AUTHORS
-
-EXTRA_DIST = $(dist_doc_DATA)
 
 ephedatadir = $(datadir)/libswe/users/ephe/
 dist_ephedata_DATA = \

@@ -42,11 +42,7 @@ cp COPYING copyright
 
 %install
 make DESTDIR=%{buildroot} install
-rm %{buildroot}%{_defaultdocdir}/%{name}/AUTHORS \
-%{buildroot}%{_defaultdocdir}/%{name}/COPYING \
-%{buildroot}%{_defaultdocdir}/%{name}/LICENSE.TXT \
-%{buildroot}%{_defaultdocdir}/%{name}/README.Linux \
-%{buildroot}%{_defaultdocdir}/%{name}/README.TXT
+
 
 
 %clean

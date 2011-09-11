@@ -33,10 +33,10 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 subdir = .
-DIST_COMMON = $(am__configure_deps) $(dist_doc_DATA) \
-	$(dist_ephedata_DATA) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(top_srcdir)/configure AUTHORS COPYING install-sh missing
+DIST_COMMON = $(am__configure_deps) $(dist_ephedata_DATA) \
+	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
+	$(srcdir)/config.h.in $(top_srcdir)/configure AUTHORS COPYING \
+	install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -76,8 +76,8 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(docdir)" "$(DESTDIR)$(ephedatadir)"
-DATA = $(dist_doc_DATA) $(dist_ephedata_DATA)
+am__installdirs = "$(DESTDIR)$(ephedatadir)"
+DATA = $(dist_ephedata_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -181,14 +181,13 @@ AM_CFLAGS = \
 	 -Wall\
 	 -g
 
-dist_doc_DATA = \
+EXTRA_DIST = \
 	README.TXT\
 	README.Linux\
 	COPYING\
 	LICENSE.TXT\
 	AUTHORS
 
-EXTRA_DIST = $(dist_doc_DATA)
 ephedatadir = $(datadir)/libswe/users/ephe/
 dist_ephedata_DATA = \
 	seas_00.se1\
@@ -301,26 +300,6 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-install-dist_docDATA: $(dist_doc_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(docdir)" || $(MKDIR_P) "$(DESTDIR)$(docdir)"
-	@list='$(dist_doc_DATA)'; test -n "$(docdir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(docdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(docdir)" || exit $$?; \
-	done
-
-uninstall-dist_docDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(dist_doc_DATA)'; test -n "$(docdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(docdir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(docdir)" && rm -f $$files
 install-dist_ephedataDATA: $(dist_ephedata_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(ephedatadir)" || $(MKDIR_P) "$(DESTDIR)$(ephedatadir)"
@@ -498,7 +477,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA) config.h
 installdirs:
-	for dir in "$(DESTDIR)$(docdir)" "$(DESTDIR)$(ephedatadir)"; do \
+	for dir in "$(DESTDIR)$(ephedatadir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -547,7 +526,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-dist_docDATA install-dist_ephedataDATA
+install-data-am: install-dist_ephedataDATA
 
 install-dvi: install-dvi-am
 
@@ -593,7 +572,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-dist_docDATA uninstall-dist_ephedataDATA
+uninstall-am: uninstall-dist_ephedataDATA
 
 .MAKE: all install-am install-strip
 
@@ -602,15 +581,14 @@ uninstall-am: uninstall-dist_docDATA uninstall-dist_ephedataDATA
 	dist-xz dist-zip distcheck distclean distclean-generic \
 	distclean-hdr distcleancheck distdir distuninstallcheck dvi \
 	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-dist_docDATA \
-	install-dist_ephedataDATA install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
-	pdf-am ps ps-am uninstall uninstall-am uninstall-dist_docDATA \
-	uninstall-dist_ephedataDATA
+	install-data install-data-am install-dist_ephedataDATA \
+	install-dvi install-dvi-am install-exec install-exec-am \
+	install-html install-html-am install-info install-info-am \
+	install-man install-pdf install-pdf-am install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am uninstall \
+	uninstall-am uninstall-dist_ephedataDATA
 
 
 #bin_PROGRAMS = swe_standard_data
