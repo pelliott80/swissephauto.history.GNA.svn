@@ -23,13 +23,16 @@ SUBDIRS = src \
 
 
 swedocdir = ${docdir}
-swedoc_DATA = \
-	README\
-	COPYING\
-	AUTHORS\
-	ChangeLog\
-	INSTALL\
-	NEWS
+#don't release misc doc files by default
+#let distro get what it wants with %doc statements
+#or /debian/docs
+#swedoc_DATA = \
+#	README\
+#	COPYING\
+#	AUTHORS\
+#	ChangeLog\
+#	INSTALL\
+#	NEWS
 
 man_MANS = libswe.3 swetest.1 swemini.1
 

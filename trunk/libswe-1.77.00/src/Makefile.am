@@ -123,7 +123,9 @@ nodist_ephepkgdata_DATA = \
 swedocdir = ${docdir}
 #do not distribute stuff distributed by astrodienst
 # change add nodist
+#dont distribute license by default, let distro get it.
 nodist_swedoc_DATA = \
-    $(astrosrc)/LICENSE\
     $(astrosrc)/swemini.c $(astrosrc)/swetest.c
+
+#    $(astrosrc)/LICENSE
 

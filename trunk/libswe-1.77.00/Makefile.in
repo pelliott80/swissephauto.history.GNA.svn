@@ -32,7 +32,6 @@
 #
 #    You should have received a copy of the GNU General Public License
 #    along with lib.  If not, see <http://www.gnu.org/licenses/>.
-
 VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@
 pkgincludedir = $(includedir)/@PACKAGE@
@@ -104,12 +103,10 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 man1dir = $(mandir)/man1
-am__installdirs = "$(DESTDIR)$(man1dir)" "$(DESTDIR)$(man3dir)" \
-	"$(DESTDIR)$(swedocdir)"
+am__installdirs = "$(DESTDIR)$(man1dir)" "$(DESTDIR)$(man3dir)"
 man3dir = $(mandir)/man3
 NROFF = nroff
 MANS = $(man_MANS)
-DATA = $(swedoc_DATA)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
 AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
@@ -274,14 +271,16 @@ SUBDIRS = src \
 	doc
 
 swedocdir = ${docdir}
-swedoc_DATA = \
-	README\
-	COPYING\
-	AUTHORS\
-	ChangeLog\
-	INSTALL\
-	NEWS
-
+#don't release misc doc files by default
+#let distro get what it wants with %doc statements
+#or /debian/docs
+#swedoc_DATA = \
+#	README\
+#	COPYING\
+#	AUTHORS\
+#	ChangeLog\
+#	INSTALL\
+#	NEWS
 man_MANS = libswe.3 swetest.1 swemini.1
 EXTRA_DIST = $(man_MANS) $(swedoc_DATA)
 all: config.h
@@ -424,26 +423,6 @@ uninstall-man3:
 	test -z "$$files" || { \
 	  echo " ( cd '$(DESTDIR)$(man3dir)' && rm -f" $$files ")"; \
 	  cd "$(DESTDIR)$(man3dir)" && rm -f $$files; }
-install-swedocDATA: $(swedoc_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(swedocdir)" || $(MKDIR_P) "$(DESTDIR)$(swedocdir)"
-	@list='$(swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(swedocdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(swedocdir)" || exit $$?; \
-	done
-
-uninstall-swedocDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(swedocdir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(swedocdir)" && rm -f $$files
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run `make' without going through this Makefile.
@@ -769,10 +748,10 @@ distcleancheck: distclean
 	       exit 1; } >&2
 check-am: all-am
 check: check-recursive
-all-am: Makefile $(MANS) $(DATA) config.h
+all-am: Makefile $(MANS) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(man1dir)" "$(DESTDIR)$(man3dir)" "$(DESTDIR)$(swedocdir)"; do \
+	for dir in "$(DESTDIR)$(man1dir)" "$(DESTDIR)$(man3dir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -822,7 +801,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-man install-swedocDATA
+install-data-am: install-man
 
 install-dvi: install-dvi-recursive
 
@@ -868,7 +847,7 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-local uninstall-man uninstall-swedocDATA
+uninstall-am: uninstall-local uninstall-man
 
 uninstall-man: uninstall-man1 uninstall-man3
 
@@ -886,13 +865,12 @@ uninstall-man: uninstall-man1 uninstall-man3
 	install-dvi-am install-exec install-exec-am install-html \
 	install-html-am install-info install-info-am install-man \
 	install-man1 install-man3 install-pdf install-pdf-am \
-	install-ps install-ps-am install-strip install-swedocDATA \
-	installcheck installcheck-am installdirs installdirs-am \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags tags-recursive uninstall uninstall-am uninstall-local \
-	uninstall-man uninstall-man1 uninstall-man3 \
-	uninstall-swedocDATA
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs installdirs-am maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-recursive \
+	uninstall uninstall-am uninstall-local uninstall-man \
+	uninstall-man1 uninstall-man3
 
 
 # Remove doc directory on uninstall

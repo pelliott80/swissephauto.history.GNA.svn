@@ -127,6 +127,7 @@ and points to it with SE_EPHE_PATH.
 
 
 %build
+cp COPYING copyright
 mkdir -p %{_builddir}%{_defaultdocdir}/libswe-devel
 %configure WPCONVERT=$(wpconvert) --disable-static \
 --docdir=%{_defaultdocdir}/libswe-devel \
@@ -138,9 +139,8 @@ mkdir -p %{buildroot}%{_defaultdocdir}/libswe-devel
 mkdir -p %{buildroot}%{_defaultdocdir}/swe-basic-data
 make DESTDIR=%{buildroot} install
 rm $RPM_BUILD_ROOT/%_libdir/libswe*.la
-cp COPYING %{buildroot}%{_defaultdocdir}/libswe-devel/copyright
-rm %{buildroot}%{_defaultdocdir}/libswe-devel/COPYING
-cp COPYING %{buildroot}%{_defaultdocdir}/swe-basic-data/copyright
+rm -r %{buildroot}%{_defaultdocdir}/libswe-devel
+
 
 
 %if 0%{?suse_version} || 0%{?sles_version}
@@ -161,11 +161,25 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n libswe0
 %defattr(-,root,root,-)
+%doc copyright
 %{_libdir}/lib*.so.*
 
 %files devel
 %defattr(-,root,root,-)
-%{_defaultdocdir}/libswe-devel
+%doc README 
+%doc NEWS 
+%doc AUTHORS 
+%doc copyright 
+%doc astrodienst/src/swemini.c 
+%doc astrodienst/src/swetest.c 
+%doc astrodienst/doc/sweph.gif 
+%doc astrodienst/doc/swephin.gif 
+%if 0%{?suse_version} || 0%{?sles_version}
+%doc doc/swephprg.html 
+%doc doc/swephprg.pdf 
+%doc doc/swisseph.html 
+%doc doc/swisseph.pdf
+%endif
 %{_includedir}/*.h
 %{_libdir}/libswe.so
 %{_libdir}/pkgconfig/*.pc
@@ -173,9 +187,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/*.3*
 %{_bindir}/*
 
+
 %files -n swe-basic-data
 %defattr(-,root,root,-)
-%{_defaultdocdir}/swe-basic-data
+%doc copyright README NEWS AUTHORS
 %dir %{_datadir}/libswe
 %dir %{_datadir}/libswe/users
 %dir %{_datadir}/libswe/users/ephe

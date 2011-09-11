@@ -352,8 +352,8 @@ nodist_ephepkgdata_DATA = \
 swedocdir = ${docdir}
 #do not distribute stuff distributed by astrodienst
 # change add nodist
+#dont distribute license by default, let distro get it.
 nodist_swedoc_DATA = \
-    $(astrosrc)/LICENSE\
     $(astrosrc)/swemini.c $(astrosrc)/swetest.c
 
 all: all-am
@@ -823,6 +823,8 @@ vpath %.cat $(astrosrc)
 vpath %.txt $(astrosrc)
 vpath %.inactive $(astrosrc)
 vpath LICENSE $(astrosrc)
+
+#    $(astrosrc)/LICENSE
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
