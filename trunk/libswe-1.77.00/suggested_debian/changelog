@@ -41,5 +41,6 @@ libswe (1.77.00.0001-1) unstable; urgency=low
   * new debian/libswe0.symbols file
   * move docdir to /usr/share/doc/libswe-dev
   * insure copyright installed.
+  * make install does not install misc docs debian/docs does instead.
 
- -- Paul Elliott <pelliott@blackpatchpanel.com>  Thu, 01 Sep 2011 08:26:13 -0500
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Sun, 11 Sep 2011 14:52:56 -0500
