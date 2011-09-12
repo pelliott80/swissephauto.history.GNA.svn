@@ -18,11 +18,11 @@ supplies data in his own private directory.
 The Swiss Ephemeris was not created in the UNIX/Gnu Linux world and
 hence does not have an  UNIX/Gnu Linux style manpage. The manpages
 merely refer to documentation available elsewhere. It is however
-well documented in the following files in the package libswe-devel:
-/usr/share/doc/libswe/swephprg.pdf 
-/usr/share/doc/libswe/swisseph.pdf
-/usr/share/doc/libswe/swephprg.html
-/usr/share/doc/libswe/swisseph.html
+well documented in the following files in the package libswe-dev:
+/usr/share/doc/libswe-dev/swephprg.pdf 
+/usr/share/doc/libswe-dev/swisseph.pdf
+/usr/share/doc/libswe-dev/swephprg.html
+/usr/share/doc/libswe-dev/swisseph.html
 
 This documentation can also be found on line on astrodienst's web pages.
 
