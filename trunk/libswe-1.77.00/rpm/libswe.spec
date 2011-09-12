@@ -13,6 +13,8 @@ Url:            http://swissephauto.blackpatchpanel.com/
 
 BuildRequires:  libtool 
 
+%define sonum 0
+
 %define do_docs --enable-docs
  
 #suse version uses fdupes
@@ -74,20 +76,20 @@ to 3000 AD and required 550 Mb of disk space. DE406 is a compressed
 version of DE405 which requires 200 MB while maintaining a precision
 of better than 1 m for the moon and 25 m for the planets.
 
-%package -n libswe0
+%package -n %{name}%{sonum}
 Summary:        Shared library for libswe
 Group:          Productivity/Scientific/Astronomy
 %if 0%?suse_version >= 1010
 Recommends:	swe-basic-data, swe-standard-data
 %endif
 
-%description -n libswe0
+%description -n %{name}%{sonum}
 This package contains the shared library needed for libswe.
 
 %package        devel
 Summary:        Development files for libswe
 Group:          Development/Libraries/C and C++
-Requires:       %{name} = %{version}
+Requires:       %{name}%{sonum} = %{version}
 
 %description    devel
 The libswe-devel package contains libraries and header files, man pages,
@@ -154,12 +156,12 @@ rm -r %{buildroot}%{_defaultdocdir}/libswe-devel
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -n libswe0 -p /sbin/ldconfig
-%postun -n libswe0 -p /sbin/ldconfig
+%post -n %{name}%{sonum} -p /sbin/ldconfig
+%postun -n %{name}%{sonum} -p /sbin/ldconfig
  
 
 
-%files -n libswe0
+%files -n %{name}%{sonum}
 %defattr(-,root,root,-)
 %doc copyright
 %{_libdir}/lib*.so.*
