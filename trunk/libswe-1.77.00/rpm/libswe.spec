@@ -136,6 +136,17 @@ mkdir -p %{_builddir}%{_defaultdocdir}/libswe-devel
 %{do_docs}
 make 
 
+#fix docs for rpm location of the development package.
+mywas=/usr/share/doc/libswe-dev/
+
+myto=%{_defaultdocdir}/libswe-devel/
+
+for x in *.1 *.3 ;do \
+sed -e sZlibswe-dev:Zlibswe-devel:Z -e sZ${mywas}Z${myto}Zg $x >${x}.new  ;\
+mv ${x}.new ${x}; \
+done
+
+
 %install
 mkdir -p %{buildroot}%{_defaultdocdir}/libswe-devel
 mkdir -p %{buildroot}%{_defaultdocdir}/swe-basic-data
