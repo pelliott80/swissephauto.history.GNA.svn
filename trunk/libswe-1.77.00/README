@@ -63,6 +63,7 @@ users to astrodienst's other documentation.
 
 Astrodienst has asked me to remove the public interface to pcalc, i.e.
 swepcalc.h. 
+http://tech.groups.yahoo.com/group/swisseph/message/3127
 http://tech.groups.yahoo.com/group/swisseph/message/3129
 This will make this version of astrodienst upwards compatible
 with the next release from astrodienst which will not included it.
