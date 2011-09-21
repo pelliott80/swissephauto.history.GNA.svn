@@ -15,3 +15,10 @@ astrodienst site. No one would want all of these. If you want
 one of these you may either install it yourself or ask
 Paul Elliott <pelliott@blackpatchpanel.com> to package a specific
 file.
+
+Except, I have added one of the extra astroid files, se00433s.se1 as a
+sample.  This file is not particularly important, but it makes one of
+the tests listed in the swetest manpage work. It also serves to show
+where such files should be stored.  That is, parrellel to their
+location on astrodienst. In this case, that is,
+/usr/share/libswe/users/ephe/ast0

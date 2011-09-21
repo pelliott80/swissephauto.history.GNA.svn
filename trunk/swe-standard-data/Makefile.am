@@ -17,6 +17,10 @@ EXTRA_DIST = \
 	LICENSE.TXT\
 	AUTHORS
 
+ast0ephedatadir = $(datadir)/libswe/users/ephe/ast0
+dist_ast0ephedata_DATA = \
+	se00433s.se1
+
 ephedatadir = $(datadir)/libswe/users/ephe/
 dist_ephedata_DATA = \
 	seas_00.se1\
