@@ -213,6 +213,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 astrodocdir = ${docdir}
 SUFFIXES = .pdf .html .doc
+
+#if we can produce documentation i.e. pdf and html
 @DOCS_TRUE@html_DATA = swephprg.html  swisseph.html
 @DOCS_TRUE@pdf_DATA = swephprg.pdf   swisseph.pdf
 
@@ -479,6 +481,8 @@ vpath %.doc $(astrodocsrc)
 vpath %.gif $(astrodienst)/doc
 vpath %.htm $(astrodienst)/doc
 
+#if we use loconvert to produce docs
+
 #above was multi target build.
 # see https://bugzilla.novell.com/show_bug.cgi?id=715856#c1
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@.NOTPARALLEL: 
@@ -491,6 +495,8 @@ vpath %.htm $(astrodienst)/doc
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@swisseph.pdf: swisseph.doc
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+
+#if we use unoconv to produce documentation.
 
 #above was multi target build.
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@.NOTPARALLEL: 
@@ -518,6 +524,7 @@ vpath %.htm $(astrodienst)/doc
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@swephprg.pdf: swephprg.doc
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@swisseph.pdf: swisseph.doc
 
+# use htmldoc to produce documentation.
 @DOCS_TRUE@@HAVE_HTMLDOC_TRUE@swephprg.html:	$(astrodienst)/doc/swephprg.htm
 @DOCS_TRUE@@HAVE_HTMLDOC_TRUE@	cp  $<  $@
 @DOCS_TRUE@@HAVE_HTMLDOC_TRUE@swisseph.html:	$(astrodienst)/doc/swisseph.htm

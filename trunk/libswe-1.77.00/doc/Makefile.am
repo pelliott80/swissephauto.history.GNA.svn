@@ -28,13 +28,14 @@ astrodocdir=${docdir}
 
 SUFFIXES = .pdf .html .doc
 
+#if we can produce documentation i.e. pdf and html
 if DOCS
 
 html_DATA = swephprg.html  swisseph.html
 pdf_DATA = swephprg.pdf   swisseph.pdf
 
 
-
+#if we use loconvert to produce docs
 if HAVE_LOCONVERT
 
 
@@ -55,6 +56,8 @@ swisseph.pdf: swisseph.doc
 
 endif
 
+
+#if we use unoconv to produce documentation.
 if HAVE_UNOCONV
 
 #above was multi target build.
@@ -85,6 +88,7 @@ swisseph.pdf: swisseph.doc
 
 endif
 
+# use htmldoc to produce documentation.
 if HAVE_HTMLDOC
 swephprg.html:	$(astrodienst)/doc/swephprg.htm
 	cp  $<  $@
