@@ -10,6 +10,6 @@ this file will be deleted and the lines below will become the watch file.
 #opts=downloadurlmangle=s/prdownload/download/ \
 #
 #   http://developer.berlios.de/project/showfiles.php?group_id=12390 \
-#   http://prdownload.berlios.de/softdevice/swe-standard-data-(.*).tar.(?:gz|bz2)
+#   http://prdownload.berlios.de/swissephauto/swe-standard-data-(.*).tar.(?:gz|bz2)
 
 
