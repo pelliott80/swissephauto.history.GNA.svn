@@ -53,7 +53,8 @@ BuildRequires:  pkgconfig
 
 Source0:        http://download.berlios.de/swissephauto/%{name}-%{version}.tar.bz2
 Source1:	ftp://ftp.astro.com/pub/swisseph/swe_unix_src_1.77.00.tar.gz
-Source2:	http://download.berlios.de/swissephauto/swe_unix_docsrc_1.77.00.tar.bz2
+Source2:        http://download.berlios.de/swissephauto/libswe-1.77.00.astrodocsrc.tar.bz2	
+
 
 #fix a location of data applies to distros
 #upstream does not need.
