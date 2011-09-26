@@ -1,0 +1,863 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH swetest 1 "August  10, 2011"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.mso www.tmac
+.SH NAME
+swetest \- swetest.c
+.SH SYNOPSIS
+.B swetest
+.RI "Swiss Ephemeris test program."
+
+.SH DESCRIPTION
+
+Swetest computes a complete set of geocentric planetary positions,
+for a given date or a sequence of dates.
+Input can either be a date or an absolute julian day number.
+0:00 (midnight).
+With the proper options, swetest can be used to output a printed
+ephemeris and transfer the data into other programs like spreadsheets
+for graphical display.
+
+The Swiss Ephemeris did not arise in the UNIX/Gnu Linux world and
+hence the people at Astrodienst did not create UNIX/Gnu Linux style manpage
+for swetest. Please consult the following files in the package libswe-dev:
+.HP 0
+/usr/share/doc/libswe-dev/swephprg.pdf 
+.HP 0
+/usr/share/doc/libswe-dev/swisseph.pdf
+.HP 0
+/usr/share/doc/libswe-dev/swephprg.html
+.HP 0
+/usr/share/doc/libswe-dev/swisseph.html
+
+This documentation can also be found on line on astrodienst's web pages.
+.HP 0
+.URL "http://www.astro.com/swisseph/swisseph.htm" "General Documentation"
+.HP 0
+.URL "http://www.astro.com/swisseph/swephprg.htm" "Programmer's Documentation"
+.PP
+However, below is the result of "swetest \-h".
+.PP
+.PP
+
+Command line options:
+.RS 3
+help commands:
+.RS
+.TP
+.B
+-?, \fB-h\fP
+display whole info
+.TP
+.B
+\fB-hcmd\fP
+display commands
+.TP
+.B
+\fB-hplan\fP
+display planet numbers
+.TP
+.B
+\fB-hform\fP
+display format characters
+.TP
+.B
+\fB-hdate\fP
+display input date format
+.TP
+.B
+\fB-hexamp\fP
+display examples
+.RE
+input time formats:
+.RS
+.TP
+.B
+\fB-bDATE\fP
+begin date; e.g. \fB-b1.1.1992\fP if
+Note: the date format is day month year (European style).
+.TP
+.B
+\fB-bj\fP\.\.\.
+begin date as an absolute Julian day number; e.g. \fB-bj2415020.5\fP
+.TP
+.B
+\fB-j\fP\.\.\.
+same as \fB-bj\fP
+.TP
+.B
+\fB-tHH.MMSS\fP
+input time (ephemeris time)
+.TP
+.B
+\fB-ut\fP
+input date is universal time
+\fB-utHH\fP:MM:SS input time
+\fB-utHH.MMSS\fP input time
+.RE
+object, number of steps, step with
+.RS
+.TP
+.B
+\fB-pSEQ\fP
+planet sequence to be computed.
+See the letter coding below.
+.TP
+.B
+\fB-dX\fP
+differential ephemeris: print differential ephemeris between
+body X and each body in list given by \fB-p\fP
+example: \fB-p2\fP \fB-d0\fP \fB-fJl\fP \fB-n366\fP \fB-b1.1.1992\fP prints the longitude
+distance between SUN (planet 0) and MERCURY (planet 2)
+for a full year starting at 1 Jan 1992.
+.TP
+.B
+\fB-DX\fP
+midpoint ephemeris, works the same way as the differential
+mode \fB-d\fP described above, but outputs the midpoint position.
+.TP
+.B
+\fB-nN\fP
+output data for N consecutive days; if no \fB-n\fP option
+is given, the default is 1. If the option \fB-n\fP without a
+number is given, the default is 20.
+.TP
+.B
+\fB-sN\fP
+timestep N days, default 1. This option is only meaningful
+when combined with option \fB-n\fP.
+output format:
+.TP
+.B
+\fB-fSEQ\fP
+use SEQ as format sequence for the output columns;
+default is PLBRS.
+.TP
+.B
+\fB-head\fP
+don't print the header before the planet data. This option
+is useful when you want to paste the output into a
+spreadsheet for displaying graphical ephemeris.
+.TP
+.B
++head
+header before every step (with \fB-s\fP..) 
+.TP
+.B
+\fB-gPPP\fP
+use PPP as gap between output columns; default is a single
+.RS
+.TP
+.B
+blank.
+\fB-g\fP followed by white space sets the
+gap to the TAB character; which is useful for data entry
+into spreadsheets.
+.RE
+.RE
+astrological house system:
+.RS
+.B
+\fB-house\fP[long,lat,hsys]
+.RS
+include house cusps. The longitude, latitude (degrees with
+DECIMAL fraction) and house system letter can be given, with
+commas separated, + for east and north. If none are given,
+Greenwich UK and Placidus is used: 0.00,51.50,p.
+The output lists 12 house cusps, Asc, MC, ARMC and Vertex.
+Houses can only be computed if option \fB-ut\fP is given.
+.RE
+.B
+\fB-hsy\fP[hsys]
+.RS
+house system to be used (for house positions of planets)
+for long, lat, hsys, see \fB-house\fP
+.RE
+.TP
+.B
+\fB-geopos\fP[long,lat,elev]
+Geographic position. Can be used for azimuth and altitude
+or topocentric or house cups calculations.
+The longitude, latitude (degrees with DECIMAL fraction)
+and elevation (meters) can be given, with
+commas separated, + for east and north. If none are given,
+Greenwich is used: 0,51.5,0
+.RE
+sidereal astrology:
+.RS 
+.B
+\fB-ay..\fP
+ayanamsa, with number of method, e.g. ay0 for Fagan/Bradley
+.TP
+.B
+\fB-sid\fP..
+sidereal, with number of method; 'sid0' for Fagan/Bradley 'sid1' 
+for Lahiri
+.TP
+.B
+\fB-sidt0\fP..
+sidereal, projection on ecliptic of t0 
+.TP
+.B
+\fB-sidsp\fP..
+sidereal, projection on solar system plane 
+ephemeris specifications:
+.TP
+\fB-edirPATH\fP change the directory of the ephemeris files 
+.TP
+.B
+\fB-eswe\fP
+swiss ephemeris
+.TP
+.B
+\fB-ejpl\fP
+jpl ephemeris (DE406), or with ephemeris file name
+\fB-ejplde200.eph\fP 
+.TP
+.B
+\fB-emos\fP
+moshier ephemeris
+.TP
+.B
+\fB-true\fP
+true positions
+.TP
+.B
+\fB-noaberr\fP
+no aberration
+.TP
+.B
+\fB-nodefl\fP
+no gravitational light deflection
+.TP
+.B
+\fB-noaberr\fP \fB-nodefl\fP
+astrometric positions
+.TP
+.B
+\fB-j2000\fP
+no precession (i.e. J2000 positions)
+.TP
+.B
+\fB-icrs\fP
+ICRS (use Internat. Celestial Reference System)
+.TP
+.B
+\fB-nonut\fP
+no nutation 
+.TP
+.B
+\fB-speed\fP
+calculate high precision speed 
+.TP
+.B
+\fB-speed3\fP
+\'low' precision speed from 3 positions 
+do not use this option. \fB-speed\fP parameter
+is faster and preciser 
+.TP
+.B
+\fB-iXX\fP
+force iflag to value XX
+.TP
+.B
+\fB-testaa96\fP
+test example in AA 96, B37,
+i.e. venus, j2450442.5, DE200.
+attention: use precession IAU1976
+and nutation 1980 (s. swephlib.h)
+\fB-testaa95\fP
+\fB-testaa97\fP
+.TP
+.B
+\fB-roundsec\fP
+round to seconds
+.TP
+.B
+\fB-roundmin\fP
+round to minutes
+.RE
+observer position:
+.RS
+.B
+\fB-hel\fP
+compute heliocentric positions
+.TP
+.B
+\fB-bary\fP
+compute barycentric positions (bar. earth instead of node) 
+.TP
+.B
+\fB-topo\fP[long,lat,elev]
+topocentric positions. The longitude, latitude (degrees with
+DECIMAL fraction) and elevation (meters) can be given, with
+commas separated, + for east and north. If none are given,
+Zuerich is used: 8.55,47.38,400
+.RS
+.PP
+.RE
+.RS 4
+special events:
+.RE
+\fB-solecl\fP solar eclipse
+.RS
+output 1st line:
+.RS 2
+eclipse date,
+time of maximum (UT),
+core shadow width (negative with total eclipses),
+fraction of solar diameter that is eclipsed
+Julian day number (6-digit fraction) of maximum
+.RE
+output 2nd line:
+.RS 2
+start and end times for partial and total phase
+.RE
+output 3rd line:
+.RS 2
+geographical longitude and latitude of maximum eclipse,
+totality duration at that geographical position,
+.RE
+output with \fB-local\fP, see below.
+.RE
+.TP 7
+\fB-occult\fP occultation of planet or star by the moon. Use \fB-p\fP to 
+specify planet (\fB-pf\fP \fB-xfAldebaran\fP for stars) 
+output format same as with \fB-solecl\fP
+.P
+.TP 7
+\fB-lunecl\fP lunar eclipse
+.RS
+output 1st line:
+.RS
+eclipse date,
+time of maximum (UT),
+Julian day number (6-digit fraction) of maximum
+.RE
+output 2nd line:
+.RS
+6 contacts for start and end of penumbral, partial, and
+total phase
+.RE
+.RE
+.P
+.B
+.TP 7
+\fB-local\fP
+only with \fB-solecl\fP or \fB-occult\fP, if the next event of this
+kind is wanted for a given geogr. position.
+Use \fB-geopos\fP[long,lat,elev] to specify that position.
+If \fB-local\fP is not set, the program 
+searches for the next event anywhere on earth.
+.RS
+output 1st line:
+.RS 2
+eclipse date,
+time of maximum,
+fraction of solar diameter that is eclipsed
+.RE
+output 2nd line:
+.RS 2
+local eclipse duration,
+local four contacts,
+.RE
+.RE
+\fB-hev\fP[type] heliacal events,
+.RS
+type 1 = heliacal rising
+.P
+type 2 = heliacal setting
+.P
+type 3 = evening first
+.P
+type 4 = morning last
+.P
+type 0 or missing = all four events are listed.
+.RS
+.B
+\fB-rise\fP
+rising and setting of a planet or star.
+.RE
+Use \fB-geopos\fP[long,lat,elev] to specify geographical position.
+.RE
+.TP
+.B
+\fB-metr\fP
+southern and northern meridian transit of a planet of star
+Use \fB-geopos\fP[long,lat,elev] to specify geographical position.
+.RE
+specifications for eclipses:
+.RS
+.B
+\fB-total\fP
+total eclipse (only with \fB-solecl\fP, \fB-lunecl\fP)
+.P
+\fB-partial\fP partial eclipse (only with \fB-solecl\fP, \fB-lunecl\fP)
+.P
+\fB-annular\fP annular eclipse (only with \fB-solecl\fP)
+.P
+\fB-anntot\fP annular-total (hybrid) eclipse (only with \fB-solecl\fP)
+.P
+\fB-penumbral\fP penumbral lunar eclipse (only with \fB-lunecl\fP)
+.P
+\fB-central\fP central eclipse (only with \fB-solecl\fP, nonlocal)
+.P
+\fB-noncentral\fP non-central eclipse (only with \fB-solecl\fP, nonlocal)
+.RE
+specifications for risings and settings:
+.RS
+.B
+\fB-norefrac\fP
+neglect refraction (with option \fB-rise\fP)
+.P
+\fB-disccenter\fP find rise of disc center (with option \fB-rise\fP)
+.TP
+.B
+\fB-hindu\fP
+hindu version of sunrise (with option \fB-rise\fP)
+.RE
+specifications for heliacal events:
+.RS
+\fB-at\fP[press,temp,rhum,visr]:
+.RS 11
+pressure in hPa
+.P
+temperature in degrees Celsius
+.P
+relative humidity in %
+.P
+visual range, interpreted as follows:
+.RS 2
+> 1 : meteorological range in km
+.P
+1>visr>0 : total atmospheric coefficient (ktot)
+.P
+= 0 : calculated from press, temp, rhum
+.RE
+Default values are \fB-at1013.25\fP,15,40,0
+.RE
+\fB-obs\fP[age,SN] age of observer and Snellen ratio
+.RS 11
+Default values are \fB-obs36\fP,1
+.RE
+\fB-opt\fP[age,SN,binocular,magn,diam,transm]
+.RS 11
+age and SN as with \fB-obs\fP
+.P
+0 monocular or 1 binocular
+.P
+telescope magnification
+.P
+optical aperture in mm
+.P
+optical transmission
+.P
+Default values: \fB-opt36\fP,1,1,1,0,0 (naked eye)
+.RE
+.RE
+backward search:
+.RS
+\fB-bwd\fP
+.HP 6
+.B
+\fB-rise\fP
+rising and setting of a planet or star.
+Use \fB-geopos\fP[long,lat,elev] to specify geographical position.
+.HP 6
+.B
+\fB-metr\fP
+southern and northern meridian transit of a planet of star
+Use \fB-geopos\fP[long,lat,elev] to specify geographical position.
+.RE
+specifications for eclipses:
+.RS
+.B
+\fB-total\fP
+total eclipse (only with \fB-solecl\fP, \fB-lunecl\fP)
+.P
+\fB-partial\fP partial eclipse (only with \fB-solecl\fP, \fB-lunecl\fP)
+.P
+\fB-annular\fP annular eclipse (only with \fB-solecl\fP)
+.P
+\fB-anntot\fP annular-total (hybrid) eclipse (only with \fB-solecl\fP)
+.P
+\fB-penumbral\fP penumbral lunar eclipse (only with \fB-lunecl\fP)
+.P
+\fB-central\fP central eclipse (only with \fB-solecl\fP, nonlocal)
+.P
+\fB-noncentral\fP non-central eclipse (only with \fB-solecl\fP, nonlocal)
+.RE
+specifications for risings and settings:
+.RS
+.B
+\fB-norefrac\fP
+neglect refraction (with option \fB-rise\fP)
+.P
+\fB-disccenter\fP find rise of disc center (with option \fB-rise\fP)
+.P
+.B
+\fB-hindu\fP
+hindu version of sunrise (with option \fB-rise\fP)
+.RE
+specifications for heliacal events:
+.RS
+\fB-at\fP[press,temp,rhum,visr]:
+.RS 11
+pressure in hPa
+.P
+temperature in degrees Celsius
+.P
+relative humidity in %
+.P
+visual range, interpreted as follows:
+.RS 2
+> 1 : meteorological range in km
+.P
+1>visr>0 : total atmospheric coefficient (ktot)
+.P
+= 0 : calculated from press, temp, rhum
+.RE
+Default values are \fB-at1013.25\fP,15,40,0
+.RE
+\fB-obs\fP[age,SN] age of observer and Snellen ratio
+.RS 2
+Default values are \fB-obs36\fP,1
+.RE
+\fB-opt\fP[age,SN,binocular,magn,diam,transm]
+.RS 5
+age and SN as with \fB-obs\fP
+.P
+0 monocular or 1 binocular
+.P
+telescope magnification
+.P
+optical aperture in mm
+.P
+optical transmission
+.P
+Default values: \fB-opt36\fP,1,1,1,0,0 (naked eye)
+.RE
+backward search:
+.RS
+\fB-bwd\fP
+.RE
+.RE
+.PP
+Planet selection letters:
+.RS 5
+planetary lists:
+.RS
+d (default) main factors 0123456789mtABCcg
+.P
+p main factors as above, plus main asteroids DEFGHI
+.P
+h ficticious factors J..X
+.P
+a all factors
+.RS 4
+(the letters above can only appear as a single letter)
+.RE
+.RE
+.PP
+single planet letters:
+.RS
+0 Sun (character zero)
+.P
+1 Moon (character 1)
+.P
+2 Mercury
+.P
+\&\.\.\.\.
+.P
+9 Pluto
+.P
+m mean lunar node
+.P
+t true lunar node
+.P
+n nutation
+.P
+.IP \(bu 3
+obliquity of ecliptic
+.P
+q delta t
+.P
+A mean lunar apogee (Lilith, Black Moon) 
+.P
+B osculating lunar apogee 
+.P
+c intp. lunar apogee 
+.P
+g intp. lunar perigee 
+.P
+C Earth (in heliocentric or barycentric calculation)
+.RE
+dwarf planets, plutoids
+.RS
+F Ceres
+.P
+9 Pluto
+.TP
+.B
+s \fB-xs136199\fP Eris
+.TP
+.B
+s \fB-xs136472\fP Makemake
+.TP
+.B
+s \fB-xs136108\fP Haumea
+.RE
+some minor planets:
+.RS
+D Chiron
+.P
+E Pholus
+.P
+G Pallas 
+.P
+H Juno 
+.P
+I Vesta 
+.P
+s minor planet, with MPC number given in \fB-xs\fP
+.RE
+fixed stars:
+.RS
+f fixed star, with name or number given in \fB-xf\fP option
+.P
+.B
+f \fB-xfSirius\fP
+Sirius
+.RE
+fictitious objects:
+.RS
+J Cupido 
+.P
+K Hades 
+.P
+L Zeus 
+.P
+M Kronos 
+.P
+N Apollon 
+.P
+O Admetos 
+.P
+P Vulkanus 
+.P
+Q Poseidon 
+.P
+R Isis (Sevin) 
+.P
+S Nibiru (Sitchin) 
+.P
+T Harrington 
+.P
+U Leverrier's Neptune
+.P
+V Adams' Neptune
+.P
+W Lowell's Pluto
+.P
+X Pickering's Pluto
+.P
+Y Vulcan
+.P
+Z White Moon
+.P
+w Waldemath's dark Moon
+.P
+z hypothetical body, with number given in \fB-xz\fP
+.P
+e print a line of labels
+.RE
+.RE
+.RE
+Output format SEQ letters:
+In the standard setting five columns of coordinates are printed with
+the default format PLBRS. You can change the default by providing an
+option like \fB-fCCCC\fP where CCCC is your sequence of columns.
+The coding of the sequence is like this:
+.RS 16
+y year
+.P
+Y year.fraction_of_year
+.P
+p planet index
+.P
+P planet name
+.P
+J absolute juldate
+.P
+T date formatted like 23.02.1992 
+.P
+t date formatted like 920223 for 1992 february 23
+.P
+L longitude in degree ddd mm'ss"
+.P
+l longitude decimal
+.P
+Z longitude ddsignmm'ss"
+.P
+S speed in longitude in degree ddd:mm:ss per day
+.P
+SS speed for all values specified in fmt
+.P
+s speed longitude decimal (degrees/day)
+.P
+ss speed for all values specified in fmt
+.P
+B latitude degree
+.P
+b latitude decimal
+.P
+R distance decimal in AU
+.P
+r distance decimal in AU, Moon in seconds parallax
+.P
+relative distance (1000=nearest, 0=furthest)
+.P
+A right ascension in hh:mm:ss
+.P
+a right ascension hours decimal
+.P
+D declination degree
+.P
+d declination decimal
+.P
+I Azimuth degree
+.P
+i Azimuth decimal
+.P
+H Height degree
+.P
+h Height decimal
+.P
+K Height (with refraction) degree
+.P
+k Height (with refraction) decimal
+.P
+G house position in degrees
+.P
+g house position in degrees decimal
+.P
+j house number 1.0 - 12.99999
+.P
+X x-, y-, and z-coordinates ecliptical
+.P
+x x-, y-, and z-coordinates equatorial
+.P
+U unit vector ecliptical
+.P
+u unit vector equatorial
+.P
+Q l, b, r, dl, db, dr, a, d, da, dd
+.P
+n nodes (mean): ascending/descending (Me - Ne); longitude decimal
+.P
+N nodes (osculating): ascending/descending, longitude; decimal
+.P
+f apsides (mean): perihel, aphel, second focal point; longitude dec.
+.P
+F apsides (osc.): perihel, aphel, second focal point; longitude dec.
+.P
++ phase angle
+.P
+\&\- phase
+.P
+\&\?*\? elongation
+.P
+/ apparent diameter of disc (without refraction)
+.P
+= magnitude
+.P
+v (reserved)
+.P
+V (reserved)
+.RE
+.PP
+Date entry:
+In the interactive mode, when you are asked for a start date,
+you can enter data in one of the following formats:
+.PP
+.RS
+.nf
+.fam C
+        1.2.1991        three integers separated by a nondigit character for
+                        day month year. Dates are interpreted as Gregorian
+                        after 4.10.1582 and as Julian Calendar before.
+                        Time is always set to midnight.
+                        If the three letters jul are appended to the date,
+                        the Julian calendar is used even after 1582.
+                        If the four letters greg are appended to the date,
+                        the Gregorian calendar is used even before 1582.
+
+        j2400123.67     the letter j followed by a real number, for
+                        the absolute Julian daynumber of the start date.
+                        Fraction .5 indicates midnight, fraction .0
+                        indicates noon, other times of the day can be
+                        chosen accordingly.
+
+        <RETURN>        repeat the last entry
+
+        .               stop the program
+
+        +20             advance the date by 20 days
+
+        \-10             go back in time 10 days
+
+
+.fam T
+.fi
+.RE
+Examples:
+.PP
+.nf
+.fam C
+    swetest \-p2 \-b1.12.1900 \-n15 \-s2
+        ephemeris of Mercury (\-p2) starting on 1 Dec 1900,
+        15 positions (\-n15) in two-day steps (\-s2)
+
+    swetest \-p2 \-b1.12.1900 \-n15 \-s2 \-fTZ \-roundsec \-g, \-head
+        same, but output format =  date and zodiacal position (\-fTZ),
+        separated by comma (\-g,) and rounded to seconds (\-roundsec),
+        without header (\-head).
+
+    swetest \-ps \-xs433 \-b1.12.1900
+        position of asteroid 433 Eros (\-ps \-xs433)
+
+    swetest \-pf \-xfAldebaran \-b1.1.2000
+        position of fixed star Aldebaran 
+
+    swetest \-p1 \-d0 \-b1.12.1900 \-n10 \-fPTl \-head
+        angular distance of moon (\-p1) from sun (\-d0) for 10
+        consecutive days (\-n10).
+
+    swetest \-p6 \-DD \-b1.12.1900 \-n100 \-s5 \-fPTZ \-head \-roundmin
+      Midpoints between Saturn (\-p6) and Chiron (\-DD) for 100
+      consecutive steps (\-n100) with 5\(hyday steps (\-s5) with
+      longitude in degree\(hysign format (\-f..Z) rounded to minutes (\-roundmin)
+
+    swetest \-b5.1.2002 \-p \-house12.05,49.50,k \-ut12:30
+        Koch houses for a location in Germany at a given date and time
+
+.SH AUTHOR
+The Swiss Ephemeris and swetest were written by Dieter Koch and Alois Treindl of Astrodienst.
+.PP
+This manual page was written by Paul Elliott <pelliott@blackpatchpanel.com>
+using the results of "swetest \-h",
+for the Debian project (and may be used by others).

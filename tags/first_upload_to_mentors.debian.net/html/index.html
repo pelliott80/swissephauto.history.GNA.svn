@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+
+
+
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Swiss Ephemeris AutoTools</title>
+  
+
+  
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body>
+<h1><img style="width: 469px; height: 67px;" alt="Swiss Emphemeris" src="http://swissephauto.blackpatchpanel.com/sweph.gif">
+<a href="http://en.wikipedia.org/wiki/File:Heckert_GNU_white.svg" class="image"><img alt="GNU" src="http://swissephauto.blackpatchpanel.com/Heckert_GNU_white.png" class="thumbimage" height="69" width="69"></a></h1>
+
+<h1>Swiss Ephemeris AutoTools</h1>
+
+<br>
+
+<a href="http://developer.berlios.de/"> <img src="http://developer.berlios.de/bslogo.php?group_id=0" alt="BerliOS Logo" border="0" height="32" width="124">Hosted by Berlios</a>.
+<br>
+
+<h2>FAQ</h2>
+
+<h3>What is Swiss Ephemeris AutoTools?</h3>
+
+The Swiss Ephemeris AutoTools replaces the original Swiss Ephemeris
+build system, (a GNU Makefile), with an AutoTools build system.<br>
+
+<h3>Then Swiss Ephemeris AutoTools is a fork of the Swiss Ephemeris?</h3>
+
+Not really. All the original .c and .h files are unchanged. The
+packager feels not competent to change these. The original Makefile is
+replaced with an AutoTools setup. The most you could say is that Swiss
+Ephemeris AutoTools is a fork of the Swiss Ephemeris build system.<br>
+
+<h3>If the .c and .h files are unchanged why are they available under
+the Swiss Ephemeris Autotools subversion repository?</h3>
+
+So developers may conveniently find all the necessary files in one
+place and to follow the GPL.<br>
+
+<h3>How is the Swiss Ephemeris AutoTools licensed?</h3>
+
+The <span style="font-weight: bold;">GPLv2+</span>. The original Swiss
+Ephemeris is also available under some weird proprietary license. If
+you requires such a license go directly to <a href="http://www.astro.com/swisseph/">the Swiss Ephemeris upstream
+source</a>
+do not pass go do not collect $200. The person creating the AutoTools
+modifications is only licensed under the GPL. Free Software For Ever!
+Without freedom we have nothing!<br>
+
+<h3>Who is responsible for the Swiss Ephemeris AutoTools?</h3>
+
+The Swiss Ephemeris Source code was made by Dieter Koch and Alois Treindl of <a href="http://www.astro.com/people/staff_e.htm">Astrodienst</a>.<span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0); font-family: Ubuntu; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;"><span class="Apple-style-span" style="font-family: Arial,Verdana,Helvetica,'sans serif'; font-size: 12px; line-height: 19px;"> </span></span>The
+modifications to the Swiss Ephemeris build system was made by <a href="mailto:pelliott@blackpatchpanel.com">Paul Elliott</a>.
+<h3>What does the Swiss Ephemeris AutoTools hope to accomplish?</h3>
+
+To get the Swiss Ephemeris into a format where it can be easily
+packaged and accepted by the various GNU/Linux distributions.<br>
+
+<h3>Why is it important to get the Swiss Ephemeris into the various
+GNU/Linux distributions?</h3>
+
+Almost all GNU/Linux distributions have a requirement that a package
+can not staticlly link to a library that can be used by more than one
+program especially if that library was written by someone else. The
+following Free Software/Open Software astrology programs link directly
+to the Swiss Ephemeris: Skylendar and Maitreya.&nbsp; There are Swiss Ephemeris extension modules for python, perl, and PHP.
+The
+programs OpenAstro, AstroWS, Morinus, and Oborboros use the python module to
+access the Swiss Ephemeris. I am not aware of a single free software or
+open software astrology program that runs natively under GNU/Linux that
+does not link directly or indirectly to the Swiss Ephemeris. Under
+existing rules none of these program can be made part of&nbsp; a GNU
+Linux distribution that does not include the Swiss Ephemeris. Please
+write me if you know of any other programs that run natively under GNU
+Linux and use the Swiss Ephemeris.<br>
+
+<span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0); font-family: Ubuntu; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;"></span>
+<h3>What is the Status of Swiss Ephemeris AutoTools?</h3>It basically works when used according to instructions. Packages have been build on <a href="http://openbuildservice.org/">open build service</a>.&nbsp;
+
+Superficial testing has been done and the resulting libraries appear to work.<br>
+
+<h3>How do I get the source for Swiss Ephemeris AutoTools?</h3>
+
+You can check it out using subversion:<br>
+
+<span style="font-family: monospace; color: rgb(51, 204, 0);">svn
+checkout http://svn.berlios.de/svnroot/repos/swissephauto/trunk/libswe-1.77.00/</span><br>
+
+Or you can browse <a href="http://svn.berlios.de/viewvc/swissephauto/trunk/libswe-1.77.00/">the
+source in subversion</a>. After it has been tested some more I will
+make a release.<br>
+<h3>There is also a project for the Swiss Ephemeris Standard Data.</h3>
+This is basicly just a copy of the standard data, i.e. the commonly
+used .se1 files, and a do nothing Makefile so that "make install" knows
+where to put the data, together with the necessary copyright files.<br>
+<br>
+
+
+<span style="font-family: monospace; color: rgb(51, 204, 0);">svn
+checkout http://svn.berlios.de/svnroot/repos/swissephauto/trunk/swe-standard-data/</span><br>
+You can also browse <a href="http://svn.berlios.de/viewvc/swissephauto/trunk/swe-standard-data/">the source for the Swiss Ephemeris Data</a>.<br>
+
+
+<img style="width: 357px; height: 215px;" alt="Swiss Ephemeris Inside" src="http://swissephauto.blackpatchpanel.com/swephin.gif"><br>
+
+<br>
+
+</body></html>

@@ -1,0 +1,13 @@
+usr/include/*
+usr/lib/lib*.a
+usr/lib/lib*.so
+usr/lib/pkgconfig/*
+#new packages should omit the .la file
+#usr/lib/*.la
+usr/share/doc/libswe-dev/sweph.gif
+usr/share/doc/libswe-dev/swephprg.html
+usr/share/doc/libswe-dev/swisseph.pdf
+usr/share/doc/libswe-dev/swephin.gif
+usr/share/doc/libswe-dev/swephprg.pdf
+usr/share/doc/libswe-dev/swisseph.html
+usr/bin/*

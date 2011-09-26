@@ -1,0 +1,22 @@
+Description: Fix default location of Swiss Ephemeris data
+ The root directory /users does not exist on most deb and rpm based
+ systems.
+ Choose location owned by swe_basic_data.
+ Upstream may want to choose its own location.
+Forwarded: not-needed
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=635672
+Author: Paul Elliott <pelliott@blackpatchpanel.com>
+--- a/astrodienst/src/swephexp.h
++++ b/astrodienst/src/swephexp.h
+@@ -333,7 +333,10 @@
+ # ifdef MACOS
+ #  define SE_EPHE_PATH	":ephe:"
+ # else
+-#  define SE_EPHE_PATH    ".:/users/ephe2/:/users/ephe/"
++#  define SE_EPHE_PATH    ".:/usr/share/libswe/users/ephe2/:/usr/share/libswe/users/ephe/"
++                        /* rpm and deb based systems do not have /users
++                           root directory.
++                           move to place owned by package.*/
+ 			/* At Astrodienst, we maintain two ephemeris areas for
+ 			   the thousands of asteroid files: 
+ 			   the short files in /users/ephe/ast*,
