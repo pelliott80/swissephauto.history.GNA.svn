@@ -5,7 +5,7 @@
 
 Name:           libswe
 Summary:        Swiss Ephemeris Library
-Version:        1.77.00.0001
+Version:        1.77.00.0002
 Release:        1
 License:        GPL2+
 Group:          Productivity/Scientific/Astronomy
@@ -96,6 +96,13 @@ Requires:       %{name}%{sonum} = %{version}
 The libswe-devel package contains libraries and header files, man pages,
 and documentation for developing applications that use libswe.
 
+%package        doc
+Summary:        Documentation files for libswe
+Group:          Documentation
+
+%description    doc
+The libswe-doc package contains all the documentation for libswe
+
 %package -n swe-basic-data
 BuildArch: noarch
 Summary:	Basic data required to use libswe
@@ -131,21 +138,12 @@ and points to it with SE_EPHE_PATH.
 
 %build
 cp COPYING copyright
-mkdir -p %{_builddir}%{_defaultdocdir}/libswe-devel
+mkdir -p %{_builddir}%{_defaultdocdir}/libswe-devel/examples
+mkdir -p %{_builddir}%{_defaultdocdir}/libswe-doc
 %configure WPCONVERT=$(wpconvert) --disable-static \
---docdir=%{_defaultdocdir}/libswe-devel \
+--docdir=%{_defaultdocdir}/libswe-doc \
 %{do_docs}
 make 
-
-#fix docs for rpm location of the development package.
-mywas=/usr/share/doc/libswe-dev/
-
-myto=%{_defaultdocdir}/libswe-devel/
-
-for x in *.1 *.3 ;do \
-sed -e sZlibswe-dev:Zlibswe-devel:Z -e sZ${mywas}Z${myto}Zg $x >${x}.new  ;\
-mv ${x}.new ${x}; \
-done
 
 
 %install
@@ -153,8 +151,12 @@ mkdir -p %{buildroot}%{_defaultdocdir}/libswe-devel
 mkdir -p %{buildroot}%{_defaultdocdir}/swe-basic-data
 make DESTDIR=%{buildroot} install
 rm $RPM_BUILD_ROOT/%_libdir/libswe*.la
-rm -r %{buildroot}%{_defaultdocdir}/libswe-devel
+#rm -r %{buildroot}%{_defaultdocdir}/libswe-devel
 
+rm %{buildroot}%{_defaultdocdir}/libswe-doc/swemini.c 
+rm %{buildroot}%{_defaultdocdir}/libswe-doc/swetest.c 
+rm %{buildroot}%{_defaultdocdir}/libswe-doc/sweph.gif
+rm %{buildroot}%{_defaultdocdir}/libswe-doc/swephin.gif
 
 
 %if 0%{?suse_version} || 0%{?sles_version}
@@ -180,6 +182,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(-,root,root,-)
+%{_includedir}/*.h
+%{_libdir}/libswe.so
+%{_libdir}/pkgconfig/*.pc
+%{_mandir}/man1/*.1*
+%{_mandir}/man3/*.3*
+%{_bindir}/*
+
+%files doc
+%defattr(-,root,root,-)
 %doc README 
 %doc NEWS 
 %doc AUTHORS 
@@ -194,13 +205,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/swisseph.html 
 %doc doc/swisseph.pdf
 %endif
-%{_includedir}/*.h
-%{_libdir}/libswe.so
-%{_libdir}/pkgconfig/*.pc
-%{_mandir}/man1/*.1*
-%{_mandir}/man3/*.3*
-%{_bindir}/*
-
 
 %files -n swe-basic-data
 %defattr(-,root,root,-)
