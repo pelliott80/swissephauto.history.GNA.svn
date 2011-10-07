@@ -47,12 +47,16 @@ if HAVE_LOCONVERT
 
 swephprg.html: swephprg.doc
 	loconvert --force $<  $@
+	sleep 20
 swisseph.html: swisseph.doc
 	loconvert --force $<  $@
+	sleep 20
 swephprg.pdf: swephprg.doc
 	loconvert --force $<  $@
+	sleep 20
 swisseph.pdf: swisseph.doc
 	loconvert --force $<  $@
+	sleep 20
 
 endif
 

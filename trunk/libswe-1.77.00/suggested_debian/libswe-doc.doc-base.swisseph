@@ -16,8 +16,8 @@ Abstract: Swiss Ephemeris is a function package for the computation of
 Section: Science/Data Analysis
 
 Format: PDF
-Files: /usr/share/doc/libswe-dev/swisseph.pdf.gz
+Files: /usr/share/doc/libswe-doc/swisseph.pdf.gz
 
 Format: HTML
-Index: /usr/share/doc/libswe-dev/swisseph.html
-Files: /usr/share/doc/libswe-dev/swisseph.html
+Index: /usr/share/doc/libswe-doc/swisseph.html
+Files: /usr/share/doc/libswe-doc/swisseph.html

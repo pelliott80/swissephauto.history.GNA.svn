@@ -1,3 +1,9 @@
+libswe (1.77.00.0002-1) natty; urgency=low
+
+  * create separate -doc package.
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 03 Oct 2011 21:52:59 -0500
+
 libswe (1.77.00.0001-1) unstable; urgency=low
 
   * Initial release (Closes: #635672)  <635672 is the bug number of your ITP>

@@ -489,12 +489,16 @@ vpath %.htm $(astrodienst)/doc
 
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@swephprg.html: swephprg.doc
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	sleep 20
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@swisseph.html: swisseph.doc
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	sleep 20
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@swephprg.pdf: swephprg.doc
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	sleep 20
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@swisseph.pdf: swisseph.doc
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	sleep 20
 
 #if we use unoconv to produce documentation.
 

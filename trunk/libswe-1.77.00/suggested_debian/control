@@ -8,6 +8,16 @@ Homepage: http://swissephauto.blackpatchpanel.com/
 Vcs-Svn: http://svn.berlios.de/svnroot/repos/swissephauto/trunk/libswe-1.77.00/
 Vcs-Browser: http://svn.berlios.de/viewvc/swissephauto/trunk/libswe-1.77.00/
 
+Package: libswe-doc
+Section: doc
+Architecture: all
+Depends: ${misc:Depends}
+Description: documentation for the libswe package
+ This package includes all documentation for the libswe package
+ including pdfs, html and text files.
+ swisseph.(pdf|html) General Documentation for the Swiss Ephemeris.
+ swephprg.(pdf|html) Programming interface to the Swiss Ephemeris.
+
 Package: libswe-dev
 Section: libdevel
 Architecture: any

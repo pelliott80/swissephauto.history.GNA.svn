@@ -6,8 +6,8 @@ Abstract: This document describes the programmer's interface to the
 Section: Science/Data Analysis
 
 Format: PDF
-Files: /usr/share/doc/libswe-dev/swephprg.pdf.gz
+Files: /usr/share/doc/libswe-doc/swephprg.pdf.gz
 
 Format: HTML
-Index: /usr/share/doc/libswe-dev/swephprg.html
-Files: /usr/share/doc/libswe-dev/swephprg.html
+Index: /usr/share/doc/libswe-doc/swephprg.html
+Files: /usr/share/doc/libswe-doc/swephprg.html
