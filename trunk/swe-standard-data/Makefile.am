@@ -76,7 +76,8 @@ dist_ephedata_DATA = \
 	seplm36.se1 \
 	seplm42.se1 \
 	seplm48.se1 \
-	seplm54.se1
+	seplm54.se1 \
+	seasnam.txt
 
 #bin_PROGRAMS = swe_standard_data
 

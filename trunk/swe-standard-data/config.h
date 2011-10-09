@@ -11,7 +11,7 @@
 #define PACKAGE_NAME "swe-standard-data"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "swe-standard-data 00001"
+#define PACKAGE_STRING "swe-standard-data 00002"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "swe-standard-data"
@@ -20,7 +20,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "00001"
+#define PACKAGE_VERSION "00002"
 
 /* Version number of package */
-#define VERSION "00001"
+#define VERSION "00002"

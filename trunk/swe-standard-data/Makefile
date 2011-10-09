@@ -90,12 +90,12 @@ GZIP_ENV = --best
 DIST_ARCHIVES = $(distdir).tar.bz2
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run aclocal-1.11
-AMTAR = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run tar
+ACLOCAL = ${SHELL} /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run aclocal-1.11
+AMTAR = ${SHELL} /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run tar
 AM_DEFAULT_VERBOSITY = 0
-AUTOCONF = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=none
@@ -118,25 +118,25 @@ LIBOBJS =
 LIBS = 
 LTLIBOBJS = 
 MAINT = 
-MAKEINFO = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = swe-standard-data
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = swe-standard-data
-PACKAGE_STRING = swe-standard-data 00001
+PACKAGE_STRING = swe-standard-data 00002
 PACKAGE_TARNAME = swe-standard-data
 PACKAGE_URL = 
-PACKAGE_VERSION = 00001
+PACKAGE_VERSION = 00002
 PATH_SEPARATOR = :
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = 
-VERSION = 00001
-abs_builddir = /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data
-abs_srcdir = /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data
-abs_top_builddir = /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data
-abs_top_srcdir = /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data
+VERSION = 00002
+abs_builddir = /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data
+abs_srcdir = /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data
+abs_top_builddir = /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data
+abs_top_srcdir = /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -155,7 +155,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/pekub1104/develop/astrology/newlibswe/svn/trunk/swe-standard-data/install-sh
+install_sh = ${SHELL} /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -248,7 +248,8 @@ dist_ephedata_DATA = \
 	seplm36.se1 \
 	seplm42.se1 \
 	seplm48.se1 \
-	seplm54.se1
+	seplm54.se1 \
+	seasnam.txt
 
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
