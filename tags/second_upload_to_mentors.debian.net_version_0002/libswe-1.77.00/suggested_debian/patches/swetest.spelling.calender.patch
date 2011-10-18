@@ -1,0 +1,20 @@
+Description: Spelling fix of swetest.c
+ calender: to press (as cloth, rubber, or paper) between rollers 
+ or plates in order to smooth and glaze or to thin into sheets
+ calendar: an orderly list of persons, things, or events; 
+ a list of offenders in the Newgate Calendar or in similar 
+ prisons or at Quarter Session Courts; a list or record.
+Forwarded: http://tech.groups.yahoo.com/group/swisseph/message/3116
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=635672
+Author: Paul Elliott <pelliott@blackpatchpanel.com>
+--- a/astrodienst/src/swetest.c
++++ b/astrodienst/src/swetest.c
+@@ -393,7 +393,7 @@
+ \n\
+         1.2.1991        three integers separated by a nondigit character for\n\
+                         day month year. Dates are interpreted as Gregorian\n\
+-                        after 4.10.1582 and as Julian Calender before.\n\
++                        after 4.10.1582 and as Julian Calendar before.\n\
+                         Time is always set to midnight.\n\
+                         If the three letters jul are appended to the date,\n\
+                         the Julian calendar is used even after 1582.\n\

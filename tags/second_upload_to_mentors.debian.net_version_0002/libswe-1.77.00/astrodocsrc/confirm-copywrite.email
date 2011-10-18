@@ -1,0 +1,93 @@
+Delivered-To: pelliott@blackpatchpanel.com
+Received: by 10.52.159.226 with SMTP id xf2cs93060vdb;
+        Tue, 29 Mar 2011 01:07:19 -0700 (PDT)
+Received: by 10.227.197.83 with SMTP id ej19mr4797030wbb.105.1301386038890;
+        Tue, 29 Mar 2011 01:07:18 -0700 (PDT)
+Return-Path: <alois@astro.ch>
+Received: from as80.astro.ch (mail.astro.ch [192.53.104.2])
+        by mx.google.com with ESMTPS id n7si8149596wbg.19.2011.03.29.01.07.17
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Tue, 29 Mar 2011 01:07:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alois@astro.ch designates 192.53.104.2 as permitted sender) client-ip=192.53.104.2;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of alois@astro.ch designates 192.53.104.2 as permitted sender) smtp.mail=alois@astro.ch
+Received: from atmac-3.local (localhost [127.0.0.1])
+	(authenticated bits=0)
+	by as80.astro.ch (8.13.8/8.13.8) with ESMTP id p2T87Gor026071
+	for <pelliott@blackpatchpanel.com>; Tue, 29 Mar 2011 10:07:16 +0200
+Message-ID: <4D919334.5030109@astro.ch>
+Date: Tue, 29 Mar 2011 10:07:16 +0200
+From: Alois Treindl <alois@astro.ch>
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+MIME-Version: 1.0
+To: Paul Elliott <pelliott@blackpatchpanel.com>
+Subject: Re: [SWISSEPH] Swiss Ephemeris into Linux distros; please release
+ source to pdfs.
+References: <201103280007.30084.pelliott@blackpatchpanel.com> <4D905D49.7090204@astro.ch> <201103281422.48851.pelliott@blackpatchpanel.com> <201103282304.52627.pelliott@blackpatchpanel.com>
+In-Reply-To: <201103282304.52627.pelliott@blackpatchpanel.com>
+Content-Type: text/plain;
+  charset=UTF-8;
+  format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiVirus: checked by Avira MailGate (version: 2.1.4-7; AVE: 7.9.4.192; VDF: 7.11.5.101; host: as80.astro.ch); id=22347-7IeTz9
+X-Length: 3814
+X-UID: 26021
+Status: RO
+X-Status: R
+X-KMail-EncryptionState: N
+X-KMail-SignatureState: N
+X-KMail-MDN-Sent:  
+
+Hello
+
+I confirm that the .doc files you mention are covered also by the same 
+license as the rest of Swiss Ephemeris.
+
+Regards
+
+Alois Treindl
+Astrodienst AG
+
+On 29.03.11 06:04, Paul Elliott wrote:
+>
+> Yes, I believe it will work. If I could just have an email from you stating
+> for the record that these files:
+> http://www.astro.com/ftp/swisseph/doc/swephprg.doc
+> http://www.astro.com/ftp/swisseph/doc/swisseph.doc
+> are covered by this LICENSE:
+> http://www.astro.com/ftp/swisseph/src/LICENSE
+>
+> I will add the email to the debian/copyright file and that should cause
+> the debian people to accept that licensing requirements have been meet.
+>
+> Thank You.
+>
+>
+> On Monday, March 28, 2011 02:22:36 pm you wrote:
+>> On Monday, March 28, 2011 05:04:57 am Alois Treindl wrote:
+>>> Hi
+>>>
+>>> I fail to understand your problem.
+>>>
+>>> In the Swiss Ephemeris /doc directory reside also the .doc (MS-Word)
+>>> files with the 'source' of the docmentation.
+>>>
+>>> http://www.astro.com/ftp/swisseph/doc/
+>>>
+>>> But I find it not very logical to value files in a proprietary format
+>>> higher than the derived .htm or .pdf files
+>>>
+>>> Alois
+>>
+>>> Paul Elliott wrote:
+>> Ok, I only looked in the tarball. The doc files are not in the released
+>> tarballs. I take it that the the terms of LICENSE also apply to the doc
+>> files in the ftp site? If so, I believe that it might be possible to do
+>> the packaging. I will consult with the debian-legal mailing list and tell
+>> you how it works out. I believe that in future releases it would be better
+>> to include the .doc files in the released src tarballs. Some linux distros
+>> are very anal about source files being included.
+>> Source is the basis of all open source free software distros everything not
+>> source must be rebuilt from source.
+>>
+>> Thank You for taking the time to answer this inquiry.
+>

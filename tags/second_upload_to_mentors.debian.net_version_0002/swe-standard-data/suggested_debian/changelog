@@ -1,0 +1,24 @@
+swe-standard-data (00002-1) natty; urgency=low
+
+  * New upstream release
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Sun, 09 Oct 2011 00:40:12 -0500
+
+swe-standard-data (00001-1) unstable; urgency=low
+
+  * Initial release (Closes: #636089)  
+  * updated description fields of control
+  * updated copywight file
+  * update README.Debian
+  * remove COPYING LICENSE.TXT using rules file
+  * remove LICENSE.TXT from docs
+  * change section to science
+  * add vcs-svn vcs-browser ot control
+  * recomend on swe-basic-data
+  * fix README.source
+  * empty watch file
+  * remove period from 1st line of description.
+  * more information in extended description.
+  * new README.Linux
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Thu, 01 Sep 2011 22:26:20 -0500
