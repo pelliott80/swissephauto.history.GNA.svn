@@ -1,0 +1,146 @@
+Source: libswe
+Priority: extra
+Maintainer: Paul Elliott <pelliott@blackpatchpanel.com>
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev, unoconv, openoffice.org-writer, openoffice.org-java-common
+Standards-Version: 3.9.1
+Section: libs
+Homepage: http://swissephauto.blackpatchpanel.com/
+Vcs-Svn: http://svn.berlios.de/svnroot/repos/swissephauto/trunk/libswe-1.77.00/
+Vcs-Browser: http://svn.berlios.de/viewvc/swissephauto/trunk/libswe-1.77.00/
+
+Package: libswe-doc
+Section: doc
+Architecture: all
+Depends: ${misc:Depends}
+Description: documentation for the libswe package
+ This package includes all documentation for the libswe package
+ including pdfs, html and text files.
+ swisseph.(pdf|html) General Documentation for the Swiss Ephemeris.
+ swephprg.(pdf|html) Programming interface to the Swiss Ephemeris.
+
+Package: libswe-dev
+Section: libdevel
+Architecture: any
+Depends: libswe0 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Description: C library for The Swiss Ephemeris
+ Contains static library, headers, example code and development manpages
+ for libswe0.
+ The Swiss Ephemeris offers these advantages:
+ The Swiss Ephemeris is based upon the latest planetary and lunar
+ ephemeris, DE405/406, developed by NASA's Jet Propulsion
+ Laboratory. The original integration, DE405, covered the years 3000 BC
+ to 3000 AD and required 550 Mb of disk space. DE406 is a compressed
+ version of DE405 which requires 200 MB while maintaining a precision
+ of better than 1 m for the moon and 25 m for the planets. These data
+ have been further compressed with sophisticated compression techniques
+ developed by Astrodienst. The ephemeris now requires for the complete
+ 6000 years only 5 Mb for all planets except the Moon, and 13 Mb for
+ the Moon. This compressed ephemeris reproduces the JPL data with 0.001
+ arcseconds precision. Astrodienst has extended the timespan of the JPL
+ ephemeris by numerical integration, so that Swiss Ephemeris covers the
+ years 5400 BC to 5400 AD, a total of 10'800 years. For this extended
+ timespan the ephemeris requires 32 Mbytes of ephemeris files.
+ All transformation steps from the inertial timeframe of the JPL DE406
+ integration to the reference frame for astrological coordinates (true
+ equinox of date), all corrections like relativistic aberration,
+ deflection of light in the gravity field of the Sun etc. have been
+ performed with utmost care and precision so that the target precision
+ of 0.001 arcsec is maintained through all transformation steps. Never
+ before has such a high precision ephemeris been available to
+ astrologers.
+ Swiss Ephemeris contains three ephemerides. The user can choose
+ whether he/she wants to use the original JPL DE406 data (if available
+ at his/her site), the compressed Swiss Ephemeris data (the default) or
+ a built in semianalytic theory by Steve Moshier. The Swiss Ephemeris
+ package switches automatically to the available best precision
+ ephemeris dependent on which installed ephemeris files it finds. Even
+ without any stored ephemeris files, using the Moshier model, planetary
+ positions with better than 0.1 seconds of arc precision are available
+ (3 arcsec for the Moon). 
+ In addition to the astronomical planets as contained in the JPL
+ integration, Astrodienst has included all other bodies and hypothetical
+ factors which are of interest to the astrologer. Astrodienst has used 
+ Astrodienst's own  numerical integration program to provide ephemerides 
+ for ALL known  asteroids. There are over 55'000 of them and nobody will 
+ be able to use them all. Astrodienst distribute these extended asteroid 
+ files via Astrodienst's download area; there are also CDROMs available 
+ with large  sets of asteroid files. Asteroid reaserachers may be 
+ interested in a December  1998 article in the Economist magazine about 
+ the naming of  asteroids.
+ Speed: The Swiss Ephemeris is precise and fast. On Astrodienst's Linux 
+ test machine, a 1000 MHz Pentium III, Astrodienst compute 10'000 complete 
+ sets of planetary positions, i.e. 10'000 x 11 planets, in 9 seconds. 
+ This is 0.9 milliseconds for the complete set of exact planetary 
+ positions
+ (consecutive 1 day steps).
+
+Package: libswe0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: swe-basic-data, swe-standard-data
+Description: C library for the Swiss Ephemeris
+ libswe0 allows programs to access the Swiss Ephemeris.
+ The SWISS EPHEMERIS is the high precision ephemeris developed 
+ by Astrodienst, largely based upon the DE406 ephemeris from NASA's JPL.
+ The Swiss Ephemeris is based upon the latest planetary and lunar
+ ephemeris, DE405/406, developed by NASA's Jet Propulsion
+ Laboratory. The original integration, DE405, covered the years 3000 BC
+ to 3000 AD and required 550 Mb of disk space. DE406 is a compressed
+ version of DE405 which requires 200 MB while maintaining a precision
+ of better than 1 m for the moon and 25 m for the planets. These data
+ have been further compressed with sophisticated compression techniques
+ developed by Astrodienst. The ephemeris now requires for the complete
+ 6000 years only 5 Mb for all planets except the Moon, and 13 Mb for
+ the Moon. This compressed ephemeris reproduces the JPL data with 0.001
+ arcseconds precision. Astrodiest's have extended the timespan of the 
+ JPL ephemeris by numerical integration, so that Swiss Ephemeris covers 
+ the years 5400 BC to 5400 AD, a total of 10'800 years. For this extended
+ timespan the ephemeris requires 32 Mbytes of ephemeris files.
+ All transformation steps from the inertial timeframe of the JPL DE406
+ integration to the reference frame for astrological coordinates (true
+ equinox of date), all corrections like relativistic aberration,
+ deflection of light in the gravity field of the Sun etc. have been
+ performed with utmost care and precision so that the target precision
+ of 0.001 arcsec is maintained through all transformation steps. Never
+ before has such a high precision ephemeris been available to
+ astrologers.
+ Swiss Ephemeris contains three ephemerides. The user can choose
+ whether he/she wants to use the original JPL DE406 data (if available
+ at his/her site), the compressed Swiss Ephemeris data (the default) or
+ a built in semianalytic theory by Steve Moshier. The Swiss Ephemeris
+ package switches automatically to the available best precision
+ ephemeris dependent on which installed ephemeris files it finds. Even
+ without any stored ephemeris files, using the Moshier model, planetary
+ positions with better than 0.1 seconds of arc precision are available
+ (3 arcsec for the Moon). 
+ In addition to the astronomical planets as contained in the JPL
+ integration, Astrodienst's have included all other bodies and 
+ hypothetical  factors which are of interest to the astrologer. 
+ Astrodienst have used Astrodienst's own numerical integration program 
+ to provide ephemerides for ALL known asteroids. There are over 55'000 
+ of them and nobody will be able to use them all. Astrodienst distribute 
+ these extended asteroid files via Astrodienst's download area; there 
+ are also CDROMs available with large sets of asteroid files. Asteroid 
+ reaserachers may be interested in a December  1998 article in the 
+ Economist magazine about the naming of asteroids.
+ Speed: The Swiss Ephemeris is precise and fast. On Astrodienst's Linux 
+ test machine, a 1000 MHz Pentium III, Astrodienst compute 10'000 complete 
+ sets of planetary positions, i.e. 10'000 x 11 planets, in 9 seconds. This 
+ is  0.9 milliseconds for the complete set of exact planetary positions
+ (consecutive 1 day steps).
+
+Package: swe-basic-data
+Section: science
+Architecture: all
+Depends: ${misc:Depends}
+Description: basic data files for the libswe package
+ This package includes basic data files needed by libswe, the Swiss Ephemeris.
+ The basic data consists of these files:
+ /usr/share/libswe/users/ephe/sedeltat.txt.inactive
+ /usr/share/libswe/users/ephe/sefstars.txt
+ /usr/share/libswe/users/ephe/seleapsec.txt
+ /usr/share/libswe/users/ephe/seorbel.txt
+ /usr/share/libswe/users/ephe/fixstars.cat
+ The Swiss Ephemeris library can be used without installed data,
+ if the user provides that data in her own private directory
+ and points to it with SE_EPHE_PATH.

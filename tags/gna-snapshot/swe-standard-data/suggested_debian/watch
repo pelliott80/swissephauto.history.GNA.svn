@@ -1,0 +1,9 @@
+#swe-standard-data for Debian
+#----------------------------
+version=3
+
+opts=downloadurlmangle=s/prdownload/download/ \
+   http://developer.berlios.de/project/showfiles.php?group_id=12390 \
+   http://prdownload.berlios.de/swissephauto/swe-standard-data-(.*).tar.(?:gz|bz2)
+
+

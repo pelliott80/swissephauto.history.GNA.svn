@@ -1,0 +1,18 @@
+April 2011 Paul Elliott ports Swiss Ephemeris to Linux adding
+auto*tools infrastructure.
+
+July 2011 Paul Elliott uses vpath to seperate source from astrodienst 
+into a seperate directories from the directories containing the 
+auto*tools control files.
+
+August 2011 Astrodienst has asked me to remove the public 
+interface to pcalc, i.e. swepcalc.h. 
+http://tech.groups.yahoo.com/group/swisseph/message/3127
+http://tech.groups.yahoo.com/group/swisseph/message/3129
+This will make this version of astrodienst upwards compatible
+with the next release from astrodienst which will not included it.
+I believe no freesoftware actualy uses this code.
+Remove #include "swepcalc.h" from your code if you have it.
+This version of the library will not work if you do this include.
+You will have to remove it anyway when v 78 comes out because astrodienst is 
+making it go away.
