@@ -5,8 +5,8 @@ Maintainer: Paul Elliott <pelliott@blackpatchpanel.com>
 Build-Depends: debhelper (>= 7.0.50~), autotools-dev
 Standards-Version: 3.9.1
 Homepage: http://swissephauto.blackpatchpanel.com/
-Vcs-Svn: http://svn.berlios.de/svnroot/repos/swissephauto/trunk/swe-standard-data/
-Vcs-Browser: http://svn.berlios.de/viewvc/swissephauto/trunk/swe-standard-data/
+Vcs-Svn: svn://svn.gna.org/svn/swissephauto/trunk/swe-standard-data/
+Vcs-Browser: http://svn.gna.org/viewcvs/swissephauto/trunk/swe-standard-data/
 
 
 Package: swe-standard-data

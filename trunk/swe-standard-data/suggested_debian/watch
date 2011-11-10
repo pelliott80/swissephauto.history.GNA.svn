@@ -2,8 +2,5 @@
 #----------------------------
 version=3
 
-opts=downloadurlmangle=s/prdownload/download/ \
-   http://developer.berlios.de/project/showfiles.php?group_id=12390 \
-   http://prdownload.berlios.de/swissephauto/swe-standard-data-(.*).tar.(?:gz|bz2)
-
+http://download.gna.org/swissephauto/swe-standard-data-(\d+)\.tar\.bz2
 

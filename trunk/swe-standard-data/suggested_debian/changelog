@@ -1,3 +1,9 @@
+swe-standard-data (00002-2) unstable; urgency=low
+
+  * upstream host moved change watch file, control
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Wed, 09 Nov 2011 22:55:20 -0600
+
 swe-standard-data (00002-1) natty; urgency=low
 
   * New upstream release
