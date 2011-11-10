@@ -4,11 +4,22 @@
 #
 # if a watch file were possible first part would look like this:
 #version=3
-#
-#opts=downloadurlmangle=s/prdownload/download/ \
-#
-#   http://developer.berlios.de/project/showfiles.php?group_id=12390 \
-#   http://prdownload.berlios.de/swissephauto/libswe-(.*).tar.(?:gz|bz2)
+
+#all 3 of the below commented out entries work in the sense
+#that they are capabable of downloading the 3 files
+#the problems is the last 2 entries do not store the file
+#with the correct local file name. opts=filenamemangle can not be made to
+#work. We really do wait for the fix of the bug mentioned above.
+
+#    http://download.gna.org/swissephauto/libswe-(\d+\.\d+\.\d+\.\d+).tar.bz2
+
+#     opts=dversionmangle=s/^(\d+\.\d+\.\d+)\.\d+$/$1/ \
+#     http://download.gna.org/swissephauto/libswe-(\d+\.\d+\.\d+).astrodocsrc.tar.bz2
+
+#    opts=dversionmangle=s/^(\d+\.\d+\.\d+)\.\d+$/$1/ \
+#    ftp://ftp.astro.com/pub/swisseph/swe_unix_src_(\d+\.\d+\.\d+).tar.gz
+
+
 #
 #
 #what the entries would look like for the other 2 files is unknown

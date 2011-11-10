@@ -1,3 +1,9 @@
+libswe (1.77.00.0002-2) unstable; urgency=low
+
+  * location of upstream host moved from berlios to Gna! change docs
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Wed, 09 Nov 2011 21:37:34 -0600
+
 libswe (1.77.00.0002-1) natty; urgency=low
 
   * create separate -doc package.

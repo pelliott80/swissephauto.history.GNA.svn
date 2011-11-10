@@ -14,12 +14,12 @@ is 1.77.00.0001.
 This describes these 3 tarballs where they come from and what they do.
 
 (1)
-http://prdownload.berlios.de/swissephauto/libswe-1.77.00.0001.tar.bz2
+http://download.gna.org/swissephauto/libswe-1.77.00.0001.tar.bz2
 	becomes libswe_1.77.00.0001.orig.tar.bz2 in the source.
 
 This was create by Paul Elliott the web pages for this file are:
 http://swissephauto.blackpatchpanel.com/
-https://developer.berlios.de/projects/swissephauto/
+https://gna.org/projects/swissephauto/
 
 This files contains the autotools control files and some manpages.
 
@@ -38,7 +38,7 @@ files is missing.  Web page for this is:
 http://www.astro.com/swisseph/swephinfo_e.htm?lang=e
 
 (3)
-http://prdownload.berlios.de/swissephauto/libswe-1.77.00.astrodocsrc.tar.bz2
+http://download.gna.org/swissephauto/libswe-1.77.00.astrodocsrc.tar.bz2
 	becomes libswe_1.77.00.0001.orig-astrodocsrc.tar.bz2  in the source.
 
 This provides the missing documentation source and it contains a statment
