@@ -80,6 +80,11 @@ $(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} ; \
 	   done; \
 	done
+#kill sub-sub process and sub-process
+	for pid in $$(pgrep -P $$(<$@.pid) ) ; do \
+                pkill -P $$pid; \
+                kill $$pid ; \
+        done
 #kill the saved pid, i.e. the listener. $$ becomes $ in the shell.
 	-kill $$(<$@.pid)
 #remove the pid save file
