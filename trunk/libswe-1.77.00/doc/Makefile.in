@@ -518,6 +518,11 @@ vpath %.htm $(astrodienst)/doc
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} ; \
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@	   done; \
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@	done
+#kill sub-sub process and sub-process
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@	for pid in $$(pgrep -P $$(<$@.pid) ) ; do \
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@                pkill -P $$pid; \
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@                kill $$pid ; \
+@DOCS_TRUE@@HAVE_UNOCONV_TRUE@        done
 #kill the saved pid, i.e. the listener. $$ becomes $ in the shell.
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@	-kill $$(<$@.pid)
 #remove the pid save file
