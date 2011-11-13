@@ -1,3 +1,11 @@
+libswe (1.77.00.0003-1) natty; urgency=low
+
+  * New upstream release
+  * replace openoffice transition packages with libreoffice packages
+  * props needed by new release
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Sat, 12 Nov 2011 17:50:50 -0600
+
 libswe (1.77.00.0002-2) unstable; urgency=low
 
   * location of upstream host moved from berlios to Gna! change docs

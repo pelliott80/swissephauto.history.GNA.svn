@@ -1,7 +1,7 @@
 Source: libswe
 Priority: extra
 Maintainer: Paul Elliott <pelliott@blackpatchpanel.com>
-Build-Depends: debhelper (>= 7.0.50~), autotools-dev, unoconv, openoffice.org-writer, openoffice.org-java-common
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev, unoconv, libreoffice-writer, libreoffice-java-common, procps
 Standards-Version: 3.9.1
 Section: libs
 Homepage: http://swissephauto.blackpatchpanel.com/
