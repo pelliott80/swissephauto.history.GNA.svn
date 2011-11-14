@@ -53,7 +53,8 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 subdir = doc
-DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
+DIST_COMMON = $(dist_astrodoc_DATA) $(srcdir)/Makefile.am \
+	$(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -91,9 +92,9 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(htmldir)" "$(DESTDIR)$(astrodocdir)" \
+am__installdirs = "$(DESTDIR)$(astrodocdir)" "$(DESTDIR)$(htmldir)" \
 	"$(DESTDIR)$(pdfdir)"
-DATA = $(html_DATA) $(nodist_astrodoc_DATA) $(pdf_DATA)
+DATA = $(dist_astrodoc_DATA) $(html_DATA) $(pdf_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
@@ -213,14 +214,14 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 astrodocdir = ${docdir}
 SUFFIXES = .pdf .html .doc
+EXTRA_DIST = $(astrodocsrc)/confirm-copywrite.email $(astrodocsrc)/LICENSE \
+	     $(astrodocsrc)/swephprg.doc  $(astrodocsrc)/swisseph.doc
+
 
 #if we can produce documentation i.e. pdf and html
 @DOCS_TRUE@html_DATA = swephprg.html  swisseph.html
 @DOCS_TRUE@pdf_DATA = swephprg.pdf   swisseph.pdf
-
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_astrodoc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
+dist_astrodoc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
 CLEANFILES = $(html_DATA) $(pdf_DATA) *.pid
 all: all-am
 
@@ -262,6 +263,26 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
+install-dist_astrodocDATA: $(dist_astrodoc_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(astrodocdir)" || $(MKDIR_P) "$(DESTDIR)$(astrodocdir)"
+	@list='$(dist_astrodoc_DATA)'; test -n "$(astrodocdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(astrodocdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(astrodocdir)" || exit $$?; \
+	done
+
+uninstall-dist_astrodocDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(dist_astrodoc_DATA)'; test -n "$(astrodocdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(astrodocdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(astrodocdir)" && rm -f $$files
 install-htmlDATA: $(html_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(htmldir)" || $(MKDIR_P) "$(DESTDIR)$(htmldir)"
@@ -282,26 +303,6 @@ uninstall-htmlDATA:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(htmldir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(htmldir)" && rm -f $$files
-install-nodist_astrodocDATA: $(nodist_astrodoc_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(astrodocdir)" || $(MKDIR_P) "$(DESTDIR)$(astrodocdir)"
-	@list='$(nodist_astrodoc_DATA)'; test -n "$(astrodocdir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(astrodocdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(astrodocdir)" || exit $$?; \
-	done
-
-uninstall-nodist_astrodocDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(nodist_astrodoc_DATA)'; test -n "$(astrodocdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(astrodocdir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(astrodocdir)" && rm -f $$files
 install-pdfDATA: $(pdf_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(pdfdir)" || $(MKDIR_P) "$(DESTDIR)$(pdfdir)"
@@ -363,7 +364,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(htmldir)" "$(DESTDIR)$(astrodocdir)" "$(DESTDIR)$(pdfdir)"; do \
+	for dir in "$(DESTDIR)$(astrodocdir)" "$(DESTDIR)$(htmldir)" "$(DESTDIR)$(pdfdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -412,7 +413,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-htmlDATA install-nodist_astrodocDATA \
+install-data-am: install-dist_astrodocDATA install-htmlDATA \
 	install-pdfDATA
 
 install-dvi: install-dvi-am
@@ -457,7 +458,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-htmlDATA uninstall-nodist_astrodocDATA \
+uninstall-am: uninstall-dist_astrodocDATA uninstall-htmlDATA \
 	uninstall-pdfDATA
 
 .MAKE: install-am install-strip
@@ -465,15 +466,15 @@ uninstall-am: uninstall-htmlDATA uninstall-nodist_astrodocDATA \
 .PHONY: all all-am check check-am clean clean-generic clean-libtool \
 	distclean distclean-generic distclean-libtool distdir dvi \
 	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-htmlDATA install-info install-info-am install-man \
-	install-nodist_astrodocDATA install-pdf install-pdf-am \
+	install-data install-data-am install-dist_astrodocDATA \
+	install-dvi install-dvi-am install-exec install-exec-am \
+	install-html install-html-am install-htmlDATA install-info \
+	install-info-am install-man install-pdf install-pdf-am \
 	install-pdfDATA install-ps install-ps-am install-strip \
 	installcheck installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-generic \
 	mostlyclean-libtool pdf pdf-am ps ps-am uninstall uninstall-am \
-	uninstall-htmlDATA uninstall-nodist_astrodocDATA \
+	uninstall-dist_astrodocDATA uninstall-htmlDATA \
 	uninstall-pdfDATA
 
 

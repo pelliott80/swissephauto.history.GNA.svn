@@ -28,6 +28,10 @@ astrodocdir=${docdir}
 
 SUFFIXES = .pdf .html .doc
 
+EXTRA_DIST = $(astrodocsrc)/confirm-copywrite.email $(astrodocsrc)/LICENSE \
+	     $(astrodocsrc)/swephprg.doc  $(astrodocsrc)/swisseph.doc
+
+
 #if we can produce documentation i.e. pdf and html
 if DOCS
 
@@ -114,8 +118,6 @@ endif
 
 endif
 
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_astrodoc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
+dist_astrodoc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
 
 CLEANFILES = $(html_DATA) $(pdf_DATA) *.pid

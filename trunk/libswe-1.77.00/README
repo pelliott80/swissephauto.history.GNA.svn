@@ -4,10 +4,10 @@ As of today, no changes have been made to the original Swiss Ephemeris
 source code.
 
 Format of source version. The current source version is
-1.77.00.0001. In this number is the source version of the 
+1.77.00.0003. In this number is the source version of the 
 Astrodienst files. That is this version of the Swiss Ephemeris library for
 Autotools is based on the file swe_unix_src_1.77.00.tar.gz
-from Astrodienst. The 0001 part indicates this is the first version for the
+from Astrodienst. The 0003 part indicates this is the third version for the
 autotools part.
 
 
@@ -22,7 +22,7 @@ documents the API.
 
 The file INSTALL tells how the library may be installed.
 
-The files should be organized like this:
+The files are organized like this:
 
 
 $(top_builddir)  -----|  main autotools control files including configure.ac
@@ -41,17 +41,6 @@ $(top_builddir)  -----|  main autotools control files including configure.ac
                                                 contains note from astrodienst
                                                 asserting the LICENSE.
 
-The files refered to by $(astrodienst) and $(astrodocsrc) can be moved
-at make time by defining astrodienst and astrodocsrc on the make line:
-i.e.
-./configure   my_other_parameters
-make astrodienst=my_location_for_swe_distribution_files \
-astrodocsrc=my_location_for_swe_doc_files
-sudo make install
-
-
-Hopefully the astrodocsrc directory will be come unneccessary at the
-next release from astrodienst!
 
 The astrodienst distribution contains pdf and html files that document
 the library extensively. These files have been rebuild from their

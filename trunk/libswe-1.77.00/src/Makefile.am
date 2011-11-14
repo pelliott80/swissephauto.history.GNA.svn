@@ -39,27 +39,25 @@ vpath LICENSE $(astrosrc)
 
 lib_LTLIBRARIES = libswe.la
 
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_libswe_la_SOURCES = \
-	swecl.c      \
-	swedate.c      \
-	swedate.h      \
-	swedll.h      \
-	swehel.c      \
-	swehouse.c      \
-	swehouse.h      \
-	swejpl.c      \
-	swejpl.h      \
-	swemmoon.c      \
-	swemplan.c      \
-	swenut2000a.h      \
-	sweodef.h      \
-	sweph.c      \
-	sweph.h      \
-	swephexp.h      \
-	swephlib.c      \
-	swephlib.h
+dist_libswe_la_SOURCES = \
+	$(astrosrc)/swecl.c      \
+	$(astrosrc)/swedate.c      \
+	$(astrosrc)/swedate.h      \
+	$(astrosrc)/swedll.h      \
+	$(astrosrc)/swehel.c      \
+	$(astrosrc)/swehouse.c      \
+	$(astrosrc)/swehouse.h      \
+	$(astrosrc)/swejpl.c      \
+	$(astrosrc)/swejpl.h      \
+	$(astrosrc)/swemmoon.c      \
+	$(astrosrc)/swemplan.c      \
+	$(astrosrc)/swenut2000a.h      \
+	$(astrosrc)/sweodef.h      \
+	$(astrosrc)/sweph.c      \
+	$(astrosrc)/sweph.h      \
+	$(astrosrc)/swephexp.h      \
+	$(astrosrc)/swephlib.c      \
+	$(astrosrc)/swephlib.h
 
 libswe_la_LDFLAGS = \
 	-lm         \
@@ -68,9 +66,7 @@ libswe_la_LDFLAGS = \
 
 libswe_la_LIBADD = 
 
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_include_HEADERS = \
+dist_include_HEADERS = \
 	$(astrosrc)/sweodef.h    \
 	$(astrosrc)/swephexp.h
 
@@ -78,40 +74,30 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libswe-1.77.00.pc
 
 EXTRA_DIST = \
-	libswe-1.77.00.pc.in
-
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_EXTRA_DIST = \
-	swepcalc.c      \
-	swepcalc.h      \
-	swepdate.c      \
-	swemptab.c
+	libswe-1.77.00.pc.in	    \
+	$(astrosrc)/swepcalc.c      \
+	$(astrosrc)/swepcalc.h      \
+	$(astrosrc)/swepdate.c      \
+	$(astrosrc)/swemptab.c
 
 bin_PROGRAMS = \
 	swemini\
 	swetest
 
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_swetest_SOURCES = \
-	swetest.c
+dist_swetest_SOURCES = \
+	$(astrosrc)/swetest.c
 
 swetest_LDADD = \
 	libswe.la
 
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_swemini_SOURCES = \
-	swemini.c
+dist_swemini_SOURCES = \
+	$(astrosrc)/swemini.c
 
 swemini_LDADD = \
 	libswe.la
 
-#do not distribute stuff distributed by astrodienst
-# change dist -> nodist
 ephepkgdatadir = $(pkgdatadir)/users/ephe/
-nodist_ephepkgdata_DATA = \
+dist_ephepkgdata_DATA = \
     $(astrosrc)/fixstars.cat\
     $(astrosrc)/sedeltat.txt.inactive\
     $(astrosrc)/sefstars.txt\
@@ -121,11 +107,7 @@ nodist_ephepkgdata_DATA = \
 
 
 swedocdir = ${docdir}
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-#dont distribute license by default, let distro get it.
-nodist_swedoc_DATA = \
-    $(astrosrc)/swemini.c $(astrosrc)/swetest.c
-
-#    $(astrosrc)/LICENSE
+dist_swedoc_DATA = \
+    $(astrosrc)/swemini.c $(astrosrc)/swetest.c \
+    $(astrosrc)/LICENSE
 

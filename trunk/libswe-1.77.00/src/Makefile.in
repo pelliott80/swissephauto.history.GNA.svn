@@ -57,8 +57,9 @@ build_triplet = @build@
 host_triplet = @host@
 bin_PROGRAMS = swemini$(EXEEXT) swetest$(EXEEXT)
 subdir = src
-DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/libswe-1.77.00.pc.in
+DIST_COMMON = $(dist_ephepkgdata_DATA) $(dist_include_HEADERS) \
+	$(dist_swedoc_DATA) $(srcdir)/Makefile.am \
+	$(srcdir)/Makefile.in $(srcdir)/libswe-1.77.00.pc.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -93,9 +94,9 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
 	"$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libswe_la_DEPENDENCIES =
-nodist_libswe_la_OBJECTS = swecl.lo swedate.lo swehel.lo swehouse.lo \
+dist_libswe_la_OBJECTS = swecl.lo swedate.lo swehel.lo swehouse.lo \
 	swejpl.lo swemmoon.lo swemplan.lo sweph.lo swephlib.lo
-libswe_la_OBJECTS = $(nodist_libswe_la_OBJECTS)
+libswe_la_OBJECTS = $(dist_libswe_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
@@ -103,11 +104,11 @@ libswe_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(libswe_la_LDFLAGS) $(LDFLAGS) -o $@
 PROGRAMS = $(bin_PROGRAMS)
-nodist_swemini_OBJECTS = swemini.$(OBJEXT)
-swemini_OBJECTS = $(nodist_swemini_OBJECTS)
+dist_swemini_OBJECTS = swemini.$(OBJEXT)
+swemini_OBJECTS = $(dist_swemini_OBJECTS)
 swemini_DEPENDENCIES = libswe.la
-nodist_swetest_OBJECTS = swetest.$(OBJEXT)
-swetest_OBJECTS = $(nodist_swetest_OBJECTS)
+dist_swetest_OBJECTS = swetest.$(OBJEXT)
+swetest_OBJECTS = $(dist_swetest_OBJECTS)
 swetest_DEPENDENCIES = libswe.la
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -135,12 +136,12 @@ am__v_CCLD_0 = @echo "  CCLD  " $@;
 AM_V_GEN = $(am__v_GEN_$(V))
 am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))
 am__v_GEN_0 = @echo "  GEN   " $@;
-SOURCES = $(nodist_libswe_la_SOURCES) $(nodist_swemini_SOURCES) \
-	$(nodist_swetest_SOURCES)
-DIST_SOURCES =
-DATA = $(nodist_ephepkgdata_DATA) $(nodist_swedoc_DATA) \
-	$(pkgconfig_DATA)
-HEADERS = $(nodist_include_HEADERS)
+SOURCES = $(dist_libswe_la_SOURCES) $(dist_swemini_SOURCES) \
+	$(dist_swetest_SOURCES)
+DIST_SOURCES = $(dist_libswe_la_SOURCES) $(dist_swemini_SOURCES) \
+	$(dist_swetest_SOURCES)
+DATA = $(dist_ephepkgdata_DATA) $(dist_swedoc_DATA) $(pkgconfig_DATA)
+HEADERS = $(dist_include_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -271,78 +272,58 @@ AM_CFLAGS = \
 
 astrosrc = $(astrodienst)/src
 lib_LTLIBRARIES = libswe.la
-
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_libswe_la_SOURCES = \
-	swecl.c      \
-	swedate.c      \
-	swedate.h      \
-	swedll.h      \
-	swehel.c      \
-	swehouse.c      \
-	swehouse.h      \
-	swejpl.c      \
-	swejpl.h      \
-	swemmoon.c      \
-	swemplan.c      \
-	swenut2000a.h      \
-	sweodef.h      \
-	sweph.c      \
-	sweph.h      \
-	swephexp.h      \
-	swephlib.c      \
-	swephlib.h
+dist_libswe_la_SOURCES = \
+	$(astrosrc)/swecl.c      \
+	$(astrosrc)/swedate.c      \
+	$(astrosrc)/swedate.h      \
+	$(astrosrc)/swedll.h      \
+	$(astrosrc)/swehel.c      \
+	$(astrosrc)/swehouse.c      \
+	$(astrosrc)/swehouse.h      \
+	$(astrosrc)/swejpl.c      \
+	$(astrosrc)/swejpl.h      \
+	$(astrosrc)/swemmoon.c      \
+	$(astrosrc)/swemplan.c      \
+	$(astrosrc)/swenut2000a.h      \
+	$(astrosrc)/sweodef.h      \
+	$(astrosrc)/sweph.c      \
+	$(astrosrc)/sweph.h      \
+	$(astrosrc)/swephexp.h      \
+	$(astrosrc)/swephlib.c      \
+	$(astrosrc)/swephlib.h
 
 libswe_la_LDFLAGS = \
 	-lm         \
 	-export-symbols-regex ^swe_
 
 libswe_la_LIBADD = 
-
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_include_HEADERS = \
+dist_include_HEADERS = \
 	$(astrosrc)/sweodef.h    \
 	$(astrosrc)/swephexp.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libswe-1.77.00.pc
 EXTRA_DIST = \
-	libswe-1.77.00.pc.in
+	libswe-1.77.00.pc.in	    \
+	$(astrosrc)/swepcalc.c      \
+	$(astrosrc)/swepcalc.h      \
+	$(astrosrc)/swepdate.c      \
+	$(astrosrc)/swemptab.c
 
-
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_EXTRA_DIST = \
-	swepcalc.c      \
-	swepcalc.h      \
-	swepdate.c      \
-	swemptab.c
-
-
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_swetest_SOURCES = \
-	swetest.c
+dist_swetest_SOURCES = \
+	$(astrosrc)/swetest.c
 
 swetest_LDADD = \
 	libswe.la
 
-
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-nodist_swemini_SOURCES = \
-	swemini.c
+dist_swemini_SOURCES = \
+	$(astrosrc)/swemini.c
 
 swemini_LDADD = \
 	libswe.la
 
-
-#do not distribute stuff distributed by astrodienst
-# change dist -> nodist
 ephepkgdatadir = $(pkgdatadir)/users/ephe/
-nodist_ephepkgdata_DATA = \
+dist_ephepkgdata_DATA = \
     $(astrosrc)/fixstars.cat\
     $(astrosrc)/sedeltat.txt.inactive\
     $(astrosrc)/sefstars.txt\
@@ -350,11 +331,9 @@ nodist_ephepkgdata_DATA = \
     $(astrosrc)/seorbel.txt
 
 swedocdir = ${docdir}
-#do not distribute stuff distributed by astrodienst
-# change add nodist
-#dont distribute license by default, let distro get it.
-nodist_swedoc_DATA = \
-    $(astrosrc)/swemini.c $(astrosrc)/swetest.c
+dist_swedoc_DATA = \
+    $(astrosrc)/swemini.c $(astrosrc)/swetest.c \
+    $(astrosrc)/LICENSE
 
 all: all-am
 
@@ -517,15 +496,119 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
+swecl.lo: $(astrosrc)/swecl.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swecl.lo -MD -MP -MF $(DEPDIR)/swecl.Tpo -c -o swecl.lo `test -f '$(astrosrc)/swecl.c' || echo '$(srcdir)/'`$(astrosrc)/swecl.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swecl.Tpo $(DEPDIR)/swecl.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swecl.c' object='swecl.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swecl.lo `test -f '$(astrosrc)/swecl.c' || echo '$(srcdir)/'`$(astrosrc)/swecl.c
+
+swedate.lo: $(astrosrc)/swedate.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swedate.lo -MD -MP -MF $(DEPDIR)/swedate.Tpo -c -o swedate.lo `test -f '$(astrosrc)/swedate.c' || echo '$(srcdir)/'`$(astrosrc)/swedate.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swedate.Tpo $(DEPDIR)/swedate.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swedate.c' object='swedate.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swedate.lo `test -f '$(astrosrc)/swedate.c' || echo '$(srcdir)/'`$(astrosrc)/swedate.c
+
+swehel.lo: $(astrosrc)/swehel.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swehel.lo -MD -MP -MF $(DEPDIR)/swehel.Tpo -c -o swehel.lo `test -f '$(astrosrc)/swehel.c' || echo '$(srcdir)/'`$(astrosrc)/swehel.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swehel.Tpo $(DEPDIR)/swehel.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swehel.c' object='swehel.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swehel.lo `test -f '$(astrosrc)/swehel.c' || echo '$(srcdir)/'`$(astrosrc)/swehel.c
+
+swehouse.lo: $(astrosrc)/swehouse.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swehouse.lo -MD -MP -MF $(DEPDIR)/swehouse.Tpo -c -o swehouse.lo `test -f '$(astrosrc)/swehouse.c' || echo '$(srcdir)/'`$(astrosrc)/swehouse.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swehouse.Tpo $(DEPDIR)/swehouse.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swehouse.c' object='swehouse.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swehouse.lo `test -f '$(astrosrc)/swehouse.c' || echo '$(srcdir)/'`$(astrosrc)/swehouse.c
+
+swejpl.lo: $(astrosrc)/swejpl.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swejpl.lo -MD -MP -MF $(DEPDIR)/swejpl.Tpo -c -o swejpl.lo `test -f '$(astrosrc)/swejpl.c' || echo '$(srcdir)/'`$(astrosrc)/swejpl.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swejpl.Tpo $(DEPDIR)/swejpl.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swejpl.c' object='swejpl.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swejpl.lo `test -f '$(astrosrc)/swejpl.c' || echo '$(srcdir)/'`$(astrosrc)/swejpl.c
+
+swemmoon.lo: $(astrosrc)/swemmoon.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swemmoon.lo -MD -MP -MF $(DEPDIR)/swemmoon.Tpo -c -o swemmoon.lo `test -f '$(astrosrc)/swemmoon.c' || echo '$(srcdir)/'`$(astrosrc)/swemmoon.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swemmoon.Tpo $(DEPDIR)/swemmoon.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swemmoon.c' object='swemmoon.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swemmoon.lo `test -f '$(astrosrc)/swemmoon.c' || echo '$(srcdir)/'`$(astrosrc)/swemmoon.c
+
+swemplan.lo: $(astrosrc)/swemplan.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swemplan.lo -MD -MP -MF $(DEPDIR)/swemplan.Tpo -c -o swemplan.lo `test -f '$(astrosrc)/swemplan.c' || echo '$(srcdir)/'`$(astrosrc)/swemplan.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swemplan.Tpo $(DEPDIR)/swemplan.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swemplan.c' object='swemplan.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swemplan.lo `test -f '$(astrosrc)/swemplan.c' || echo '$(srcdir)/'`$(astrosrc)/swemplan.c
+
+sweph.lo: $(astrosrc)/sweph.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sweph.lo -MD -MP -MF $(DEPDIR)/sweph.Tpo -c -o sweph.lo `test -f '$(astrosrc)/sweph.c' || echo '$(srcdir)/'`$(astrosrc)/sweph.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sweph.Tpo $(DEPDIR)/sweph.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/sweph.c' object='sweph.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sweph.lo `test -f '$(astrosrc)/sweph.c' || echo '$(srcdir)/'`$(astrosrc)/sweph.c
+
+swephlib.lo: $(astrosrc)/swephlib.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swephlib.lo -MD -MP -MF $(DEPDIR)/swephlib.Tpo -c -o swephlib.lo `test -f '$(astrosrc)/swephlib.c' || echo '$(srcdir)/'`$(astrosrc)/swephlib.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swephlib.Tpo $(DEPDIR)/swephlib.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swephlib.c' object='swephlib.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swephlib.lo `test -f '$(astrosrc)/swephlib.c' || echo '$(srcdir)/'`$(astrosrc)/swephlib.c
+
+swemini.o: $(astrosrc)/swemini.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swemini.o -MD -MP -MF $(DEPDIR)/swemini.Tpo -c -o swemini.o `test -f '$(astrosrc)/swemini.c' || echo '$(srcdir)/'`$(astrosrc)/swemini.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swemini.Tpo $(DEPDIR)/swemini.Po
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swemini.c' object='swemini.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swemini.o `test -f '$(astrosrc)/swemini.c' || echo '$(srcdir)/'`$(astrosrc)/swemini.c
+
+swemini.obj: $(astrosrc)/swemini.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swemini.obj -MD -MP -MF $(DEPDIR)/swemini.Tpo -c -o swemini.obj `if test -f '$(astrosrc)/swemini.c'; then $(CYGPATH_W) '$(astrosrc)/swemini.c'; else $(CYGPATH_W) '$(srcdir)/$(astrosrc)/swemini.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swemini.Tpo $(DEPDIR)/swemini.Po
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swemini.c' object='swemini.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swemini.obj `if test -f '$(astrosrc)/swemini.c'; then $(CYGPATH_W) '$(astrosrc)/swemini.c'; else $(CYGPATH_W) '$(srcdir)/$(astrosrc)/swemini.c'; fi`
+
+swetest.o: $(astrosrc)/swetest.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swetest.o -MD -MP -MF $(DEPDIR)/swetest.Tpo -c -o swetest.o `test -f '$(astrosrc)/swetest.c' || echo '$(srcdir)/'`$(astrosrc)/swetest.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swetest.Tpo $(DEPDIR)/swetest.Po
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swetest.c' object='swetest.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swetest.o `test -f '$(astrosrc)/swetest.c' || echo '$(srcdir)/'`$(astrosrc)/swetest.c
+
+swetest.obj: $(astrosrc)/swetest.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT swetest.obj -MD -MP -MF $(DEPDIR)/swetest.Tpo -c -o swetest.obj `if test -f '$(astrosrc)/swetest.c'; then $(CYGPATH_W) '$(astrosrc)/swetest.c'; else $(CYGPATH_W) '$(srcdir)/$(astrosrc)/swetest.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/swetest.Tpo $(DEPDIR)/swetest.Po
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$(astrosrc)/swetest.c' object='swetest.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o swetest.obj `if test -f '$(astrosrc)/swetest.c'; then $(CYGPATH_W) '$(astrosrc)/swetest.c'; else $(CYGPATH_W) '$(srcdir)/$(astrosrc)/swetest.c'; fi`
+
 mostlyclean-libtool:
 	-rm -f *.lo
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-nodist_ephepkgdataDATA: $(nodist_ephepkgdata_DATA)
+install-dist_ephepkgdataDATA: $(dist_ephepkgdata_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(ephepkgdatadir)" || $(MKDIR_P) "$(DESTDIR)$(ephepkgdatadir)"
-	@list='$(nodist_ephepkgdata_DATA)'; test -n "$(ephepkgdatadir)" || list=; \
+	@list='$(dist_ephepkgdata_DATA)'; test -n "$(ephepkgdatadir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
@@ -535,17 +618,17 @@ install-nodist_ephepkgdataDATA: $(nodist_ephepkgdata_DATA)
 	  $(INSTALL_DATA) $$files "$(DESTDIR)$(ephepkgdatadir)" || exit $$?; \
 	done
 
-uninstall-nodist_ephepkgdataDATA:
+uninstall-dist_ephepkgdataDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(nodist_ephepkgdata_DATA)'; test -n "$(ephepkgdatadir)" || list=; \
+	@list='$(dist_ephepkgdata_DATA)'; test -n "$(ephepkgdatadir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(ephepkgdatadir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(ephepkgdatadir)" && rm -f $$files
-install-nodist_swedocDATA: $(nodist_swedoc_DATA)
+install-dist_swedocDATA: $(dist_swedoc_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(swedocdir)" || $(MKDIR_P) "$(DESTDIR)$(swedocdir)"
-	@list='$(nodist_swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
+	@list='$(dist_swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
@@ -555,9 +638,9 @@ install-nodist_swedocDATA: $(nodist_swedoc_DATA)
 	  $(INSTALL_DATA) $$files "$(DESTDIR)$(swedocdir)" || exit $$?; \
 	done
 
-uninstall-nodist_swedocDATA:
+uninstall-dist_swedocDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(nodist_swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
+	@list='$(dist_swedoc_DATA)'; test -n "$(swedocdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(swedocdir)' && rm -f" $$files ")"; \
@@ -582,10 +665,10 @@ uninstall-pkgconfigDATA:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(pkgconfigdir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(pkgconfigdir)" && rm -f $$files
-install-nodist_includeHEADERS: $(nodist_include_HEADERS)
+install-dist_includeHEADERS: $(dist_include_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(includedir)" || $(MKDIR_P) "$(DESTDIR)$(includedir)"
-	@list='$(nodist_include_HEADERS)'; test -n "$(includedir)" || list=; \
+	@list='$(dist_include_HEADERS)'; test -n "$(includedir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
@@ -595,9 +678,9 @@ install-nodist_includeHEADERS: $(nodist_include_HEADERS)
 	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(includedir)" || exit $$?; \
 	done
 
-uninstall-nodist_includeHEADERS:
+uninstall-dist_includeHEADERS:
 	@$(NORMAL_UNINSTALL)
-	@list='$(nodist_include_HEADERS)'; test -n "$(includedir)" || list=; \
+	@list='$(dist_include_HEADERS)'; test -n "$(includedir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(includedir)' && rm -f" $$files ")"; \
@@ -742,8 +825,8 @@ info: info-am
 
 info-am:
 
-install-data-am: install-nodist_ephepkgdataDATA \
-	install-nodist_includeHEADERS install-nodist_swedocDATA \
+install-data-am: install-dist_ephepkgdataDATA \
+	install-dist_includeHEADERS install-dist_swedocDATA \
 	install-pkgconfigDATA
 
 install-dvi: install-dvi-am
@@ -790,10 +873,9 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
-	uninstall-nodist_ephepkgdataDATA \
-	uninstall-nodist_includeHEADERS uninstall-nodist_swedocDATA \
-	uninstall-pkgconfigDATA
+uninstall-am: uninstall-binPROGRAMS uninstall-dist_ephepkgdataDATA \
+	uninstall-dist_includeHEADERS uninstall-dist_swedocDATA \
+	uninstall-libLTLIBRARIES uninstall-pkgconfigDATA
 
 .MAKE: install-am install-strip
 
@@ -802,19 +884,18 @@ uninstall-am: uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
 	distclean distclean-compile distclean-generic \
 	distclean-libtool distclean-tags distdir dvi dvi-am html \
 	html-am info info-am install install-am install-binPROGRAMS \
-	install-data install-data-am install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-libLTLIBRARIES \
-	install-man install-nodist_ephepkgdataDATA \
-	install-nodist_includeHEADERS install-nodist_swedocDATA \
-	install-pdf install-pdf-am install-pkgconfigDATA install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-compile mostlyclean-generic \
-	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-binPROGRAMS uninstall-libLTLIBRARIES \
-	uninstall-nodist_ephepkgdataDATA \
-	uninstall-nodist_includeHEADERS uninstall-nodist_swedocDATA \
+	install-data install-data-am install-dist_ephepkgdataDATA \
+	install-dist_includeHEADERS install-dist_swedocDATA \
+	install-dvi install-dvi-am install-exec install-exec-am \
+	install-html install-html-am install-info install-info-am \
+	install-libLTLIBRARIES install-man install-pdf install-pdf-am \
+	install-pkgconfigDATA install-ps install-ps-am install-strip \
+	installcheck installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+	tags uninstall uninstall-am uninstall-binPROGRAMS \
+	uninstall-dist_ephepkgdataDATA uninstall-dist_includeHEADERS \
+	uninstall-dist_swedocDATA uninstall-libLTLIBRARIES \
 	uninstall-pkgconfigDATA
 
 vpath %.c $(astrosrc)
@@ -823,8 +904,6 @@ vpath %.cat $(astrosrc)
 vpath %.txt $(astrosrc)
 vpath %.inactive $(astrosrc)
 vpath LICENSE $(astrosrc)
-
-#    $(astrosrc)/LICENSE
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

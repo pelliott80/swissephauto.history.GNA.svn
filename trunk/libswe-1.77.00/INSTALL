@@ -6,17 +6,8 @@ Copyright (C) 1994, 1995, 1996, 1999, 2000, 2001, 2002, 2004, 2005,
 2010 Paul Elliott
 
 
-Before doing the ./configure as described below, the true source
-from astrodienst: 
-ftp://ftp.astro.com/pub/swisseph/swe_unix_src_1.77.00.tar.gz
-should be unpacked in the subdirectory "astrodienst"
-The additional documentation sources:
-http://download.gna.org/swissephauto/libswe-1.77.00.astrodocsrc.tar.bz2
-should be installed in the subdirectory "astrodocsrc"
 
-One can then procede as described below.
-
-make requires a program to convert .doc files to .html and .rpm.
+make requires a program to convert .doc files to .html and .pdf.
 This program can be unoconv or loconvert.
 
 If both of these programs fail for a distro, declare the distributed
