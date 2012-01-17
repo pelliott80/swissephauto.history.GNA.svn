@@ -1,7 +1,7 @@
 swe-standard-data for Debian
 ----------------------------
 
-The data files are installed at /usr/share/libswe/users/ephe
+The data files are installed at /usr/share/libswe/ephe
 libswe has been modified to look here as its default location,
 because the upstream location "/users/ephe" won't work
 as most regular distro don't have a /users root directory.

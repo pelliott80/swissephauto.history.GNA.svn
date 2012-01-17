@@ -1,3 +1,18 @@
+swe-standard-data (00004-1) natty; urgency=low
+
+  * New upstream release
+  * changes location files from /usr/share/libswe/users/ephe/
+  * to /usr/share/libswe/ephe/
+  * * upgrade to Standards-Version: 3.9.2
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Fri, 13 Jan 2012 22:42:58 -0600
+
+swe-standard-data (00003-1) natty; urgency=low
+
+  * New upstream release
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 14 Nov 2011 10:23:57 -0600
+
 swe-standard-data (00002-2) unstable; urgency=low
 
   * upstream host moved change watch file, control

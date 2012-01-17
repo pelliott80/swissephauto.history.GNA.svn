@@ -1,3 +1,11 @@
+libswe (1.77.00.0004-1) unstable; urgency=low
+
+  * New upstream release
+  * move files to $(pkgdatadir)/ephe/
+  * upgrade to Standards-Version: 3.9.2
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Sat, 14 Jan 2012 00:52:17 -0600
+
 libswe (1.77.00.0003-1) natty; urgency=low
 
   * New upstream release

@@ -13,7 +13,7 @@ Author: Paul Elliott <pelliott@blackpatchpanel.com>
  #  define SE_EPHE_PATH	":ephe:"
  # else
 -#  define SE_EPHE_PATH    ".:/users/ephe2/:/users/ephe/"
-+#  define SE_EPHE_PATH    ".:/usr/share/libswe/users/ephe2/:/usr/share/libswe/users/ephe/"
++#  define SE_EPHE_PATH    ".:/usr/share/libswe/ephe2/:/usr/share/libswe/ephe/"
 +                        /* rpm and deb based systems do not have /users
 +                           root directory.
 +                           move to place owned by package.*/

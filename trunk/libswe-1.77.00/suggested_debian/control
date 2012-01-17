@@ -2,7 +2,7 @@ Source: libswe
 Priority: extra
 Maintainer: Paul Elliott <pelliott@blackpatchpanel.com>
 Build-Depends: debhelper (>= 7.0.50~), autotools-dev, unoconv, libreoffice-writer, libreoffice-java-common, procps
-Standards-Version: 3.9.1
+Standards-Version: 3.9.2
 Section: libs
 Homepage: http://swissephauto.blackpatchpanel.com/
 Vcs-Svn: svn://svn.gna.org/svn/swissephauto/trunk/libswe-1.77.00/
@@ -137,11 +137,11 @@ Depends: ${misc:Depends}
 Description: basic data files for the libswe package
  This package includes basic data files needed by libswe, the Swiss Ephemeris.
  The basic data consists of these files:
- /usr/share/libswe/users/ephe/sedeltat.txt.inactive
- /usr/share/libswe/users/ephe/sefstars.txt
- /usr/share/libswe/users/ephe/seleapsec.txt
- /usr/share/libswe/users/ephe/seorbel.txt
- /usr/share/libswe/users/ephe/fixstars.cat
+ /usr/share/libswe/ephe/sedeltat.txt.inactive
+ /usr/share/libswe/ephe/sefstars.txt
+ /usr/share/libswe/ephe/seleapsec.txt
+ /usr/share/libswe/ephe/seorbel.txt
+ /usr/share/libswe/ephe/fixstars.cat
  The Swiss Ephemeris library can be used without installed data,
  if the user provides that data in her own private directory
  and points to it with SE_EPHE_PATH.

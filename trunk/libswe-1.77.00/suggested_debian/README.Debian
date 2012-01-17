@@ -4,7 +4,7 @@ libswe for Debian
 libswe source has been patched for use with debian and rpm based
 distros. The Default value of SE_EPHE_PATH has been changed
 from ".:/users/ephe2/:/users/ephe/" to
-".:/usr/share/libswe/users/ephe2/:/usr/share/libswe/users/ephe/"
+".:/usr/share/libswe/ephe2/:/usr/share/libswe/ephe/"
 The root directory /users does not exist on most packaged Linux
 distros. This will put the Swiss Ephemeris's data in directories
 that can be installed by packages.

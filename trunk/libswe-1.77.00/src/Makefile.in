@@ -57,7 +57,7 @@ build_triplet = @build@
 host_triplet = @host@
 bin_PROGRAMS = swemini$(EXEEXT) swetest$(EXEEXT)
 subdir = src
-DIST_COMMON = $(dist_ephepkgdata_DATA) $(dist_include_HEADERS) \
+DIST_COMMON = $(dist_ephedata_DATA) $(dist_include_HEADERS) \
 	$(dist_swedoc_DATA) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/libswe-1.77.00.pc.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -90,7 +90,7 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
-	"$(DESTDIR)$(ephepkgdatadir)" "$(DESTDIR)$(swedocdir)" \
+	"$(DESTDIR)$(ephedatadir)" "$(DESTDIR)$(swedocdir)" \
 	"$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libswe_la_DEPENDENCIES =
@@ -140,7 +140,7 @@ SOURCES = $(dist_libswe_la_SOURCES) $(dist_swemini_SOURCES) \
 	$(dist_swetest_SOURCES)
 DIST_SOURCES = $(dist_libswe_la_SOURCES) $(dist_swemini_SOURCES) \
 	$(dist_swetest_SOURCES)
-DATA = $(dist_ephepkgdata_DATA) $(dist_swedoc_DATA) $(pkgconfig_DATA)
+DATA = $(dist_ephedata_DATA) $(dist_swedoc_DATA) $(pkgconfig_DATA)
 HEADERS = $(dist_include_HEADERS)
 ETAGS = etags
 CTAGS = ctags
@@ -231,6 +231,7 @@ datadir = @datadir@
 datarootdir = @datarootdir@
 docdir = @docdir@
 dvidir = @dvidir@
+ephedatadir = $(pkgdatadir)/ephe/
 exec_prefix = @exec_prefix@
 host = @host@
 host_alias = @host_alias@
@@ -322,8 +323,7 @@ dist_swemini_SOURCES = \
 swemini_LDADD = \
 	libswe.la
 
-ephepkgdatadir = $(pkgdatadir)/users/ephe/
-dist_ephepkgdata_DATA = \
+dist_ephedata_DATA = \
     $(astrosrc)/fixstars.cat\
     $(astrosrc)/sedeltat.txt.inactive\
     $(astrosrc)/sefstars.txt\
@@ -605,26 +605,26 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-dist_ephepkgdataDATA: $(dist_ephepkgdata_DATA)
+install-dist_ephedataDATA: $(dist_ephedata_DATA)
 	@$(NORMAL_INSTALL)
-	test -z "$(ephepkgdatadir)" || $(MKDIR_P) "$(DESTDIR)$(ephepkgdatadir)"
-	@list='$(dist_ephepkgdata_DATA)'; test -n "$(ephepkgdatadir)" || list=; \
+	test -z "$(ephedatadir)" || $(MKDIR_P) "$(DESTDIR)$(ephedatadir)"
+	@list='$(dist_ephedata_DATA)'; test -n "$(ephedatadir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
 	done | $(am__base_list) | \
 	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(ephepkgdatadir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(ephepkgdatadir)" || exit $$?; \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(ephedatadir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(ephedatadir)" || exit $$?; \
 	done
 
-uninstall-dist_ephepkgdataDATA:
+uninstall-dist_ephedataDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(dist_ephepkgdata_DATA)'; test -n "$(ephepkgdatadir)" || list=; \
+	@list='$(dist_ephedata_DATA)'; test -n "$(ephedatadir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(ephepkgdatadir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(ephepkgdatadir)" && rm -f $$files
+	echo " ( cd '$(DESTDIR)$(ephedatadir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(ephedatadir)" && rm -f $$files
 install-dist_swedocDATA: $(dist_swedoc_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(swedocdir)" || $(MKDIR_P) "$(DESTDIR)$(swedocdir)"
@@ -774,7 +774,7 @@ all-am: Makefile $(LTLIBRARIES) $(PROGRAMS) $(DATA) $(HEADERS)
 install-binPROGRAMS: install-libLTLIBRARIES
 
 installdirs:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(ephepkgdatadir)" "$(DESTDIR)$(swedocdir)" "$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(ephedatadir)" "$(DESTDIR)$(swedocdir)" "$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(includedir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -825,9 +825,8 @@ info: info-am
 
 info-am:
 
-install-data-am: install-dist_ephepkgdataDATA \
-	install-dist_includeHEADERS install-dist_swedocDATA \
-	install-pkgconfigDATA
+install-data-am: install-dist_ephedataDATA install-dist_includeHEADERS \
+	install-dist_swedocDATA install-pkgconfigDATA
 
 install-dvi: install-dvi-am
 
@@ -873,7 +872,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-dist_ephepkgdataDATA \
+uninstall-am: uninstall-binPROGRAMS uninstall-dist_ephedataDATA \
 	uninstall-dist_includeHEADERS uninstall-dist_swedocDATA \
 	uninstall-libLTLIBRARIES uninstall-pkgconfigDATA
 
@@ -884,7 +883,7 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dist_ephepkgdataDATA \
 	distclean distclean-compile distclean-generic \
 	distclean-libtool distclean-tags distdir dvi dvi-am html \
 	html-am info info-am install install-am install-binPROGRAMS \
-	install-data install-data-am install-dist_ephepkgdataDATA \
+	install-data install-data-am install-dist_ephedataDATA \
 	install-dist_includeHEADERS install-dist_swedocDATA \
 	install-dvi install-dvi-am install-exec install-exec-am \
 	install-html install-html-am install-info install-info-am \
@@ -894,7 +893,7 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dist_ephepkgdataDATA \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
 	tags uninstall uninstall-am uninstall-binPROGRAMS \
-	uninstall-dist_ephepkgdataDATA uninstall-dist_includeHEADERS \
+	uninstall-dist_ephedataDATA uninstall-dist_includeHEADERS \
 	uninstall-dist_swedocDATA uninstall-libLTLIBRARIES \
 	uninstall-pkgconfigDATA
 

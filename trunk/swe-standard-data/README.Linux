@@ -1,5 +1,5 @@
 the swe-standard-data package installes the standard files, i.e. the
-.se1 files in /usr/share/libswe/users/ephe
+.se1 files in /usr/share/libswe/ephe
 This is all the data a typical Swiss Ephemeris users would want.
 This package installs it all rather than burden the user with
 thinking about what data he wants. disk space has become cheap.
@@ -21,4 +21,4 @@ sample.  This file is not particularly important, but it makes one of
 the tests listed in the swetest manpage work. It also serves to show
 where such files should be stored.  That is, parrellel to their
 location on astrodienst. In this case, that is,
-/usr/share/libswe/users/ephe/ast0
+/usr/share/libswe/ephe/ast0

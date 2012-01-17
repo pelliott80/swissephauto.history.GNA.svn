@@ -143,6 +143,7 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
+ast0ephedatadir = $(ephedatadir)/ast0/
 bindir = @bindir@
 build_alias = @build_alias@
 builddir = @builddir@
@@ -150,6 +151,7 @@ datadir = @datadir@
 datarootdir = @datarootdir@
 docdir = @docdir@
 dvidir = @dvidir@
+ephedatadir = $(datadir)/libswe/ephe/
 exec_prefix = @exec_prefix@
 host_alias = @host_alias@
 htmldir = @htmldir@
@@ -189,11 +191,9 @@ EXTRA_DIST = \
 	LICENSE.TXT\
 	AUTHORS
 
-ast0ephedatadir = $(datadir)/libswe/users/ephe/ast0
 dist_ast0ephedata_DATA = \
 	se00433s.se1
 
-ephedatadir = $(datadir)/libswe/users/ephe/
 dist_ephedata_DATA = \
 	seas_00.se1\
 	seas_06.se1 \

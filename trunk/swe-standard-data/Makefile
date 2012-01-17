@@ -124,15 +124,15 @@ OBJEXT = o
 PACKAGE = swe-standard-data
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = swe-standard-data
-PACKAGE_STRING = swe-standard-data 00003
+PACKAGE_STRING = swe-standard-data 00004
 PACKAGE_TARNAME = swe-standard-data
 PACKAGE_URL = 
-PACKAGE_VERSION = 00003
+PACKAGE_VERSION = 00004
 PATH_SEPARATOR = :
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = 
-VERSION = 00003
+VERSION = 00004
 abs_builddir = /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data
 abs_srcdir = /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data
 abs_top_builddir = /home/pelliott/develop/astrology/newlibswe/svn/trunk/swe-standard-data
@@ -143,6 +143,7 @@ am__leading_dot = .
 am__quote = 
 am__tar = ${AMTAR} chof - "$$tardir"
 am__untar = ${AMTAR} xf -
+ast0ephedatadir = $(ephedatadir)/ast0/
 bindir = ${exec_prefix}/bin
 build_alias = 
 builddir = .
@@ -150,6 +151,7 @@ datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
+ephedatadir = $(datadir)/libswe/ephe/
 exec_prefix = ${prefix}
 host_alias = 
 htmldir = ${docdir}
@@ -189,11 +191,9 @@ EXTRA_DIST = \
 	LICENSE.TXT\
 	AUTHORS
 
-ast0ephedatadir = $(datadir)/libswe/users/ephe/ast0
 dist_ast0ephedata_DATA = \
 	se00433s.se1
 
-ephedatadir = $(datadir)/libswe/users/ephe/
 dist_ephedata_DATA = \
 	seas_00.se1\
 	seas_06.se1 \

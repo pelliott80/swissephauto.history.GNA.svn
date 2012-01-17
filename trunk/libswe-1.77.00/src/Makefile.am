@@ -96,8 +96,10 @@ dist_swemini_SOURCES = \
 swemini_LDADD = \
 	libswe.la
 
-ephepkgdatadir = $(pkgdatadir)/users/ephe/
-dist_ephepkgdata_DATA = \
+ephedatadir = $(pkgdatadir)/ephe/
+
+
+dist_ephedata_DATA = \
     $(astrosrc)/fixstars.cat\
     $(astrosrc)/sedeltat.txt.inactive\
     $(astrosrc)/sefstars.txt\

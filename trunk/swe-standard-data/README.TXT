@@ -1,5 +1,5 @@
 the swe-standard-data package installes the standard files, i.e. the
-.se1 files in /usr/share/libswe/users/ephe
+.se1 files in /usr/share/libswe/ephe
 
 
 README.TXT   24-Dec-1998 by Alois Treindl
