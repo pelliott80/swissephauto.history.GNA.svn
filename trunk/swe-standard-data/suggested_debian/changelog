@@ -1,4 +1,4 @@
-swe-standard-data (00004-1) natty; urgency=low
+swe-standard-data (00004-1) unstable; urgency=low
 
   * New upstream release
   * changes location files from /usr/share/libswe/users/ephe/
