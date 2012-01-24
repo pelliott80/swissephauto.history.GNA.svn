@@ -1,0 +1,45 @@
+swe-standard-data (00004-1) unstable; urgency=low
+
+  * New upstream release
+  * changes location files from /usr/share/libswe/users/ephe/
+  * to /usr/share/libswe/ephe/
+  * * upgrade to Standards-Version: 3.9.2
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Fri, 13 Jan 2012 22:42:58 -0600
+
+swe-standard-data (00003-1) natty; urgency=low
+
+  * New upstream release
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 14 Nov 2011 10:23:57 -0600
+
+swe-standard-data (00002-2) unstable; urgency=low
+
+  * upstream host moved change watch file, control
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Wed, 09 Nov 2011 22:55:20 -0600
+
+swe-standard-data (00002-1) natty; urgency=low
+
+  * New upstream release
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Sun, 09 Oct 2011 00:40:12 -0500
+
+swe-standard-data (00001-1) unstable; urgency=low
+
+  * Initial release (Closes: #636089)  
+  * updated description fields of control
+  * updated copywight file
+  * update README.Debian
+  * remove COPYING LICENSE.TXT using rules file
+  * remove LICENSE.TXT from docs
+  * change section to science
+  * add vcs-svn vcs-browser ot control
+  * recomend on swe-basic-data
+  * fix README.source
+  * empty watch file
+  * remove period from 1st line of description.
+  * more information in extended description.
+  * new README.Linux
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Thu, 01 Sep 2011 22:26:20 -0500

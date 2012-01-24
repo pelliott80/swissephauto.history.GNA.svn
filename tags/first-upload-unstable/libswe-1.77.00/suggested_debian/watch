@@ -1,0 +1,3 @@
+version=3
+    http://download.gna.org/swissephauto/libswe-(\d+\.\d+\.\d+\.\d+).tar.bz2
+
