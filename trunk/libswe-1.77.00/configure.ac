@@ -18,7 +18,7 @@ dnl    along with lib.  If not, see <http://www.gnu.org/licenses/>.
 dnl Process this file with autoconf to produce a configure script.
 dnl Created by Anjuta application wizard.
 
-AC_INIT(libswe, 1.77.00.0004)
+AC_INIT(libswe, 1.77.00.0005)
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
 AM_INIT_AUTOMAKE([dist-bzip2 no-dist-gzip])

@@ -75,7 +75,10 @@ $(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 #tricky code alert
 #in a subshell save pid of subshell, ($$$$) becomes $$ in subshell.
 #then exec the listener. result is listnener running detached with saved pid.
-	echo "echo "'$$$$'" >$@.pid ; exec unoconv --listener" | $(SHELL) &
+#create and save temp writeable directory to use by libreoffice
+	echo $$(mktemp -d)>$@.home.dir
+	echo "echo "'$$$$'" >$@.pid ; export HOME=$$(<$@.home.dir);exec unoconv --listener" | $(SHELL) &
+	export HOME=$$(<$@.home.dir); \
 	for ext in html pdf ;do \
 	   for name in swephprg  swisseph ; do \
 	   		  echo "unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext}" ;\
@@ -84,6 +87,8 @@ $(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} ; \
 	   done; \
 	done
+	-rm -r $$(<$@.home.dir)
+	-rm $@.home.dir
 #kill sub-sub process and sub-process
 	for pid in $$(pgrep -P $$(<$@.pid) ) ; do \
                 pkill -P $$pid; \
@@ -120,4 +125,4 @@ endif
 
 dist_astrodoc_DATA = $(astrodienst)/doc/sweph.gif  $(astrodienst)/doc/swephin.gif
 
-CLEANFILES = $(html_DATA) $(pdf_DATA) *.pid
+CLEANFILES = $(html_DATA) $(pdf_DATA) *.pid *.home.dir
