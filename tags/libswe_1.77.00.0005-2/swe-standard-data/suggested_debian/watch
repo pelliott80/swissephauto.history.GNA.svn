@@ -1,0 +1,6 @@
+#swe-standard-data for Debian
+#----------------------------
+version=3
+
+http://download.gna.org/swissephauto/swe-standard-data-(\d+)\.tar\.bz2
+
