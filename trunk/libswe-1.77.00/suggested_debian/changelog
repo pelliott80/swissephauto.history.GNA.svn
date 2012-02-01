@@ -1,10 +1,10 @@
-libswe (1.77.00.0005-1) unstable; urgency=low
+libswe (1.77.00.0005-2) unstable; urgency=low
 
   * New upstream release
-  * empty writable home dir for LO
+  * empty writable home dir for LO (closes: #635672)
   * Build-Depends-Indep for LO and dependencies
 
- -- Paul Elliott <pelliott@blackpatchpanel.com>  Sun, 29 Jan 2012 03:04:51 -0600
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Wed, 01 Feb 2012 15:05:52 -0600
 
 libswe (1.77.00.0004-1) unstable; urgency=low
 
