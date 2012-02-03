@@ -1,0 +1,23 @@
+Document: swisseph
+Title: Swiss Ephemeris General Documentation
+Author: Dieter Koch and Alois Treindl
+Abstract: Swiss Ephemeris is a function package for the computation of
+ planetary positions. It includes the planets, the moon, the lunar
+ nodes, the lunar apogees, the main asteroids, Chiron, Pholus, the
+ fixed stars and several hypothetical bodies. Hundreds of other
+ minor planets are included as well. Ephemeris files all numbered
+ asteroids are available for download.
+ The precision of the Swiss Ephemeris is very high. It is at least as
+ accurate as the Astromical Almanac, the standard planetary and lunar
+ tables astronomers refer to. Swiss Ephemeris will, be able
+ to keep abreast to the scientific advances in ephemeris computation
+ for the coming decades. The expense will be small. In most cases an
+ update of the data files will do.
+Section: Science/Data Analysis
+
+Format: PDF
+Files: /usr/share/doc/libswe-doc/swisseph.pdf.gz
+
+Format: HTML
+Index: /usr/share/doc/libswe-doc/swisseph.html
+Files: /usr/share/doc/libswe-doc/swisseph.html

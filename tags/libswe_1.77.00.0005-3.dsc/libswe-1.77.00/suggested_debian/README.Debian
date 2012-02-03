@@ -1,0 +1,42 @@
+libswe for Debian
+-----------------
+
+libswe source has been patched for use with debian and rpm based
+distros. The Default value of SE_EPHE_PATH has been changed
+from ".:/users/ephe2/:/users/ephe/" to
+".:/usr/share/libswe/ephe2/:/usr/share/libswe/ephe/"
+The root directory /users does not exist on most packaged Linux
+distros. This will put the Swiss Ephemeris's data in directories
+that can be installed by packages.
+
+
+swe-basic-data is the data needed for all use of the Swiss Ephemeris.
+other packages will provide the other optional data. The Swiss
+Ephemeris can be used without any installed data at all, if the user
+supplies data in his own private directory.
+
+The Swiss Ephemeris was not created in the UNIX/Gnu Linux world and
+hence does not have an  UNIX/Gnu Linux style manpage. The manpages
+merely refer to documentation available elsewhere. It is however
+well documented in the following files in the package libswe-dev:
+/usr/share/doc/libswe-dev/swephprg.pdf 
+/usr/share/doc/libswe-dev/swisseph.pdf
+/usr/share/doc/libswe-dev/swephprg.html
+/usr/share/doc/libswe-dev/swisseph.html
+
+This documentation can also be found on line on astrodienst's web pages.
+
+Astrodienst has asked me to remove the public interface to pcalc, i.e.
+swepcalc.h. 
+http://tech.groups.yahoo.com/group/swisseph/message/3129
+This will make this version of astrodienst upwards compatible
+with the next release from astrodienst which will not included it.
+I believe no freesoftware actualy uses this code.
+Remove #include "swepcalc.h" from your code if you have it.
+This version of the library will not work if you do this include.
+You will have to remove it anyway when v 78 comes out because astrodienst is 
+making it go away.
+
+The current source version is 1.77.00.0001
+
+ -- Paul Elliott <pelliott@blackpatchpanel.com>  Mon, 01 Aug 2011 23:38:57 -0500
