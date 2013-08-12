@@ -1,0 +1,57 @@
+This is the README file for Swiss Ephemeris library documentation made
+with autotools on GNU/LINUX or other autotools friendly environments.
+As of today, no changes have been made to the original Swiss Ephemeris
+source code.
+
+This is the Swiss Ephemeris library documentation files from astrodienst.
+Pdf and .html files are created from the corresponding doc files.
+The man pages are not found here, they are found with the libswe-dev
+packages.
+
+Format of source version. The current source version is
+1.77.00.0006. In this number is the source version of the Astrodienst
+files. That is this version of the Swiss Ephemeris library
+documentation for Autotools is based on the file
+sweph.zip from Astrodienst. The 0006 part indicates
+this is the sixth version for the autotools part.
+The folks at astrodienst do not save their distribution files
+by version number. This when a new version comes out, the old
+version is wiped out on the astrodienst web/ftp site. In order to
+maintain an historical record, thie sweph.zip files are also stored
+in the Swiss Ephemeris AutoTools download area in version dependent
+subdirectories. Thus the file, 
+http://download.gna.org/swissephauto/astrodienst/sweph1.78/sweph.zip
+will be the 1.78 version of this file. The source files we use are:
+swephprg.doc and swisseph.doc.
+
+The Swiss Ephemeris also runs under MSDOS, Windows, and other
+environments. For that version see: http://www.astro.com/swisseph/
+
+The file COPYING and LICENSE  describe the license for this version
+of the program.
+
+the doc subdirectory contains the original documentation which exhaustively
+documents the API.
+
+The file INSTALL tells how the library may be installed.
+
+The files are organized like this:
+
+
+$(top_builddir)  -----|  main autotools control files including configure.ac
+                 |
+                 +----|  $(top_builddir)/doc -- build autotools files for
+                 |                              documentation
+                 +----|  $(top_builddir)/astrodocsrc =$(astrodocsrc)
+                                                Astrodienst source files left out
+                                                of astrodienst's distribution.
+                                                Resourced by Paul Elliott.
+                                                contains note from astrodienst
+                                                asserting the LICENSE.
+
+
+The astrodienst distribution contains pdf and html files that document
+the library extensively. These files have been rebuild from their
+sources in the for GNU/LINUX versions. Refer to these files for all
+documentation.
+

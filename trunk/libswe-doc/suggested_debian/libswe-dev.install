@@ -1,0 +1,7 @@
+usr/include/*
+usr/lib/lib*.a
+usr/lib/lib*.so
+usr/lib/pkgconfig/*
+#new packages should omit the .la file
+#usr/lib/*.la
+usr/bin/*
