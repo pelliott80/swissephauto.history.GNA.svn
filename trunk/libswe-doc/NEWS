@@ -16,3 +16,8 @@ Remove #include "swepcalc.h" from your code if you have it.
 This version of the library will not work if you do this include.
 You will have to remove it anyway when v 78 comes out because astrodienst is 
 making it go away.
+
+August 2013 remove the massive documentation from astrodienst,
+the .pdf and .html files from libswe into their own source
+package libswe-doc. These files can be quite tricky to build from
+source.

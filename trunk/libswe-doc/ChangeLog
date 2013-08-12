@@ -1,2 +1,1552 @@
+commit bcaad73cfbf28e1ceebee05ae6c1c47139a4488e
+Author: Paul Elliott <pelliott@blackpatchpanel.com>
+Date:   Sat Aug 10 01:26:01 2013 -0500
 
+    changed src/Makefile.am unoconv --stdout to unoconv -o
+    sleep 20 sec after starting unoconv listner
 
+commit 4addeed4ef707f695a475889a3333b848ede9540
+Author: Paul Elliott <pelliott@blackpatchpanel.com>
+Date:   Sat Aug 10 00:44:29 2013 -0500
+
+    split libswe-1.77.00 split off swephprg.doc swisseph.doc from libswe
+    to seperate source package libswe-doc, creating libswe and libswe-doc.
+
+commit bd356cbdbc64544e5c406542f0594150ef9218b7
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 1 22:38:49 2013 +0000
+
+    Document archiving of AstroDienst tarballs and zip files.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@169 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0994e44db2cdede0b6dad88e6c8dc0a2fc2c2329
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Feb 20 06:22:12 2012 +0000
+
+    add space
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@168 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit b1580145e8f0dfcb7274afa5dfcd43f10cc20472
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Feb 20 06:18:19 2012 +0000
+
+    Note move to debian unstable
+    
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@167 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 19f01120a40324211db9220c0eb6d872ad3ea6c5
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Feb 8 08:05:23 2012 +0000
+
+    remove Build-Depends-Indep: it causes arch only builds to fail
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@166 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 17b56535b87729f52f7a9c7b4625b223a9c8edcb
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Feb 3 04:03:07 2012 +0000
+
+    closes the correct bug.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@165 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 6862aaa3b8dad0f30b349f9971f8f963c9052d3b
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Feb 3 03:56:16 2012 +0000
+
+    close the right bug!
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@164 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 5efc71c9aaeeb8dafdc1ed31cf515490f9bc846a
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Feb 1 21:26:03 2012 +0000
+
+    minor update libswe_1.77.00.0005-2
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@163 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit a3120373c033f7447df072516338ed322b9e2b69
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Feb 1 21:16:44 2012 +0000
+
+    close bug #635672 in the change log
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@162 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit b398cf2d2276a64e4d4551c2bfe7d486967140dc
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Jan 31 09:01:02 2012 +0000
+
+    new version released as libswe-1.77.00.0005.tar.bz2
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@161 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 3a1e1e017c8c200444f00a68be0b68b5e07be87d
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Jan 29 10:28:26 2012 +0000
+
+    give LO an empty writable home directory to convert docs
+    LO and its dependancies in now Build-Depends-Indep:
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@160 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 71ee22dd3519e33b04529d770f46ff09c3a08bd2
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Jan 24 02:28:08 2012 +0000
+
+    Project uploaded to debian unstable
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@159 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 6eb31884e0a8f61f8fb56bb68c9c27dfd1d79202
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Jan 18 23:14:55 2012 +0000
+
+    update changelog for last build
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@158 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 3b93e6eae443accbaa597b0a4e5bba3b6ef7f1b9
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Jan 17 20:08:16 2012 +0000
+
+    move files in /usr/share/libswe/users/ephe to
+    /usr/share/libswe/ephe
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@157 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit c76e7a72868fe8d1da6ca82f27bd1afa49ca5f7d
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Nov 14 16:12:04 2011 +0000
+
+    new upstream release required by lack of authors.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@156 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 3dcf6077540dbfb84703a17ee2da4324bc062095
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Nov 14 01:15:33 2011 +0000
+
+    single tarball packages.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@155 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit c4e409f39cc4452f056d2b5e654c3297cad15183
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Nov 13 05:31:18 2011 +0000
+
+    new release 0003
+    get rid of openoffice transitional packages.
+    openoffice.org -> libreoffice
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@154 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit bafa7b79a3bca436c9b6b85839f5b01f522352e0
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Nov 13 05:01:15 2011 +0000
+
+    new release 0003.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@153 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 34d9cd872d9763c5f3bbb84b5ae642d3864e74e0
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Nov 13 04:57:59 2011 +0000
+
+    kill subprocess and subsubprocess of the pid of the unoconv --listner.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@152 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 65aeafd7561549e50fa3dffef6164c07ef5b6206
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Nov 13 04:55:58 2011 +0000
+
+    change location of tarballs in INSTALL.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@151 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit e5131d7bec8ad21056e4d13b2aa5dc79ad7e496d
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Nov 12 05:13:03 2011 +0000
+
+    needs Heckert_GNU_white.png as well
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@150 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0bcb50128531ddfce7e1123db505f80861af3530
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Nov 12 01:56:09 2011 +0000
+
+    Heckert_GNU_white.svg is used by the website
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@149 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 293f097217a2c14830df6f83f4f8cdae1f784b21
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Nov 10 05:55:22 2011 +0000
+
+    update for move of upstream from berlios to Gna!
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@148 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit bdbca068434ad6da95c8f42e58ae9313c4db40b2
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Nov 10 05:15:23 2011 +0000
+
+    Authors had been left out by mistake
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@147 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit d8876f9b25a0955d4c1d0c7159b866b3db8ada96
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Nov 10 05:09:16 2011 +0000
+
+    add seasnam.txt
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@146 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 76731b4422a774afc7ded92649d38afc4f527ad0
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Nov 10 04:28:58 2011 +0000
+
+    change document for move from berlios gna!
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@145 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 6210cdf81e3da8d20cf14d5b6756d70431bb0338
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Nov 9 02:08:22 2011 +0000
+
+    remove berlios' web page, now using gna!
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@144 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 7dfc64b48f1a26385daff4c7073ef04f5636e2cf
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Nov 9 02:02:17 2011 +0000
+
+    edit berlios's web page for use with Gna!
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@143 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 713837b25cd69b9f088bbb861e39ddc000668176
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Nov 9 01:50:12 2011 +0000
+
+    copy berlios web page to Gna!
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@142 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 02b1b84704be48ed9420c59494a174c4a3328f89
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Nov 9 01:45:48 2011 +0000
+
+    copy swephin.gif for use by website
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@141 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit bcfa3229d092ba1fe39b7d284e5de5bd0bc8d99a
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Nov 9 01:44:15 2011 +0000
+
+    copy sweph.gif for use by website
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@140 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 904390f7d3493cacc79415e902f47e93f97c1c7f
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Nov 9 00:17:29 2011 +0000
+
+    Snapshot on transfering to Gna!
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@139 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 23791e2699c5c7f2626f72af590235bcba2e1ea0
+Author: root <root@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Nov 6 12:04:44 2011 +0000
+
+    website at home.gna.org
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@138 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit da7384034f774ee7d193c4f12c531e050acddc7e
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Oct 18 17:26:42 2011 +0000
+
+    state at second upload to mentors.debian.net
+    releases:
+    libswe-1.77.00.0002.tar.bz2
+    swe-standard-data-00002.tar.bz2
+    
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@137 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0e2396bb644dd826b1327876fe008c99357a0771
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Oct 9 06:00:16 2011 +0000
+
+    uupdate new release
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@136 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 58894090fc3a494b145de399de8ed19dd6e5d39b
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Oct 9 05:56:46 2011 +0000
+
+    add seasnam.txt
+    new release number.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@135 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 861ffaf8030cf6ed5ac3a7bf73f92f1e9df4cc11
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Oct 7 08:01:08 2011 +0000
+
+    split out seperate -doc package.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@134 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit e06df781aa34abb1b377c56400dc999e4fbe03dc
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Oct 7 07:54:50 2011 +0000
+
+    split out seperate -doc package.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@133 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit e069694247fb3d23e9ea1b008cb07300ec745865
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Sep 26 17:01:56 2011 +0000
+
+    copy of state at 1st upload to mentors.debian.net
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@132 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 98183015a85de5235cdfb9ba5d1c2d1b814cdd4b
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Sep 24 07:26:31 2011 +0000
+
+    location of astrodocsrc tarball after release.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@131 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 16df5ab310c32f63883741baadb7b4a39fcf1f30
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 23 23:33:50 2011 +0000
+
+    update watch file after berlios release.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@130 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit f068494c8363664f1bec7d04054ba9ac5fabffde
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Sep 22 01:12:08 2011 +0000
+
+    documentation on method of producing documenation during build.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@129 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 2f3645fc69c02d0afc8138cfc7b2ed8e401a16df
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Sep 21 23:25:26 2011 +0000
+
+    fix project in watch files.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@128 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 86f866d451dbbe1df0ab0c14984c8447336f352e
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Sep 21 19:18:15 2011 +0000
+
+    update status on web page.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@127 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 70bb77b1b729084db96791f9a8ca5509f57565a9
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Sep 21 03:43:23 2011 +0000
+
+    comments on documentation methods
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@126 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 680956c80a119e6e74e9029e2a80d93c8ec7f0cf
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Sep 21 03:38:31 2011 +0000
+
+    new asteroid file.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@125 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 3ab271c1e5255c3d40ffe2574053a59e2738560d
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Sep 15 13:55:39 2011 +0000
+
+    document the removal of pcalc.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@124 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit d4a5557a8ddb0e1de449c75e6a47b6e80c684a07
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 13 12:44:20 2011 +0000
+
+    fix docs for rpm location of the development package.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@123 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 5b3cda7b6fcbd0b36da967e2ea07f656f05ccb9d
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Sep 12 23:10:37 2011 +0000
+
+    libswe-devel depends on libswe0
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@122 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit cbf76f8f1ff546d6d1729d052c03cb2e1be0dfb4
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Sep 12 19:53:34 2011 +0000
+
+    fix location of dev files.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@121 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ac5d5b6e037ab6407b5a47d43616ea1560409cdd
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Sep 11 22:57:55 2011 +0000
+
+    do not install misc doc files. let distros do it instead.
+    with debian/docs or %doc
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@120 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit a22b621f3de759bb6b6a1ea5cdf470b76a4962eb
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Sep 11 19:55:38 2011 +0000
+
+    changelog for misc doc files.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@119 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit f3fda85b46b09c7f5bf2e28afe02551585e42fcc
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Sep 11 13:23:12 2011 +0000
+
+    don't distribute misc docs let distros do it with %docs and debian/docs.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@118 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 7451640484092ace6d471fe9ecd092321da6e53f
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Sep 10 22:07:44 2011 +0000
+
+    save state of working in greenspider
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@117 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 4428c39ada18efaf2921f6741d8c602a4eded1bb
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Sep 10 20:31:04 2011 +0000
+
+    remove files in %doc
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@116 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ea16326e279ee7b840e7a88ad74f9e19d24a64ab
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Sep 10 19:51:24 2011 +0000
+
+    allow option to not compile docs
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@115 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 9177385ac7cd1a35a834556c83efdc656cd83965
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Sep 10 19:48:48 2011 +0000
+
+    loconvert unoconv do not work for fedora.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@114 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 5d0c3d072c8746e6256c487b7e073ab4cb1cf12e
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Sep 10 10:14:36 2011 +0000
+
+    fix version number
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@113 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 64b558617417b8e3d845ad81382cece8d51e8aba
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Sep 10 08:45:29 2011 +0000
+
+    fix loconvert compiled wrong pdfs htmls
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@112 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ecdee32645a974da869dcab3b7d220b9e451e2fb
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 9 19:28:58 2011 +0000
+
+    Recommends not in fedora
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@111 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 65eb82bbd5a5497ee81acf5edf9649d621ff43e8
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 9 10:02:27 2011 +0000
+
+    use loconvert
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@110 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ad62a502c419f0e969c7ec539d5c9d650d544aa0
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 9 06:42:52 2011 +0000
+
+    force  traball bz2, rpm spec file.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@109 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 43c050a466d0b8eca54bd43fbbc112c50694bffa
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Sep 8 10:14:58 2011 +0000
+
+    produce bzip2 tarballs.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@108 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ac1f343b3447fc9d87e80b1667c63c5eeac0be9f
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Sep 7 16:36:59 2011 +0000
+
+    change .gz to .bz2; BuildArch: noarch ;swe-basic-data
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@107 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit a6a9ee948724cc1f951f8d69ab23090a0d2083bb
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Sep 7 06:38:25 2011 +0000
+
+    upstream from pe will use .bz2 tarballs, fix README.source
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@106 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit deffb02bcc46571d969d1687e70fe84fbf503e05
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 6 22:54:34 2011 +0000
+
+    fix copyright file.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@105 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 205a94717461423e3c698b9f1d52ab24b3a515e5
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 6 15:17:25 2011 +0000
+
+    fix files to docdir. htmldoc option if lconvert, unoconv don't work.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@104 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit d8ac1d1736644814232ee1c5028fe7dd23008a5b
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 6 15:13:12 2011 +0000
+
+    fix libswe.spec now build successfully. Next: fix rpmlint errors.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@103 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0699e4321e93569daba8e2ebab761dfd8f639570
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Sep 5 13:12:41 2011 +0000
+
+    describe lconvert in INSTALL
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@102 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 39ebcfd41b32dec0bd49404338ffd642aa848c05
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Sep 3 03:18:54 2011 +0000
+
+    simplify remove debugging statements.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@101 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0aa76ca599d95ea580f96c84f6f834b9b8775363
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 2 05:54:12 2011 +0000
+
+    after rebuild
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@100 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 9211afe346dc3ef993643a0be2fedb5abcef97ec
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 2 03:58:06 2011 +0000
+
+    add README.Linux to dist
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@99 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 79476f679fefb2d4109ff0a657d7f37d54f8eb18
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 2 03:31:06 2011 +0000
+
+    add README.Linux documentation file.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@98 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 97c08d84cafa7b1df1ea407fe3bfbc88f319909b
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 2 03:13:11 2011 +0000
+
+    add infor to readme about the data.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@97 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit f5b755280ca3f5d632b00749936254097363070d
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 2 03:11:27 2011 +0000
+
+    insure copyright installed.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@96 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0eac7ba9a6c21ab87a2a0b1e9edf516b5530f4ce
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Sep 2 03:09:59 2011 +0000
+
+    fix files to be installed.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@95 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 85262de4e317fb94cb7a8ad789b4be09347c0cd8
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Sep 1 12:32:11 2011 +0000
+
+    documentation files to /usr/share/doc/libswe-devel
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@94 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0f5f9c7dbab9b9d8faf1eed40c91f76609400c5b
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Sep 1 08:53:43 2011 +0000
+
+    send all docs to docdir
+    set doc dir to /usr/share/doc/libswe-dev with override_dh_auto_configure
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@93 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 3a69bb0b36f0c85f42a1b8bb01716eebcf1ecdc1
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Sep 1 02:25:19 2011 +0000
+
+    misc fixes
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@92 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 80c6dfcc4dfa7d55f32adff07d592c4f7ee97ecd
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 31 07:46:35 2011 +0000
+
+    fix setup lines.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@91 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 928858bb088764b2fcb6d30051773a6c2d34239c
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 31 04:02:42 2011 +0000
+
+    Prerelease review on debian.mentors http://lists.debian.org/debian-mentors/2011/08/msg00760.html
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@90 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ef060cdf8ffe943db1e3da0f5b6177924090b62d
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 30 07:13:07 2011 +0000
+
+    add rpm spec file unfinished.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@89 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 14a927be36d436402fe9e7070defde50ffb79c80
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 30 02:03:28 2011 +0000
+
+    correct spelling me in READMEs
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@88 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit c24829ca2728aba12ee9fe823517b49633695969
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 30 02:01:35 2011 +0000
+
+    additional info to INSTALL file about additional sources.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@87 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit a11719146761071958fdded7e1c1bd5c50d62469
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 29 07:01:49 2011 +0000
+
+    create debian/libswe0.symbols file.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@86 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit cf5698c3f310b4cee7129c7d8f37709b3a837baf
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 29 04:46:42 2011 +0000
+
+    remove swepcalc.h interface at the request of astrodienst:
+    http://tech.groups.yahoo.com/group/swisseph/message/3129
+    do not publish swepcalc.h do not compile in swepcalc.c or swepdate.c
+    all symbols to be published is
+    -export-symbols-regex ^swe_
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@85 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 7bb2cf981b8e198ae92278e32028540215ff9e00
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Aug 26 04:20:58 2011 +0000
+
+    expose only symbols from swephexp.h swepcalc.h
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@84 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit e9448a1cea3ddafe51010b9ac561f3736e0d7fff
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 25 07:22:29 2011 +0000
+
+    expose swepcal.h to public
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@83 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit cad34fb6363e8c5ef1a9f603b02baeca14a83d58
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 25 06:47:12 2011 +0000
+
+    add count of .se1 files in description in control.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@82 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 1d50f717348f45666670f8f9af1bf81ca9269045
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 25 06:26:07 2011 +0000
+
+    remove period from 1st line of description.
+    more information in extended description.
+    
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@81 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit d7a52b2446c1917ad66d8a59c42f6913f0697c23
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 25 05:47:33 2011 +0000
+
+    add empty watch file, mod README.TXT update changelog
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@80 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit de88d182a1dee524f271266f6797e3080e1c6129
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 25 03:11:59 2011 +0000
+
+    spelling patch to swetest.c
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@79 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 69f24718a7c63c52e3da532d00b25a7d1befc017
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 25 01:42:57 2011 +0000
+
+    spelling error in swetest.1
+    calender: A machine in which paper or cloth is made smooth and glossy by being pressed through rollers.
+    
+    calendar: an orderly list of persons, things, or events; a list of
+    offenders in the Newgate Calendar or in similar prisons or at Quarter
+    Session Courts; a list or record.
+    
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@78 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 7d660fd28b4a4941846bf6913a523e589b5f06f6
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 25 01:38:42 2011 +0000
+
+    fix hyphen errors.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@77 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit d60aab62b4f814ded3299ea0426a392578c365a1
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 24 09:10:51 2011 +0000
+
+    remove 1st person reference from libswe-dev.doc-base.swisseph
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@76 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 57c4ba4153f36c10533bbbcb56ee288918d19192
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 24 01:23:00 2011 +0000
+
+    removed 1st person from control discriptions,
+    fixed doc-base files.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@75 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit da843f383d8d3d88c03d805ad0c13470bf9856ca
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 23 18:57:11 2011 +0000
+
+    fix section in control file
+    create a comment only watch file
+    increase description verbosity in control file
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@74 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit f4405b8698e1da1750d4230f0acb07965c9f0eb2
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 22 01:58:42 2011 +0000
+
+    README.source README.Debian clarified.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@73 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 334e9be45d23581b3e5365a682e177d649dabe37
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 22 01:01:07 2011 +0000
+
+    openoffice.org-writer, openoffice.org-java-common needed for unoconv work
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@72 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit f8fedadbca8e63fcd08537cee1157696fc3fc0b0
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Aug 21 00:34:42 2011 +0000
+
+    explain why multisource tar ball.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@71 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 5f750c8a73e3757fbed4f377bae2a8ab318d0fb5
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Aug 21 00:06:25 2011 +0000
+
+    fix README.source
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@70 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 087e3c98a725d65e5d612a8c625c54166253fcd4
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Aug 19 23:09:35 2011 +0000
+
+    documents sw extensions. combine in one sentense. add PHP.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@69 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit c02ae707d62625d48f758771befd1dcc93e0158f
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Aug 19 04:12:18 2011 +0000
+
+    document Swiss Ephemeris Standard Data.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@68 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 1c5e3dc767ae10bd66d5dac38752343ba500c9c3
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 17 08:40:39 2011 +0000
+
+    control Recommends: swe-basic-data, swe-standard-data
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@67 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 6001cd7848e36c6bc7aff44b62c43632b5f70911
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 17 08:21:22 2011 +0000
+
+    recommend swe-basic-data
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@66 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 773d94016b36e5b516a49398a0f61de59860c00c
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 17 08:07:46 2011 +0000
+
+    add vcs-svn vcs-browser to control.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@65 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 05cf9647b6af8cb10aca4e0cfe30b764f013d1e3
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 17 07:07:52 2011 +0000
+
+    update documentation of new loc data.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@64 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ad43045317630226cb57c5813769d53afe4996af
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 17 06:19:49 2011 +0000
+
+    remove COPYING LICENSE.TXT using rules and docs
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@63 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 1edb8a404082278be0fe7f8f2900ec64997743cc
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 17 01:46:22 2011 +0000
+
+    fix how we install documentation docdir and dist_doc_DATA
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@62 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit a776b084da027705a52a126897a464af2777c030
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 16 21:17:46 2011 +0000
+
+    distribute all documentation files.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@61 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 7dcab81a4090b8f924665699b68d2f37d89f7e3f
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 16 20:59:54 2011 +0000
+
+    edit copyright and README.Debian from version from dh_make
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@60 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ee1e6ee9c95db5ca3ad4ff98123e3b01cb80cd34
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 16 20:01:38 2011 +0000
+
+    removed extraious debian/files
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@59 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 67455d11d00628947161838ce6fc33b8dc6a9c36
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 16 19:23:47 2011 +0000
+
+    move suggested-debian to suggested_debian
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@58 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit fd1943051005b3f5def7bc03a5b648adb3ae33f9
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 16 19:11:14 2011 +0000
+
+    create swe-standard-data
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@57 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 4f18dc749d6fcb6d1709df802bd9e88ed2637a4d
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 16 17:32:07 2011 +0000
+
+    add vcs-browser, vcs-svn.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@56 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 2e113a446f5416471ba6aacd37b19c9c88c5b8aa
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 16 04:31:34 2011 +0000
+
+    finish previous patch of /astrodienst/src/swephexp.h
+    changing SE_EPHE_PATH to ".:/usr/share/libswe/users/ephe2/:/usr/share/libswe/users/ephe/"
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@55 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit d8a18e31bc6072178bf829b125765db1b34043c3
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 16 04:28:07 2011 +0000
+
+    patch astrodienst/src/swephexp.h to make /usr/share/libswe/users/ephe/
+    the default data directory rather than /users/ephe/
+    /users root directory does not exist.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@54 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ef5a2d30136cb5ad38c2e881ed679c0c061baa74
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 16 02:33:20 2011 +0000
+
+    move basic data to $(pkgdatadir)/users/ephe/
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@53 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 4ef85ef908f4c834af87a379f02708be6fdb72b6
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 15 10:33:16 2011 +0000
+
+    add swissephauto field to source version number
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@52 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit a4e29358b14b89373cc9a9d0fe6354aee0bfb227
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 15 03:11:22 2011 +0000
+
+    move man pages to swissephauto project
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@51 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 08bb5567b5ff7df9d429db9824f142db39f134b4
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Aug 14 09:38:10 2011 +0000
+
+    move debian to libswe-1.77.00/suggested_debian
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@50 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit d07e746b27dcb4a75f08512275d01122c78bc866
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Aug 14 06:52:09 2011 +0000
+
+    anjuta change.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@49 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit de071d5baebd69ed9ffda49a85f381b1f29b1a7a
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sun Aug 14 06:45:18 2011 +0000
+
+    Fix numerious errors in swetest.1
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@48 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit eb33bfa72ccd9f52f92571ab372acafb5454aa97
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Aug 13 06:37:21 2011 +0000
+
+    kill listener after use
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@47 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 29e4f9661567c8c4ad123b371eb811a2a919e96d
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 11 09:17:19 2011 +0000
+
+    fix swetest.1
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@46 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 7054c666a069cd1a40cffbeb7cfd5e92b2279d3e
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Thu Aug 11 00:07:24 2011 +0000
+
+    fix 'sid1' bug at beginning of line.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@45 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0609ea826b954af8a07b4e73aa30e9043331d9f9
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 23:50:08 2011 +0000
+
+    add swemini.1 swetest.1 manpages.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@44 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 66b1ae534472078a31bce53c381b09defc3d6fbf
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 08:43:04 2011 +0000
+
+    add new man page swemini.1
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@43 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 752774694d491de15b68e7c1b585e217a975fc10
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 08:33:36 2011 +0000
+
+    late add of libswe-dev.examples
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@42 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 5b49ac39e468008dacc723efe07f0982c8a65f78
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 07:29:00 2011 +0000
+
+    remove upstream changelog
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@41 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit b1f42e62e7d9484b6a3853b60585786741abf07e
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 07:24:55 2011 +0000
+
+    specify examples by original location
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@40 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0c1bf4c975075e86d619a1d5308f18e73f7c5092
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 06:54:32 2011 +0000
+
+    usr/share/doc/libswe-dev/swetest.c
+    usr/share/doc/libswe-dev/swemini.c
+    are example files.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@39 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit e5a840f671ceff27cd4f2ab8812654d04dfd00af
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 06:24:01 2011 +0000
+
+    fix man page fill in correct NAME
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@38 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 87dae5ed722e320cf46cbe887432b94705426655
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 04:36:54 2011 +0000
+
+    move libswe.manpages to libswe-dev.manpages
+    possibly fixing manpage problem
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@37 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 4de4e544604e08f5bcc7344a80adb8a8c3576e5b
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 04:19:31 2011 +0000
+
+    W package-contains-upstream-install-documentation
+    remove upsteam INSTALL
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@36 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 64e973699a9d5ae4ac9a4959f6dc93b5cbcc6f93
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 04:01:13 2011 +0000
+
+    E copyright-file-contains-full-gpl-license
+    remove gpl2 from copyright, replace with a reference
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@35 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 6c9f9542a0dbc2348327c72ba5915b86d3eb834a
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 03:53:15 2011 +0000
+
+    don't install LICENSE already in copyright
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@34 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit dc38fbee84029b928c33e6da56b2a083ea0382ab
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 03:43:09 2011 +0000
+
+    COPYING not installed
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@33 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 75416e43e2699820f579d862dc3a5633f889958a
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 03:21:29 2011 +0000
+
+    fix W package-depends-on-hardcoded-libc
+    fix E depends-on-build-essential-package-without-using-version
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@32 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 95f69a9aa2e01face1d2d01e106976994a0571ae
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Wed Aug 10 00:11:06 2011 +0000
+
+    build depends on libc6-dev
+    libswe-dev depends on libc6
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@31 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 3b848844b969f139cb1a9d4fb059c4a40089d095
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 9 20:54:32 2011 +0000
+
+    swetest and swemini depend on libc6
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@30 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 29995fc664b571368150b19c7c3366575a954c48
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 9 20:51:16 2011 +0000
+
+    copyright is not the responsibility of autotools, it has COPYING,
+    it is owned by debian.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@29 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 85a93d4720a94ed8c3c3186562ddbc2a7e676b14
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 9 20:15:40 2011 +0000
+
+    build depends on unoconv
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@28 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 23b07b9a3a2ddc55a5f97f9bbe02cbaee7e30df6
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 9 20:05:38 2011 +0000
+
+    fix location of docdir from /usr/share/doc/libswe to /usr/share/doc/libswe-dev
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@27 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit ff5417238a15fcf696f6ade13e8dfd3fb2fe4d31
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 9 14:22:45 2011 +0000
+
+    libswe-dev.docbase now uses /usr/share/doc/libswe-dev
+    usr/share/pkgconfig not used in libswe-dev.install
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@26 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 319e6a74492c75c20fa514498819b6360ade16df
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 9 04:38:28 2011 +0000
+
+    stored debian control files
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@25 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 83fb6d429ab4a322c1fe6757bebb653718dd3a23
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 8 20:49:16 2011 +0000
+
+    fix name of author
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@24 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit bc58ed178da17f3559dfa1660c84821704293a98
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 8 20:12:12 2011 +0000
+
+    update copyright with copy of LICENSE
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@23 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit c33e409cd233f47b200c7533ecc719bd9a5ca036
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 8 19:15:01 2011 +0000
+
+    copyed COPYING to copyright file. distribute copyright file.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@22 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 01402cec38d529fcc19f815a14f9e03cea8b4bec
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 8 18:23:37 2011 +0000
+
+    add anjuta files.
+    correct location documentation files
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@21 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit b087d9e8f22863cc5c3f2a00ba2b15f7b44fcdbd
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Aug 5 08:06:52 2011 +0000
+
+    anjuta project file
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@20 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit eb0ba428d7e5719b38af98d12be53e96954f1447
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Aug 5 08:03:43 2011 +0000
+
+    autogen.sh to project
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@19 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit d8dab77f7a6a05e3ba1e3c8eb6e444894f80d7ce
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Aug 5 08:01:46 2011 +0000
+
+    add anjuta database to project
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@18 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 1d8202eee3e7f626f4560483a96af768556e34a0
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Fri Aug 5 07:31:56 2011 +0000
+
+    create redspider as current snapshop (merc retro)
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@17 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit b09f6a373a6fc5e9695018d524ffd8c871a1505c
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 2 02:49:23 2011 +0000
+
+    rename project to libswe.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@16 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 52ef071cdf2078d0e33b26526e738fe8a2844197
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Jul 30 08:24:59 2011 +0000
+
+    Mention GPL as reason for all src in svn. Correct font size to mention astrodiesnt and personal. better reference to svn checkout line.
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@15 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 9e471c553b0dd7417fce1592fd9ec08ceef459d8
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Jul 30 07:53:04 2011 +0000
+
+    replace autotools buildsystem
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@14 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0e3e5deedaa71e82e77e5e1718d76bc1046ada40
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Jul 30 06:50:58 2011 +0000
+
+    move all the files from astrodienst to positions
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@13 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 5f3d6e43a506f043a615a5b75ffaf51f91a98212
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Jul 30 06:50:15 2011 +0000
+
+    Move files from astrodienst to their positions
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@12 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 13501031c6130b597ad8db37e4170e747bc6f868
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Jul 30 03:39:49 2011 +0000
+
+    gave it wrong name when I renamed it.
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@11 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 703698a4cc2546b2b232d68ed860c69229232453
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Jul 30 03:33:15 2011 +0000
+
+    Old version that mixed files from astrodienst and autobuild tools
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@10 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit e3d164897c3c3975b9bcd2ab73cfe162f7678a27
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Sat Jul 30 03:28:15 2011 +0000
+
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@9 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit f172e3872687d9118b722be91400a404f73bc731
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon May 9 06:19:36 2011 +0000
+
+    make the gnu logo a link to where the license to the logo is
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@8 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 78c626cc6f860e385ae4d9129f7f738fb593e2b8
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon May 9 02:51:43 2011 +0000
+
+    Explain why it is important to get the Swiss Ephemeris into the distros.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@7 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 4d0b0186272a15139e38b303729c4af1fd6fb81a
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon May 9 01:51:19 2011 +0000
+
+    Credit Original Authors.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@6 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 28984fd1b121af7897d933662f08d74c7081b779
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon May 9 01:36:17 2011 +0000
+
+    Add Swiss Ephemeris logos
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@5 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit a9f11ea6c2e069dd99bde6305aa804d9c40dafad
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon May 2 20:33:43 2011 +0000
+
+    Tell how to get the source thru subversion.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@4 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit a65b3b3f2a9b1e020bce58c7f0cd443f71e539b4
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon May 2 19:31:37 2011 +0000
+
+    Add the Swiss Ephemeris files and the files used for  AutoTools building.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@3 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 1c100ba40d45fa7ef726261ee086521b1972b95f
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon May 2 19:18:05 2011 +0000
+
+    add Swiss Ephemeris AutoTools website.
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@2 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 51b88ebcb85efbba62dc6b1135f174a4c015bf2f
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon May 2 17:29:14 2011 +0000
+
+    create the trunk
+    
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@1 321e03d4-a0ea-4445-80dd-3d3597bf822b
