@@ -33,7 +33,9 @@ AC_ARG_VAR(WPCONVERT, [word processing conversion program, loconvert or unoconv]
 AC_CHECK_PROGS(WPCONVERT,[loconvert unoconv htmldoc])
 
 AM_CONDITIONAL(HAVE_LOCONVERT,[test "x$WPCONVERT" == "xloconvert"])
+AM_CONDITIONAL(HAVE_ILOCONVERT,[test "x$WPCONVERT" == "xiloconvert"])
 AM_CONDITIONAL(HAVE_UNOCONV,[test "x$WPCONVERT" == "xunoconv"])
+AM_CONDITIONAL(HAVE_OUNOCONV,[test "x$WPCONVERT" == "xounoconv"])
 AM_CONDITIONAL(HAVE_HTMLDOC,[test "x$WPCONVERT" == "xhtmldoc"])
 
 #disable if impossible to produce documentation.

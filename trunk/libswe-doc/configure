@@ -589,8 +589,12 @@ DOCS_FALSE
 DOCS_TRUE
 HAVE_HTMLDOC_FALSE
 HAVE_HTMLDOC_TRUE
+HAVE_OUNOCONV_FALSE
+HAVE_OUNOCONV_TRUE
 HAVE_UNOCONV_FALSE
 HAVE_UNOCONV_TRUE
+HAVE_ILOCONVERT_FALSE
+HAVE_ILOCONVERT_TRUE
 HAVE_LOCONVERT_FALSE
 HAVE_LOCONVERT_TRUE
 WPCONVERT
@@ -2377,12 +2381,28 @@ else
   HAVE_LOCONVERT_FALSE=
 fi
 
+ if test "x$WPCONVERT" == "xiloconvert"; then
+  HAVE_ILOCONVERT_TRUE=
+  HAVE_ILOCONVERT_FALSE='#'
+else
+  HAVE_ILOCONVERT_TRUE='#'
+  HAVE_ILOCONVERT_FALSE=
+fi
+
  if test "x$WPCONVERT" == "xunoconv"; then
   HAVE_UNOCONV_TRUE=
   HAVE_UNOCONV_FALSE='#'
 else
   HAVE_UNOCONV_TRUE='#'
   HAVE_UNOCONV_FALSE=
+fi
+
+ if test "x$WPCONVERT" == "xounoconv"; then
+  HAVE_OUNOCONV_TRUE=
+  HAVE_OUNOCONV_FALSE='#'
+else
+  HAVE_OUNOCONV_TRUE='#'
+  HAVE_OUNOCONV_FALSE=
 fi
 
  if test "x$WPCONVERT" == "xhtmldoc"; then
@@ -2550,8 +2570,16 @@ if test -z "${HAVE_LOCONVERT_TRUE}" && test -z "${HAVE_LOCONVERT_FALSE}"; then
   as_fn_error $? "conditional \"HAVE_LOCONVERT\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
+if test -z "${HAVE_ILOCONVERT_TRUE}" && test -z "${HAVE_ILOCONVERT_FALSE}"; then
+  as_fn_error $? "conditional \"HAVE_ILOCONVERT\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
 if test -z "${HAVE_UNOCONV_TRUE}" && test -z "${HAVE_UNOCONV_FALSE}"; then
   as_fn_error $? "conditional \"HAVE_UNOCONV\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${HAVE_OUNOCONV_TRUE}" && test -z "${HAVE_OUNOCONV_FALSE}"; then
+  as_fn_error $? "conditional \"HAVE_OUNOCONV\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAVE_HTMLDOC_TRUE}" && test -z "${HAVE_HTMLDOC_FALSE}"; then

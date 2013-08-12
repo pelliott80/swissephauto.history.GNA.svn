@@ -524,6 +524,25 @@ vpath %.htm $(astrodienst)/doc
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	loconvert --force $<  $@
 @DOCS_TRUE@@HAVE_LOCONVERT_TRUE@	sleep 20
 
+#if we use internal loconvert to produce docs
+
+#above was multi target build.
+# see https://bugzilla.novell.com/show_bug.cgi?id=715856#c1
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@.NOTPARALLEL: 
+
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@swephprg.html: swephprg.doc
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@	../iloconvert/loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@	sleep 20
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@swisseph.html: swisseph.doc
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@	../iloconvert/loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@	sleep 20
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@swephprg.pdf: swephprg.doc
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@	../iloconvert/loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@	sleep 20
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@swisseph.pdf: swisseph.doc
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@	../iloconvert/loconvert --force $<  $@
+@DOCS_TRUE@@HAVE_ILOCONVERT_TRUE@	sleep 20
+
 #if we use unoconv to produce documentation.
 
 #above was multi target build.
@@ -562,6 +581,45 @@ vpath %.htm $(astrodienst)/doc
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@swisseph.html: swisseph.doc
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@swephprg.pdf: swephprg.doc
 @DOCS_TRUE@@HAVE_UNOCONV_TRUE@swisseph.pdf: swisseph.doc
+
+#if we use old unoconv to produce documentation.
+
+#above was multi target build.
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@.NOTPARALLEL: 
+
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@$(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
+#tricky code alert
+#in a subshell save pid of subshell, ($$$$) becomes $$ in subshell.
+#then exec the listener. result is listnener running detached with saved pid.
+#create and save temp writeable directory to use by libreoffice
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	echo $$(mktemp -d)>$@.home.dir
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	echo "echo "'$$$$'" >$@.pid ; export HOME=$$(<$@.home.dir);exec unoconv --listener" | $(SHELL) &
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	export HOME=$$(<$@.home.dir); \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	sleep 20; \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	for ext in html pdf ;do \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	   for name in swephprg  swisseph ; do \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	   		  echo "unoconv --stdout  -f $${ext} $(astrodocsrc)/$${name}.doc > $${name}.$${ext} " ;\
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc > $${name}.$${ext} \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	   		  || \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc >  $${name}.$${ext}  ; \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	   done; \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	done
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	-rm -r $$(<$@.home.dir)
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	-rm $@.home.dir
+#kill sub-sub process and sub-process
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	for pid in $$(pgrep -P $$(<$@.pid) ) ; do \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@                pkill -P $$pid; \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@                kill $$pid ; \
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@        done
+#kill the saved pid, i.e. the listener. $$ becomes $ in the shell.
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	-kill $$(<$@.pid)
+#remove the pid save file
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@	-rm $@.pid
+
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@swephprg.html: swephprg.doc
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@swisseph.html: swisseph.doc
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@swephprg.pdf: swephprg.doc
+@DOCS_TRUE@@HAVE_OUNOCONV_TRUE@swisseph.pdf: swisseph.doc
 
 # use htmldoc to produce documentation.
 @DOCS_TRUE@@HAVE_HTMLDOC_TRUE@swephprg.html:	$(astrodienst)/doc/swephprg.htm

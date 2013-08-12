@@ -64,6 +64,31 @@ swisseph.pdf: swisseph.doc
 
 endif
 
+#if we use internal loconvert to produce docs
+if HAVE_ILOCONVERT
+
+
+#above was multi target build.
+# see https://bugzilla.novell.com/show_bug.cgi?id=715856#c1
+.NOTPARALLEL: 
+
+
+
+swephprg.html: swephprg.doc
+	../iloconvert/loconvert --force $<  $@
+	sleep 20
+swisseph.html: swisseph.doc
+	../iloconvert/loconvert --force $<  $@
+	sleep 20
+swephprg.pdf: swephprg.doc
+	../iloconvert/loconvert --force $<  $@
+	sleep 20
+swisseph.pdf: swisseph.doc
+	../iloconvert/loconvert --force $<  $@
+	sleep 20
+
+endif
+
 
 #if we use unoconv to produce documentation.
 if HAVE_UNOCONV
@@ -86,6 +111,48 @@ $(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 	   		  unoconv -o $${name}.$${ext} -f $${ext} $(astrodocsrc)/$${name}.doc  \
 	   		  || \
 	   		  unoconv -o $${name}.$${ext} -f $${ext} $(astrodocsrc)/$${name}.doc  ; \
+	   done; \
+	done
+	-rm -r $$(<$@.home.dir)
+	-rm $@.home.dir
+#kill sub-sub process and sub-process
+	for pid in $$(pgrep -P $$(<$@.pid) ) ; do \
+                pkill -P $$pid; \
+                kill $$pid ; \
+        done
+#kill the saved pid, i.e. the listener. $$ becomes $ in the shell.
+	-kill $$(<$@.pid)
+#remove the pid save file
+	-rm $@.pid
+
+swephprg.html: swephprg.doc
+swisseph.html: swisseph.doc
+swephprg.pdf: swephprg.doc
+swisseph.pdf: swisseph.doc
+
+endif
+
+#if we use old unoconv to produce documentation.
+if HAVE_OUNOCONV
+
+#above was multi target build.
+.NOTPARALLEL: 
+
+$(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
+#tricky code alert
+#in a subshell save pid of subshell, ($$$$) becomes $$ in subshell.
+#then exec the listener. result is listnener running detached with saved pid.
+#create and save temp writeable directory to use by libreoffice
+	echo $$(mktemp -d)>$@.home.dir
+	echo "echo "'$$$$'" >$@.pid ; export HOME=$$(<$@.home.dir);exec unoconv --listener" | $(SHELL) &
+	export HOME=$$(<$@.home.dir); \
+	sleep 20; \
+	for ext in html pdf ;do \
+	   for name in swephprg  swisseph ; do \
+	   		  echo "unoconv --stdout  -f $${ext} $(astrodocsrc)/$${name}.doc > $${name}.$${ext} " ;\
+	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc > $${name}.$${ext} \
+	   		  || \
+	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc >  $${name}.$${ext}  ; \
 	   done; \
 	done
 	-rm -r $$(<$@.home.dir)
