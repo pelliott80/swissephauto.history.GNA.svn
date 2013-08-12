@@ -79,12 +79,13 @@ $(html_DATA) $(pdf_DATA): swephprg.doc   swisseph.doc
 	echo $$(mktemp -d)>$@.home.dir
 	echo "echo "'$$$$'" >$@.pid ; export HOME=$$(<$@.home.dir);exec unoconv --listener" | $(SHELL) &
 	export HOME=$$(<$@.home.dir); \
+	sleep 20; \
 	for ext in html pdf ;do \
 	   for name in swephprg  swisseph ; do \
-	   		  echo "unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext}" ;\
-	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} \
+	   		  echo "unoconv -o $${name}.$${ext} -f $${ext} $(astrodocsrc)/$${name}.doc " ;\
+	   		  unoconv -o $${name}.$${ext} -f $${ext} $(astrodocsrc)/$${name}.doc  \
 	   		  || \
-	   		  unoconv --stdout -f $${ext} $(astrodocsrc)/$${name}.doc   >  $${name}.$${ext} ; \
+	   		  unoconv -o $${name}.$${ext} -f $${ext} $(astrodocsrc)/$${name}.doc  ; \
 	   done; \
 	done
 	-rm -r $$(<$@.home.dir)
