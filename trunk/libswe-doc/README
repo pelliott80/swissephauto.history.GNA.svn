@@ -8,12 +8,37 @@ Pdf and .html files are created from the corresponding doc files.
 The man pages are not found here, they are found with the libswe-dev
 packages.
 
+The folks at astrodiest are execelent astrological programers and they
+have excellent documentation. However, they are not very good at
+creating source tarballs that can serve as a base for a free software
+package. The source files in this distribution come from
+ftp://ftp.astro.com/pub/swisseph/sweph.zip.  This file is GPLed and is
+therefore freely redistributable.  However, it can not serve as a base
+for a free software package, because:
+1) It contains MS binaries, which can not be rebuild from source
+in a free software project.
+2) It is a .zip file not a tar file.
+3) It is unversioned so it gets wiped out from their web/ftp 
+site everytime there is a new release. (This is addresed by
+Swiss Ephemeris AutoTools by saving these files in version
+dependent subdirectories.)
+
+The swe_unix_src_X.XX.00.tar.gz files are also unsuitable,
+because they do not contain the source for the documentation
+i.e. the .doc files.
+
+So we at Swiss Ephemeris AutoTools, fork the Swiss Ephemeris inso far
+as distribution issues are concerned. We grab the .doc files we need
+from sweph.zip. We add auto* tools files to build the documentation
+from source and distribute. We put everyting in a tarball suitable for
+use by a debian or RPM based distro.
+
 Format of source version. The current source version is
-1.77.00.0006. In this number is the source version of the Astrodienst
+1.78.00.0001. In this number is the source version of the Astrodienst
 files. That is this version of the Swiss Ephemeris library
 documentation for Autotools is based on the file
-sweph.zip from Astrodienst. The 0006 part indicates
-this is the sixth version for the autotools part.
+sweph.zip from Astrodienst. The 0001 part indicates
+this is the first version for the autotools part.
 The folks at astrodienst do not save their distribution files
 by version number. This when a new version comes out, the old
 version is wiped out on the astrodienst web/ftp site. In order to
@@ -33,7 +58,7 @@ of the program.
 the doc subdirectory contains the original documentation which exhaustively
 documents the API.
 
-The file INSTALL tells how the library may be installed.
+The file INSTALL tells how the documentation may be installed.
 
 The files are organized like this:
 

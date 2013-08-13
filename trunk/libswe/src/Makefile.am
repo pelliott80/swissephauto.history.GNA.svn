@@ -59,7 +59,15 @@ dist_libswe_la_SOURCES = \
 	$(astrosrc)/swephlib.c      \
 	$(astrosrc)/swephlib.h
 
+#-version info calculation
+# v1.77.0 was first therefore -version-info 0:0:0
+# v1.78.0 added, but no mod deleted interface os
+#                             -version-info 1:0:1
+# v1.79.0 added, but no mod deleted interface os
+#                             -version-info 2:0:2
+
 libswe_la_LDFLAGS = \
+	-version-info 1:0:1 \
 	-lm         \
 	-export-symbols-regex ^swe_
 
