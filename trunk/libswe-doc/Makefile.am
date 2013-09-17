@@ -38,6 +38,8 @@ swedocdir = ${docdir}
 
 #$(man_MANS) 
 EXTRA_DIST = \
+	iloconvert/loconvert \
+	iloconvert/DocumentConverter.py \
 	$(swedoc_DATA)
 
 
