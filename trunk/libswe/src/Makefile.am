@@ -67,7 +67,7 @@ dist_libswe_la_SOURCES = \
 #                             -version-info 2:0:2
 
 libswe_la_LDFLAGS = \
-	-version-info 1:0:1 \
+	-version-info 2:0:2 \
 	-lm         \
 	-export-symbols-regex ^swe_
 
@@ -79,10 +79,10 @@ dist_include_HEADERS = \
 	$(astrosrc)/swephexp.h
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libswe-1.77.00.pc
+pkgconfig_DATA = libswe-1.79.00.pc
 
 EXTRA_DIST = \
-	libswe-1.77.00.pc.in	    \
+	libswe-1.79.00.pc.in	    \
 	$(astrosrc)/swepcalc.c      \
 	$(astrosrc)/swepcalc.h      \
 	$(astrosrc)/swepdate.c      \

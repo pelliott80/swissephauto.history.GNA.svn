@@ -102,7 +102,7 @@ host_triplet = @host@
 bin_PROGRAMS = swemini$(EXEEXT) swetest$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
-	$(srcdir)/libswe-1.77.00.pc.in $(top_srcdir)/depcomp \
+	$(srcdir)/libswe-1.79.00.pc.in $(top_srcdir)/depcomp \
 	$(dist_ephedata_DATA) $(dist_swedoc_DATA) \
 	$(dist_include_HEADERS)
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -111,7 +111,7 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
-CONFIG_CLEAN_FILES = libswe-1.77.00.pc
+CONFIG_CLEAN_FILES = libswe-1.79.00.pc
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -383,7 +383,7 @@ dist_libswe_la_SOURCES = \
 # v1.79.0 added, but no mod deleted interface os
 #                             -version-info 2:0:2
 libswe_la_LDFLAGS = \
-	-version-info 1:0:1 \
+	-version-info 2:0:2 \
 	-lm         \
 	-export-symbols-regex ^swe_
 
@@ -393,9 +393,9 @@ dist_include_HEADERS = \
 	$(astrosrc)/swephexp.h
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libswe-1.77.00.pc
+pkgconfig_DATA = libswe-1.79.00.pc
 EXTRA_DIST = \
-	libswe-1.77.00.pc.in	    \
+	libswe-1.79.00.pc.in	    \
 	$(astrosrc)/swepcalc.c      \
 	$(astrosrc)/swepcalc.h      \
 	$(astrosrc)/swepdate.c      \
@@ -459,7 +459,7 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
-libswe-1.77.00.pc: $(top_builddir)/config.status $(srcdir)/libswe-1.77.00.pc.in
+libswe-1.79.00.pc: $(top_builddir)/config.status $(srcdir)/libswe-1.79.00.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
 
 install-libLTLIBRARIES: $(lib_LTLIBRARIES)
