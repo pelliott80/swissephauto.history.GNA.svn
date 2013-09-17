@@ -34,13 +34,13 @@ from source and distribute. We put everyting in a tarball suitable for
 use by a debian or RPM based distro.
 
 Format of source version. The current source version is
-1.78.00.0001. In this number is the source version of the Astrodienst
+1.79.00.0001. In this number is the source version of the Astrodienst
 files. That is this version of the Swiss Ephemeris library
 documentation for Autotools is based on the file
 sweph.zip from Astrodienst. The 0001 part indicates
 this is the first version for the autotools part.
 The folks at astrodienst do not save their distribution files
-by version number. This when a new version comes out, the old
+by version number. Thus when a new version comes out, the old
 version is wiped out on the astrodienst web/ftp site. In order to
 maintain an historical record, thie sweph.zip files are also stored
 in the Swiss Ephemeris AutoTools download area in version dependent
@@ -68,8 +68,7 @@ $(top_builddir)  -----|  main autotools control files including configure.ac
                  +----|  $(top_builddir)/doc -- build autotools files for
                  |                              documentation
                  +----|  $(top_builddir)/astrodocsrc =$(astrodocsrc)
-                                                Astrodienst source files left out
-                                                of astrodienst's distribution.
+                                                Astrodienst source files.
                                                 Resourced by Paul Elliott.
                                                 contains note from astrodienst
                                                 asserting the LICENSE.
