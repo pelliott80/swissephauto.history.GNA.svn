@@ -50,15 +50,19 @@ if HAVE_LOCONVERT
 
 
 swephprg.html: swephprg.doc
-	loconvert --force $<  $@
+	loconvert --force $<  $@  || \
+	loconvert --force $<  $@ 
 	sleep 20
 swisseph.html: swisseph.doc
+	loconvert --force $<  $@  || \
 	loconvert --force $<  $@
 	sleep 20
 swephprg.pdf: swephprg.doc
+	loconvert --force $<  $@  || \
 	loconvert --force $<  $@
 	sleep 20
 swisseph.pdf: swisseph.doc
+	loconvert --force $<  $@ || \
 	loconvert --force $<  $@
 	sleep 20
 
@@ -75,15 +79,19 @@ if HAVE_ILOCONVERT
 
 
 swephprg.html: swephprg.doc
+	../iloconvert/loconvert --force $<  $@  || \
 	../iloconvert/loconvert --force $<  $@
 	sleep 20
 swisseph.html: swisseph.doc
+	../iloconvert/loconvert --force $<  $@ || \
 	../iloconvert/loconvert --force $<  $@
 	sleep 20
 swephprg.pdf: swephprg.doc
+	../iloconvert/loconvert --force $<  $@ || \
 	../iloconvert/loconvert --force $<  $@
 	sleep 20
 swisseph.pdf: swisseph.doc
+	../iloconvert/loconvert --force $<  $@ || \
 	../iloconvert/loconvert --force $<  $@
 	sleep 20
 
