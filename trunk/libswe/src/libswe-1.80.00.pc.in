@@ -3,7 +3,7 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 datarootdir=@datarootdir@
 datadir=@datadir@
-includedir=@includedir@/libswe-1.79.00
+includedir=@includedir@/libswe-1.80.00
 
 Name: libswe
 Description: Sample library created by Anjuta project wizard.
