@@ -19,7 +19,6 @@
 
 
 vpath %.doc $(astrodocsrc)
-vpath %.gif $(astrodocsrc)/doc
 vpath %.htm $(astrodienst)/doc
 
 pdfdir=${docdir}
@@ -199,6 +198,5 @@ endif
 
 endif
 
-dist_astrodoc_DATA = $(astrodocsrc)/sweph.gif  $(astrodocsrc)/swephin.gif
 
 CLEANFILES = $(html_DATA) $(pdf_DATA) *.pid *.home.dir
