@@ -1,16 +1,136 @@
-commit bcaad73cfbf28e1ceebee05ae6c1c47139a4488e
+commit 2da65ab3262881f2fba580d2116f8ecc36e305cc
 Author: Paul Elliott <pelliott@blackpatchpanel.com>
-Date:   Sat Aug 10 01:26:01 2013 -0500
+Date:   Thu Sep 19 23:37:50 2013 -0500
+
+    new version 1.80.00 for configure.ac
+
+commit 1018a46f7b4e291529b56b9fdfaf2add5478b1ef
+Author: Paul Elliott <pelliott@blackpatchpanel.com>
+Date:   Thu Sep 19 23:34:30 2013 -0500
+
+    new upstream version 1.80.00 from astrodienst.
+
+commit a42b7e0b3e813f8c1d309568e574d637384a87c3
+Author: Paul Elliott <pelliott@blackpatchpanel.com>
+Date:   Tue Sep 17 16:27:40 2013 -0500
+
+    autoreconf for new version 1.80
+
+commit d7ac90536fc5a1699ea2ceef657729ed185adf81
+Author: Paul Elliott <pelliott@blackpatchpanel.com>
+Date:   Tue Sep 17 16:24:08 2013 -0500
+
+    upgrade libswe-doc to version 1.80.00
+
+commit d18958ff762bc52497bed2f77775de439768f91c
+Author: Paul Elliott <pelliott@blackpatchpanel.com>
+Date:   Tue Sep 17 14:56:27 2013 -0500
+
+    remove unneeded .gif files.
+    I thought these files were their own source.
+    I found out they have their own propritary source in .cdr files.
+    Can not be rebuilt from source in linux distro so they are out.
+    Users can get these files from astrodiest if they want them
+    Since they are freely distributable. Not really needed.
+
+commit 496dc67a493ef3220894815a1cc8cc1fd6b6e870
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 17 18:35:32 2013 +0000
+
+    sources upgrade to 1.79
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@181 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 7c12718fc997b9889e163a8b977ba83cc387dc67
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 17 18:35:29 2013 +0000
+
+    remove astrodienst/doc files used by libswe-doc
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@180 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 8a2e6663f98172dead53fb9b06d9b8c61355cf8c
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 17 18:35:26 2013 +0000
+
+    autoreconf after previous
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@179 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit aa7dee71e700d812e022a30764322e5b6f1f5a39
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 17 18:35:23 2013 +0000
+
+    upgrade to version 1.79.00
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@178 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 4d82b4aad3780ed6ec8a8c72adfb5b66983961a0
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 17 18:35:20 2013 +0000
+
+    retry failed loconvert
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@177 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 0bfb2d04b82ea8023c525c5ac1f81b156901ce19
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Sep 17 18:35:15 2013 +0000
+
+    distribute iloconvert files
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@176 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit a8f6dafb279521802222015a8a0d8a2dc90f4bc9
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Tue Aug 13 08:03:26 2013 +0000
+
+    upgrade to version 1.78.00
+    -version-info 1:0:1
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@175 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 4c4c08ae808add306f807d373e1685962586190f
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 12 09:29:12 2013 +0000
+
+    libswe can build with old unoconv or internal libconvert
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@174 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 7f5af75002d1de8ca82199baf07cbc88c8cf4db5
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 12 09:29:09 2013 +0000
+
+    libswe-doc supports old unoconv internal version of loconvert
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@173 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 1f2e43df2fd7bd4d1536f51b59e11f50e77df6de
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 12 09:29:07 2013 +0000
+
+    Update ChangeLog NEWS
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@172 321e03d4-a0ea-4445-80dd-3d3597bf822b
+
+commit 72710e56ba54d5dcb042b6c71f074173c299535e
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 12 09:29:05 2013 +0000
 
     changed src/Makefile.am unoconv --stdout to unoconv -o
     sleep 20 sec after starting unoconv listner
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@171 321e03d4-a0ea-4445-80dd-3d3597bf822b
 
-commit 4addeed4ef707f695a475889a3333b848ede9540
-Author: Paul Elliott <pelliott@blackpatchpanel.com>
-Date:   Sat Aug 10 00:44:29 2013 -0500
+commit c1644fb414a4f635fcdd505b741dd785b86a9c15
+Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>
+Date:   Mon Aug 12 09:28:47 2013 +0000
 
     split libswe-1.77.00 split off swephprg.doc swisseph.doc from libswe
     to seperate source package libswe-doc, creating libswe and libswe-doc.
+    
+    git-svn-id: svn+ssh://svn.gna.org/svn/swissephauto@170 321e03d4-a0ea-4445-80dd-3d3597bf822b
 
 commit bd356cbdbc64544e5c406542f0594150ef9218b7
 Author: pelliott <pelliott@321e03d4-a0ea-4445-80dd-3d3597bf822b>

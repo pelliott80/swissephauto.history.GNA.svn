@@ -34,7 +34,7 @@ from source and distribute. We put everyting in a tarball suitable for
 use by a debian or RPM based distro.
 
 Format of source version. The current source version is
-1.79.00.0001. In this number is the source version of the Astrodienst
+1.80.00.0001. In this number is the source version of the Astrodienst
 files. That is this version of the Swiss Ephemeris library
 documentation for Autotools is based on the file
 sweph.zip from Astrodienst. The 0001 part indicates
