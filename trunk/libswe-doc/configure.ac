@@ -18,7 +18,7 @@ dnl    along with lib.  If not, see <http://www.gnu.org/licenses/>.
 dnl Process this file with autoconf to produce a configure script.
 dnl Created by Anjuta application wizard.
 
-AC_INIT(libswe-doc, 1.80.00.0001)
+AC_INIT(libswe-doc, 1.80.00.0002)
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
 AM_INIT_AUTOMAKE([dist-bzip2 no-dist-gzip])
@@ -28,10 +28,11 @@ AM_MAINTAINER_MODE
 
 
 # choose method to produce documentation. loconvert or unoconv
-AC_ARG_VAR(WPCONVERT, [word processing conversion program, loconvert or unoconv])
+AC_ARG_VAR(WPCONVERT, [word processing conversion program, loconvert or convertto or unoconv])
 
-AC_CHECK_PROGS(WPCONVERT,[loconvert unoconv htmldoc])
+AC_CHECK_PROGS(WPCONVERT,[convertto loconvert unoconv htmldoc])
 
+AM_CONDITIONAL(HAVE_CONVERTTO,[test "x$WPCONVERT" == "xconvertto"])
 AM_CONDITIONAL(HAVE_LOCONVERT,[test "x$WPCONVERT" == "xloconvert"])
 AM_CONDITIONAL(HAVE_ILOCONVERT,[test "x$WPCONVERT" == "xiloconvert"])
 AM_CONDITIONAL(HAVE_UNOCONV,[test "x$WPCONVERT" == "xunoconv"])

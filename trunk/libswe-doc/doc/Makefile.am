@@ -39,6 +39,33 @@ pdf_DATA = swephprg.pdf   swisseph.pdf
 
 
 #if we use loconvert to produce docs
+if HAVE_CONVERTTO
+
+
+#above was multi target build.
+# see https://bugzilla.novell.com/show_bug.cgi?id=715856#c1
+.NOTPARALLEL: 
+
+
+
+swephprg.html: swephprg.doc
+	libreoffice "-env:UserInstallation=file://"$(CURDIR)"/$@.lo" --headless --invisible --convert-to html $(<D)/$(<F)
+	rm -rf $(CURDIR)/$@.lo
+swisseph.html: swisseph.doc
+	libreoffice "-env:UserInstallation=file://"$(CURDIR)"/$@.lo" --headless --invisible --convert-to html $(<D)/$(<F)
+	rm -rf $(CURDIR)/$@.lo
+swephprg.pdf: swephprg.doc
+	libreoffice "-env:UserInstallation=file://"$(CURDIR)"/$@.lo" --headless --invisible --convert-to pdf $(<D)/$(<F)
+	rm -rf $(@D)/$@.lo
+swisseph.pdf: swisseph.doc
+	libreoffice "-env:UserInstallation=file://"$(CURDIR)"/$@.lo" --headless --invisible --convert-to pdf $(<D)/$(<F)
+	rm -rf $(CURDIR)/$@.lo
+
+endif
+
+
+
+#if we use loconvert to produce docs
 if HAVE_LOCONVERT
 
 
@@ -199,4 +226,4 @@ endif
 endif
 
 
-CLEANFILES = $(html_DATA) $(pdf_DATA) *.pid *.home.dir
+CLEANFILES = $(html_DATA) $(pdf_DATA) *.pid *.home.dir *.pdf.lo *.html.lo
