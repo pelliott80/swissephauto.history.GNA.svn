@@ -1,9 +1,5 @@
-the swe-standard-data package installes the standard files, i.e. the
-.se1 files in /usr/share/libswe/ephe
-
-
 README.TXT   24-Dec-1998 by Alois Treindl
-	     last update 25-feb-2010
+	     last update 7-may-2014  zip files were updated
 
 =======================================================================
 This directory contains the binary ephemeris files of SWISS EPHEMERIS.
@@ -23,14 +19,10 @@ seas*.se1	SwissEph ephemeris files with asteroids Ceres, Pallas, Vesta,
 		BE AWARE that the same files are also in the archive files
 		below. It is faster to download them in archived format.
 
-		These files cover the time range 5400 BC to 5400 AD.
-		Within this time range, the planet and Moon files for
-		3000 BC to 3000 AD are derived directly from the JPL ephemeris,
-		whereas the other files are created from Astrodienst's
-		own numerical integration. 
+		These files cover the time range 13200 BC to 16200 AD.
 
-		Download problems with ephemeris files: If you use Netscape
-		or Internet Explorer for download, you may have observe
+		Download problems with ephemeris files: With some browsers 
+		for download, you may have observe
 		that the binary ephemeris files appear as garbage on your
 		screen instead of a file save dialog being offered.
 		You need to define a proper MIME type for the file suffix se1.
@@ -113,7 +105,7 @@ for all known and numbered asteroids.
 Our software computes about 200 asteroids per day.
 The number of officially numbered asteroids continues to grow at a
 very fast pace now.
-On July 2008 the number of 189'000 asteroids was reached.
+On May 2014 2008 the number of 385'000 asteroids was reached.
 
 For each asteroid there is a short file, e.g. se03045s.se1 covering the years
 1500 - 2100, and a long file se03045.seq for the years -3000 .. 3000.
@@ -146,18 +138,11 @@ of Swiss Ephemeris are found in the download area.
 JPL files
 =========
 In directory 'jplfiles' you find binary ephemeris files.
-Some of them (de200, de405, de406) are copies of binary files
+Some of them (de200, de405, de406, de431) are copies of binary files
 as distributed by JPL.
-
-Antonio R <almaliq@hotmail.com> has initiated the inclusion
-of newer JPL releases, e.g. de414 and de421.
 
 JPL ephemeris files with DE-number > 406 can only be used with Swiss
 Ephemeris release 1.75 or later.
-
-We do not include de403 because it contained an error and JPL replaced it soon
-after its creation by de405.
-
 
 Legal restrictions
 ==================
