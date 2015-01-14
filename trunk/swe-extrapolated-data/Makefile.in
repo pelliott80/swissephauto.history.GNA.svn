@@ -79,9 +79,8 @@ POST_UNINSTALL = :
 subdir = .
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure $(am__configure_deps) \
-	$(srcdir)/config.h.in $(dist_ast0ephedata_DATA) \
-	$(dist_ephedata_DATA) AUTHORS COPYING compile install-sh \
-	missing
+	$(srcdir)/config.h.in $(dist_ephedata_DATA) AUTHORS COPYING \
+	compile install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -138,9 +137,8 @@ am__uninstall_files_from_dir = { \
     || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
          $(am__cd) "$$dir" && rm -f $$files; }; \
   }
-am__installdirs = "$(DESTDIR)$(ast0ephedatadir)" \
-	"$(DESTDIR)$(ephedatadir)"
-DATA = $(dist_ast0ephedata_DATA) $(dist_ephedata_DATA)
+am__installdirs = "$(DESTDIR)$(ephedatadir)"
+DATA = $(dist_ephedata_DATA)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) \
 	$(LISP)config.h.in
 # Read a list of newline-separated strings from the standard input,
@@ -233,7 +231,7 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
-ast0ephedatadir = $(ephedatadir)/ast0/
+ast0ephedatadir = @ast0ephedatadir@
 bindir = @bindir@
 build_alias = @build_alias@
 builddir = @builddir@
@@ -281,65 +279,100 @@ EXTRA_DIST = \
 	LICENSE.TXT\
 	AUTHORS
 
-dist_ast0ephedata_DATA = \
-	se00433s.se1
-
 dist_ephedata_DATA = \
-	seas_00.se1\
-	seas_06.se1 \
-	seas_12.se1 \
-	seas_18.se1 \
-	seas_24.se1 \
-	seas_30.se1 \
-	seas_36.se1 \
-	seas_42.se1 \
-	seas_48.se1 \
-	seasm06.se1 \
-	seasm12.se1 \
-	seasm18.se1 \
-	seasm24.se1 \
-	seasm30.se1 \
-	seasm36.se1 \
-	seasm42.se1 \
-	seasm48.se1 \
-	seasm54.se1 \
-	semo_00.se1 \
-	semo_06.se1 \
-	semo_12.se1 \
-	semo_18.se1 \
-	semo_24.se1 \
-	semo_30.se1 \
-	semo_36.se1 \
-	semo_42.se1 \
-	semo_48.se1 \
-	semom06.se1 \
-	semom12.se1 \
-	semom18.se1 \
-	semom24.se1 \
-	semom30.se1 \
-	semom36.se1 \
-	semom42.se1 \
-	semom48.se1 \
-	semom54.se1 \
-	sepl_00.se1 \
-	sepl_06.se1 \
-	sepl_12.se1 \
-	sepl_18.se1 \
-	sepl_24.se1 \
-	sepl_30.se1 \
-	sepl_36.se1 \
-	sepl_42.se1 \
-	sepl_48.se1 \
-	seplm06.se1 \
-	seplm12.se1 \
-	seplm18.se1 \
-	seplm24.se1 \
-	seplm30.se1 \
-	seplm36.se1 \
-	seplm42.se1 \
-	seplm48.se1 \
-	seplm54.se1 \
-	seasnam.txt
+	seas_102.se1 \
+	seas_108.se1 \
+	seas_114.se1 \
+	seas_120.se1 \
+	seas_126.se1 \
+	seas_132.se1 \
+	seas_138.se1 \
+	seas_144.se1 \
+	seas_150.se1 \
+	seas_156.se1 \
+	seas_162.se1 \
+	seas_60.se1 \
+	seas_66.se1 \
+	seas_72.se1 \
+	seas_78.se1 \
+	seas_84.se1 \
+	seas_90.se1 \
+	seas_96.se1 \
+	seasm102.se1 \
+	seasm108.se1 \
+	seasm114.se1 \
+	seasm120.se1 \
+	seasm126.se1 \
+	seasm132.se1 \
+	seasm60.se1 \
+	seasm66.se1 \
+	seasm72.se1 \
+	seasm78.se1 \
+	seasm84.se1 \
+	seasm90.se1 \
+	seasm96.se1 \
+	semo_102.se1 \
+	semo_108.se1 \
+	semo_114.se1 \
+	semo_120.se1 \
+	semo_126.se1 \
+	semo_132.se1 \
+	semo_138.se1 \
+	semo_144.se1 \
+	semo_150.se1 \
+	semo_156.se1 \
+	semo_162.se1 \
+	semo_60.se1 \
+	semo_66.se1 \
+	semo_72.se1 \
+	semo_78.se1 \
+	semo_84.se1 \
+	semo_90.se1 \
+	semo_96.se1 \
+	semom102.se1 \
+	semom108.se1 \
+	semom114.se1 \
+	semom120.se1 \
+	semom126.se1 \
+	semom132.se1 \
+	semom60.se1 \
+	semom66.se1 \
+	semom72.se1 \
+	semom78.se1 \
+	semom84.se1 \
+	semom90.se1 \
+	semom96.se1 \
+	sepl_102.se1 \
+	sepl_108.se1 \
+	sepl_114.se1 \
+	sepl_120.se1 \
+	sepl_126.se1 \
+	sepl_132.se1 \
+	sepl_138.se1 \
+	sepl_144.se1 \
+	sepl_150.se1 \
+	sepl_156.se1 \
+	sepl_162.se1 \
+	sepl_60.se1 \
+	sepl_66.se1 \
+	sepl_72.se1 \
+	sepl_78.se1 \
+	sepl_84.se1 \
+	sepl_90.se1 \
+	sepl_96.se1 \
+	seplm102.se1 \
+	seplm108.se1 \
+	seplm114.se1 \
+	seplm120.se1 \
+	seplm126.se1 \
+	seplm132.se1 \
+	seplm60.se1 \
+	seplm66.se1 \
+	seplm72.se1 \
+	seplm78.se1 \
+	seplm84.se1 \
+	seplm90.se1 \
+	seplm96.se1
 
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -394,27 +427,6 @@ $(srcdir)/config.h.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-install-dist_ast0ephedataDATA: $(dist_ast0ephedata_DATA)
-	@$(NORMAL_INSTALL)
-	@list='$(dist_ast0ephedata_DATA)'; test -n "$(ast0ephedatadir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(ast0ephedatadir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(ast0ephedatadir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(ast0ephedatadir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(ast0ephedatadir)" || exit $$?; \
-	done
-
-uninstall-dist_ast0ephedataDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(dist_ast0ephedata_DATA)'; test -n "$(ast0ephedatadir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(ast0ephedatadir)'; $(am__uninstall_files_from_dir)
 install-dist_ephedataDATA: $(dist_ephedata_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(dist_ephedata_DATA)'; test -n "$(ephedatadir)" || list=; \
@@ -662,7 +674,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA) config.h
 installdirs:
-	for dir in "$(DESTDIR)$(ast0ephedatadir)" "$(DESTDIR)$(ephedatadir)"; do \
+	for dir in "$(DESTDIR)$(ephedatadir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -716,8 +728,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-dist_ast0ephedataDATA \
-	install-dist_ephedataDATA
+install-data-am: install-dist_ephedataDATA
 
 install-dvi: install-dvi-am
 
@@ -763,8 +774,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-dist_ast0ephedataDATA \
-	uninstall-dist_ephedataDATA
+uninstall-am: uninstall-dist_ephedataDATA
 
 .MAKE: all install-am install-strip
 
@@ -775,14 +785,13 @@ uninstall-am: uninstall-dist_ast0ephedataDATA \
 	distclean-generic distclean-hdr distclean-tags distcleancheck \
 	distdir distuninstallcheck dvi dvi-am html html-am info \
 	info-am install install-am install-data install-data-am \
-	install-dist_ast0ephedataDATA install-dist_ephedataDATA \
-	install-dvi install-dvi-am install-exec install-exec-am \
-	install-html install-html-am install-info install-info-am \
-	install-man install-pdf install-pdf-am install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am tags \
-	tags-am uninstall uninstall-am uninstall-dist_ast0ephedataDATA \
+	install-dist_ephedataDATA install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-ps install-ps-am install-strip \
+	installcheck installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
+	pdf-am ps ps-am tags tags-am uninstall uninstall-am \
 	uninstall-dist_ephedataDATA
 
 
