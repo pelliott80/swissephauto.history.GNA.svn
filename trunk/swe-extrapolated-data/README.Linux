@@ -1,0 +1,24 @@
+the swe-standard-data package installes the standard files, i.e. the
+.se1 files in /usr/share/libswe/ephe
+This is all the data a typical Swiss Ephemeris users would want.
+This package installs it all rather than burden the user with
+thinking about what data he wants. disk space has become cheap.
+
+
+Low memory users may want a subset of this data.
+They can either install the data they want themselves or
+send an email to Paul Elliott <pelliott@blackpatchpanel.com>
+asking him to package a specific subset.
+
+In addition there are numberless asteroid files at the
+astrodienst site. No one would want all of these. If you want
+one of these you may either install it yourself or ask
+Paul Elliott <pelliott@blackpatchpanel.com> to package a specific
+file.
+
+Except, I have added one of the extra astroid files, se00433s.se1 as a
+sample.  This file is not particularly important, but it makes one of
+the tests listed in the swetest manpage work. It also serves to show
+where such files should be stored.  That is, parrellel to their
+location on astrodienst. In this case, that is,
+/usr/share/libswe/ephe/ast0
