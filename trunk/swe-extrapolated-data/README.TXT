@@ -1,3 +1,13 @@
+
+The swe-extrapolated-data package contains only data files for the periods:
+11 Aug 13000 BC to 5402 BC
+and
+5400 AD to  7 Jan 16800 AD
+such data is not usually needed by people not doing extraordinary
+research.
+
+
+
 README.TXT   24-Dec-1998 by Alois Treindl
 	     last update 7-may-2014  zip files were updated
 
